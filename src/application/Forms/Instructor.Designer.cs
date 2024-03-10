@@ -1,6 +1,6 @@
 ﻿namespace application.Forms
 {
-    partial class Instructor
+    partial class InstructorForm
     {
         /// <summary>
         /// Required designer variable.

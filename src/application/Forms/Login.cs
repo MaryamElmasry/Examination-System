@@ -38,15 +38,15 @@ namespace application.Forms
             //if user is student
             else if (user.Student !=null)
             {
-                Student student = new Student();
-                student.Show();
+                StudentForm studentform = new StudentForm(user.Student);
+                studentform.Show();
                 this.Hide();
 
             }
             else if (user.Instructor != null)
             {
                 //if user is instructor
-                Instructor instructor = new Instructor();
+                InstructorForm instructor = new InstructorForm(user.Instructor);
                 instructor.Show();
                 this.Hide();
             }

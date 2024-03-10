@@ -1,4 +1,5 @@
-﻿using System;
+﻿using application.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,18 @@ using System.Windows.Forms;
 
 namespace application.Forms
 {
-    public partial class Instructor : Form
+    public partial class InstructorForm : Form
     {
-        public Instructor()
+        public Instructor instructor;
+        public InstructorForm()
         {
             InitializeComponent();
+
+        }
+        public InstructorForm(Instructor instructor)
+        {
+            InitializeComponent();
+            this.instructor = instructor;
         }
     }
 }
