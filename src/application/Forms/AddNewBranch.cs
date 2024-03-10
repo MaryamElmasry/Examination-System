@@ -1,4 +1,5 @@
 ﻿using application.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,30 +15,30 @@ namespace application.Forms
     public partial class AddNewBranch : Form
     {
         iti_ExamContext db = new iti_ExamContext();
-        Branches branches;
 
         public AddNewBranch()
         {
             InitializeComponent();
         }
 
-        public AddNewBranch(Branches _branches)
-        {
-            InitializeComponent();
-            branches = _branches;
-
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             if(txtBranchName.Text != null && txtBranchName.Text.Trim().Length > 1)
             {
-                Branch branch = new Branch();
-                branch.BranchName = txtBranchName.Text.Trim();
-                db.Branches.Add(branch);
-                db.SaveChanges();
-                MessageBox.Show("Branch added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                string branchName = txtBranchName.Text.Trim();
 
-                branches.Invalidate();
+                var branchesWithSameName = db.Branches.FromSql($"exec getBranchByName {branchName}").ToList();
+
+                if (branchesWithSameName.Count > 0)
+                {
+                    MessageBox.Show("Branch with the same name already exists", "Duplicated Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    db.Database.ExecuteSqlRaw($"exec AddNewBranch {branchName}");
+                    MessageBox.Show("Branch added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
