@@ -14,9 +14,9 @@ namespace application.Utilites
                 return;
             }
             //Delete the database
-            context.Database.EnsureDeleted();
+            //context.Database.EnsureDeleted();
             //Create the database
-            context.Database.EnsureCreated();
+            //context.Database.EnsureCreated();
 
             // Add dummy data for Departments
             var department1 = new Department { DeptName = "PD" };
