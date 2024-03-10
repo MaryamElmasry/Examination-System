@@ -68,8 +68,6 @@
             button3 = new Button();
             lblUserName = new Label();
             lblRoleError = new Label();
-            panel4 = new Panel();
-            label9 = new Label();
             btnAddBranch = new Button();
             panelShow = new Panel();
             toolStripPageLabel = new ToolStripLabel();
@@ -77,6 +75,8 @@
             toolStripButton1 = new ToolStripButton();
             toolStrip = new ToolStrip();
             panelShowReports = new Panel();
+            panel4 = new Panel();
+            label9 = new Label();
             gvBranches = new DataGridView();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
@@ -90,10 +90,10 @@
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).BeginInit();
-            panel4.SuspendLayout();
             panelShow.SuspendLayout();
             toolStrip.SuspendLayout();
             panelShowReports.SuspendLayout();
+            panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)gvBranches).BeginInit();
             SuspendLayout();
             // 
@@ -386,19 +386,6 @@
             lblRoleError.ForeColor = Color.IndianRed;
             lblRoleError.Name = "lblRoleError";
             // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(73, 178, 202);
-            panel4.Controls.Add(label9);
-            resources.ApplyResources(panel4, "panel4");
-            panel4.Name = "panel4";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(label9, "label9");
-            label9.ForeColor = Color.White;
-            label9.Name = "label9";
-            // 
             // btnAddBranch
             // 
             btnAddBranch.BackColor = Color.Teal;
@@ -451,6 +438,19 @@
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Tag = "myTheme";
             // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(73, 178, 202);
+            panel4.Controls.Add(label9);
+            resources.ApplyResources(panel4, "panel4");
+            panel4.Name = "panel4";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.ForeColor = Color.White;
+            label9.Name = "label9";
+            // 
             // gvBranches
             // 
             gvBranches.AllowUserToAddRows = false;
@@ -461,6 +461,8 @@
             resources.ApplyResources(gvBranches, "gvBranches");
             gvBranches.Name = "gvBranches";
             gvBranches.ReadOnly = true;
+            gvBranches.CellEndEdit += gvBranches_CellEndEdit;
+            gvBranches.KeyDown += gvBranches_KeyDown;
             // 
             // Admin
             // 
@@ -490,12 +492,12 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             panelShow.ResumeLayout(false);
             toolStrip.ResumeLayout(false);
             toolStrip.PerformLayout();
             panelShowReports.ResumeLayout(false);
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)gvBranches).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -533,12 +535,6 @@
         private LinkLabel linkLogout;
         private PictureBox pictureBox6;
         private Panel panel1;
-        private Branches branchesForm;
-        private Branches branches2;
-        private Branches branches3;
-        private Branches branches4;
-        private Branches branches5;
-        private Branches branches6;
         private Panel panel3;
         private Label label1;
         private Label lblRoleName;
@@ -547,8 +543,6 @@
         private Button button3;
         private Label lblUserName;
         private Label lblRoleError;
-        private Panel panel4;
-        private Label label9;
         private Button btnAddBranch;
         private Panel panelShow;
         private ToolStripLabel toolStripPageLabel;
@@ -557,5 +551,7 @@
         private ToolStrip toolStrip;
         private Panel panelShowReports;
         private DataGridView gvBranches;
+        private Panel panel4;
+        private Label label9;
     }
 }
