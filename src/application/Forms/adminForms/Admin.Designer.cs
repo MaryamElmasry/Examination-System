@@ -263,6 +263,7 @@
             btnDisplayDepartments.ForeColor = Color.DarkGray;
             btnDisplayDepartments.Name = "btnDisplayDepartments";
             btnDisplayDepartments.UseVisualStyleBackColor = true;
+            btnDisplayDepartments.Click += btnDisplayDepartments_Click;
             // 
             // btnDisplayBranches
             // 
