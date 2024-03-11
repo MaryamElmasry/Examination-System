@@ -24,5 +24,50 @@ namespace application.Forms
             InitializeComponent();
             this.instructor = instructor;
         }
+
+        private void MyCoursesbtn_Click(object sender, EventArgs e)
+        {
+            myCoursesControl1.Visible = true;
+            examsControlcs1.Visible = false;
+            topicsControl1.Visible = false;
+            gradesControl1.Visible = false;
+            questionsControl1.Visible = false;
+        }
+
+        private void Examsbtn_Click(object sender, EventArgs e)
+        {
+            myCoursesControl1.Visible = false;
+            examsControlcs1.Visible = true;
+            topicsControl1.Visible = false;
+            gradesControl1.Visible = false;
+            questionsControl1.Visible = false;
+        }
+
+        private void GradesBtn_Click(object sender, EventArgs e)
+        {
+            myCoursesControl1.Visible = false;
+            examsControlcs1.Visible = false;
+            topicsControl1.Visible = false;
+            gradesControl1.Visible = true;
+            questionsControl1.Visible = false;
+        }
+
+        private void Topicsbtn_Click(object sender, EventArgs e)
+        {
+            myCoursesControl1.Visible = false;
+            examsControlcs1.Visible = false;
+            topicsControl1.Visible = true;
+            gradesControl1.Visible = false;
+            questionsControl1.Visible = false;
+        }
+
+        private void Questionsbtn_Click(object sender, EventArgs e)
+        {
+            myCoursesControl1.Visible = false;
+            examsControlcs1.Visible = false;
+            topicsControl1.Visible = false;
+            gradesControl1.Visible = false;
+            questionsControl1.Visible = true;
+        }
     }
 }
