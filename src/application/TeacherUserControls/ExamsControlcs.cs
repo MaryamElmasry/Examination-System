@@ -1,14 +1,7 @@
-﻿using application.Models;
+﻿using application.instructorDialog;
+using application.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 
 namespace application.TeacherUserControls
 {
@@ -21,9 +14,22 @@ namespace application.TeacherUserControls
 
         private void GenerateExam_Click(object sender, EventArgs e)
         {
-            using(var ctx = new iti_ExamContext())
+
+            new GenerateExamDialog(1,1).Show();
+        }
+
+        private void ExamsControlcs_Load(object sender, EventArgs e)
+        {
+            using (var ctx = new iti_ExamContext())
             {
-                ctx.Exams.FromSqlRaw("");
+                comboBox1.DataSource = ctx.Departments.FromSqlRaw("EXEC GetAllDepartments").ToList();
+                comboBox1.SelectedIndex = 0;
+                comboBox2.DataSource = ctx.Courses.ToList(); ;
+                comboBox2.SelectedIndex = 0;
+                comboBox1.DisplayMember = "DeptName";
+                comboBox1.ValueMember = "DeptId";
+                comboBox2.ValueMember = "CourseID";
+                comboBox2.DisplayMember = "CourseName";
             }
         }
     }
