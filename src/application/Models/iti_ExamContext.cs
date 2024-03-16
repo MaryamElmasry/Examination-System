@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using application.projectionEntities;
 using Microsoft.EntityFrameworkCore;
 
 namespace application.Models;
@@ -18,7 +19,7 @@ public partial class iti_ExamContext : DbContext
     }
 
     public virtual DbSet<Branch> Branches { get; set; }
-
+    public virtual DbSet<PCourse> PCourses { get; set; }
     public virtual DbSet<Course> Courses { get; set; }
 
     public virtual DbSet<CourseTopic> CourseTopics { get; set; }
@@ -55,7 +56,7 @@ public partial class iti_ExamContext : DbContext
                 .IsRequired()
                 .HasMaxLength(255);
         });
-
+        modelBuilder.Entity<PCourse>(entity => entity.HasNoKey());
         modelBuilder.Entity<Course>(entity =>
         {
             entity.HasKey(e => e.CourseID).HasName("PK__Courses__C92D7187F9416A37");

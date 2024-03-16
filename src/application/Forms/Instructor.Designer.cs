@@ -139,6 +139,7 @@
             topicsControl1.Name = "topicsControl1";
             topicsControl1.Size = new Size(766, 482);
             topicsControl1.TabIndex = 9;
+            topicsControl1.Load += topicsControl1_Load;
             // 
             // InstructorForm
             // 
@@ -153,6 +154,7 @@
             Controls.Add(panel1);
             Name = "InstructorForm";
             Text = "Instructor";
+            Load += InstructorForm_Load;
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using application.Models;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,14 @@ namespace application.TeacherUserControls
         public ExamsControlcs()
         {
             InitializeComponent();
+        }
+
+        private void GenerateExam_Click(object sender, EventArgs e)
+        {
+            using(var ctx = new iti_ExamContext())
+            {
+                ctx.Exams.FromSqlRaw("");
+            }
         }
     }
 }
