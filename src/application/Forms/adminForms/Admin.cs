@@ -1,4 +1,5 @@
-﻿using application.Models;
+﻿using application.Forms.adminForms;
+using application.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -117,7 +118,7 @@ namespace application.Forms
                         {
                             MessageBox.Show("No branch was updated", "Failed update", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                    } 
+                    }
                 }
             }
             else
@@ -129,7 +130,7 @@ namespace application.Forms
 
         private void gvBranches_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
             // Check if the pressed key is the Delete key
             if (e.KeyCode.ToString() == "Delete")
             {
@@ -152,7 +153,7 @@ namespace application.Forms
                                 gvBranches.Rows.Remove(row);
                                 fillGVBranches();
                             }
-                            catch 
+                            catch
                             {
                                 MessageBox.Show($"Can't delete branch with id ${branchID}", "Deleting failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -170,6 +171,14 @@ namespace application.Forms
 
                 }
             }
+        }
+
+        private void btnDisplayDepartments_Click(object sender, EventArgs e)
+        {
+            btnDisplayDepartments.ForeColor = Color.White;
+            Departments departments = new Departments();
+            departments.ShowDialog();
+            btnDisplayDepartments.ForeColor = Color.DarkGray;
         }
     }
 }
