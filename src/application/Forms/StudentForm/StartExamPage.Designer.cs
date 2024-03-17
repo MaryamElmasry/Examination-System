@@ -1,6 +1,6 @@
 ﻿namespace application.Forms
 {
-    partial class Admin
+    partial class StartExamPage
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartExamPage));
             label21 = new Label();
             label22 = new Label();
             label24 = new Label();
@@ -47,11 +47,6 @@
             panel6 = new Panel();
             label25 = new Label();
             panel2 = new Panel();
-            btnAddUser = new Button();
-            btnDisplayExams = new Button();
-            btnDisplayCourses = new Button();
-            btnDisplayDepartments = new Button();
-            btnDisplayBranches = new Button();
             pictureBox1 = new PictureBox();
             btnClose = new Button();
             label4 = new Label();
@@ -68,16 +63,27 @@
             button3 = new Button();
             lblUserName = new Label();
             lblRoleError = new Label();
-            btnAddBranch = new Button();
-            panelShow = new Panel();
             toolStripPageLabel = new ToolStripLabel();
             toolStripButton2 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
             toolStrip = new ToolStrip();
             panelShowReports = new Panel();
+            button7 = new Button();
+            button6 = new Button();
+            panel5 = new Panel();
+            textBox1 = new TextBox();
+            button5 = new Button();
+            radioButton4 = new RadioButton();
+            radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            label2 = new Label();
             panel4 = new Panel();
             label9 = new Label();
-            gvBranches = new DataGridView();
+            button8 = new Button();
+            button4 = new Button();
+            button1 = new Button();
+            btnDisplayExams = new Button();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnDeleteClass).BeginInit();
@@ -90,11 +96,10 @@
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).BeginInit();
-            panelShow.SuspendLayout();
             toolStrip.SuspendLayout();
             panelShowReports.SuspendLayout();
+            panel5.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvBranches).BeginInit();
             SuspendLayout();
             // 
             // label21
@@ -222,56 +227,13 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(0, 7, 95);
-            panel2.Controls.Add(btnAddUser);
+            panel2.Controls.Add(button4);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnDisplayExams);
-            panel2.Controls.Add(btnDisplayCourses);
-            panel2.Controls.Add(btnDisplayDepartments);
-            panel2.Controls.Add(btnDisplayBranches);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panelDisplayClass);
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
-            // 
-            // btnAddUser
-            // 
-            resources.ApplyResources(btnAddUser, "btnAddUser");
-            btnAddUser.FlatAppearance.BorderSize = 0;
-            btnAddUser.ForeColor = Color.DarkGray;
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayExams
-            // 
-            resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
-            btnDisplayExams.FlatAppearance.BorderSize = 0;
-            btnDisplayExams.ForeColor = Color.DarkGray;
-            btnDisplayExams.Name = "btnDisplayExams";
-            btnDisplayExams.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayCourses
-            // 
-            resources.ApplyResources(btnDisplayCourses, "btnDisplayCourses");
-            btnDisplayCourses.FlatAppearance.BorderSize = 0;
-            btnDisplayCourses.ForeColor = Color.DarkGray;
-            btnDisplayCourses.Name = "btnDisplayCourses";
-            btnDisplayCourses.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayDepartments
-            // 
-            resources.ApplyResources(btnDisplayDepartments, "btnDisplayDepartments");
-            btnDisplayDepartments.FlatAppearance.BorderSize = 0;
-            btnDisplayDepartments.ForeColor = Color.DarkGray;
-            btnDisplayDepartments.Name = "btnDisplayDepartments";
-            btnDisplayDepartments.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayBranches
-            // 
-            resources.ApplyResources(btnDisplayBranches, "btnDisplayBranches");
-            btnDisplayBranches.FlatAppearance.BorderSize = 0;
-            btnDisplayBranches.ForeColor = Color.White;
-            btnDisplayBranches.Name = "btnDisplayBranches";
-            btnDisplayBranches.UseVisualStyleBackColor = true;
-            btnDisplayBranches.Click += btnDisplayBranches_Click;
             // 
             // pictureBox1
             // 
@@ -386,23 +348,6 @@
             lblRoleError.ForeColor = Color.IndianRed;
             lblRoleError.Name = "lblRoleError";
             // 
-            // btnAddBranch
-            // 
-            btnAddBranch.BackColor = Color.Teal;
-            btnAddBranch.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(btnAddBranch, "btnAddBranch");
-            btnAddBranch.ForeColor = SystemColors.Control;
-            btnAddBranch.Name = "btnAddBranch";
-            btnAddBranch.UseVisualStyleBackColor = false;
-            btnAddBranch.Click += btnAddBranch_Click;
-            // 
-            // panelShow
-            // 
-            panelShow.Controls.Add(btnAddBranch);
-            resources.ApplyResources(panelShow, "panelShow");
-            panelShow.Name = "panelShow";
-            panelShow.Tag = "myTheme";
-            // 
             // toolStripPageLabel
             // 
             toolStripPageLabel.Name = "toolStripPageLabel";
@@ -430,13 +375,90 @@
             // 
             // panelShowReports
             // 
+            panelShowReports.BackColor = SystemColors.Control;
+            resources.ApplyResources(panelShowReports, "panelShowReports");
+            panelShowReports.Controls.Add(button7);
+            panelShowReports.Controls.Add(button6);
+            panelShowReports.Controls.Add(panel5);
+            panelShowReports.Controls.Add(radioButton4);
+            panelShowReports.Controls.Add(radioButton3);
+            panelShowReports.Controls.Add(radioButton2);
+            panelShowReports.Controls.Add(radioButton1);
+            panelShowReports.Controls.Add(label2);
             panelShowReports.Controls.Add(panel4);
             panelShowReports.Controls.Add(panel3);
-            panelShowReports.Controls.Add(gvBranches);
-            panelShowReports.Controls.Add(panelShow);
-            resources.ApplyResources(panelShowReports, "panelShowReports");
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Tag = "myTheme";
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(button7, "button7");
+            button7.ForeColor = Color.White;
+            button7.Name = "button7";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(button6, "button6");
+            button6.ForeColor = Color.White;
+            button6.Name = "button6";
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(0, 7, 95);
+            panel5.Controls.Add(textBox1);
+            panel5.Controls.Add(button5);
+            resources.ApplyResources(panel5, "panel5");
+            panel5.Name = "panel5";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(textBox1, "textBox1");
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            // 
+            // button5
+            // 
+            resources.ApplyResources(button5, "button5");
+            button5.Name = "button5";
+            button5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            resources.ApplyResources(radioButton4, "radioButton4");
+            radioButton4.Name = "radioButton4";
+            radioButton4.TabStop = true;
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            resources.ApplyResources(radioButton3, "radioButton3");
+            radioButton3.Name = "radioButton3";
+            radioButton3.TabStop = true;
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            resources.ApplyResources(radioButton2, "radioButton2");
+            radioButton2.Name = "radioButton2";
+            radioButton2.TabStop = true;
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            resources.ApplyResources(radioButton1, "radioButton1");
+            radioButton1.Name = "radioButton1";
+            radioButton1.TabStop = true;
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            resources.ApplyResources(label2, "label2");
+            label2.Name = "label2";
             // 
             // panel4
             // 
@@ -451,30 +473,50 @@
             label9.ForeColor = Color.White;
             label9.Name = "label9";
             // 
-            // gvBranches
+            // button8
             // 
-            gvBranches.AllowUserToAddRows = false;
-            gvBranches.AllowUserToDeleteRows = false;
-            gvBranches.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvBranches.BackgroundColor = SystemColors.Control;
-            gvBranches.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(gvBranches, "gvBranches");
-            gvBranches.Name = "gvBranches";
-            gvBranches.ReadOnly = true;
-            gvBranches.CellEndEdit += gvBranches_CellEndEdit;
-            gvBranches.KeyDown += gvBranches_KeyDown;
+            button8.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(button8, "button8");
+            button8.ForeColor = Color.White;
+            button8.Name = "button8";
+            button8.UseVisualStyleBackColor = false;
             // 
-            // Admin
+            // button4
+            // 
+            resources.ApplyResources(button4, "button4");
+            button4.FlatAppearance.BorderSize = 0;
+            button4.ForeColor = Color.DarkGray;
+            button4.Name = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.FlatAppearance.BorderSize = 0;
+            button1.ForeColor = Color.DarkGray;
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // btnDisplayExams
+            // 
+            resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
+            btnDisplayExams.FlatAppearance.BorderSize = 0;
+            btnDisplayExams.ForeColor = Color.DarkGray;
+            btnDisplayExams.Name = "btnDisplayExams";
+            btnDisplayExams.UseVisualStyleBackColor = true;
+            // 
+            // StartExamPage
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(button8);
             Controls.Add(panelShowReports);
             Controls.Add(panel1);
             Controls.Add(toolStrip);
             Controls.Add(label21);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Admin";
+            Name = "StartExamPage";
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).EndInit();
@@ -492,13 +534,14 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).EndInit();
-            panelShow.ResumeLayout(false);
             toolStrip.ResumeLayout(false);
             toolStrip.PerformLayout();
             panelShowReports.ResumeLayout(false);
+            panelShowReports.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gvBranches).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -522,11 +565,6 @@
         private Panel panel6;
         private Label label25;
         private Panel panel2;
-        private Button btnAddUser;
-        private Button btnDisplayExams;
-        private Button btnDisplayCourses;
-        private Button btnDisplayDepartments;
-        private Button btnDisplayBranches;
         private PictureBox pictureBox1;
         private Button btnClose;
         private Label label4;
@@ -543,15 +581,26 @@
         private Button button3;
         private Label lblUserName;
         private Label lblRoleError;
-        private Button btnAddBranch;
-        private Panel panelShow;
         private ToolStripLabel toolStripPageLabel;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton1;
         private ToolStrip toolStrip;
         private Panel panelShowReports;
-        private DataGridView gvBranches;
         private Panel panel4;
         private Label label9;
+        private Label label2;
+        private Panel panel5;
+        private RadioButton radioButton4;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private Button button5;
+        private TextBox textBox1;
+        private Button button6;
+        private Button button7;
+        private Button button8;
+        private Button button4;
+        private Button button1;
+        private Button btnDisplayExams;
     }
 }

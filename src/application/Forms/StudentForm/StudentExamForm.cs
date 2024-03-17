@@ -1,4 +1,5 @@
-﻿using application.Models;
+﻿using application.Forms.adminForms;
+using application.Models;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,7 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace application.Forms
 {
-    public partial class Admin : Form
+    public partial class StudentExamForm : Form
     {
         iti_ExamContext db = new iti_ExamContext();
         public XmlSerializer serializer;
@@ -29,7 +30,7 @@ namespace application.Forms
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
-        public Admin()
+        public StudentExamForm()
         {
             InitializeComponent();
             fillGVBranches();
@@ -37,7 +38,7 @@ namespace application.Forms
 
         void fillGVBranches()
         {
-            //Bind the grid view to a list in order to allow the deleting
+           /* //Bind the grid view to a list in order to allow the deleting
             List<Models.Branch> branchesList = db.Branches.FromSql($"exec GetAllBranches").ToList();
             IList<Models.Branch> branches = branchesList.ToList();
 
@@ -49,11 +50,11 @@ namespace application.Forms
             gvBranches.ReadOnly = false;
             gvBranches.EditMode = DataGridViewEditMode.EditOnEnter;
             //Make the id column read only
-            gvBranches.Columns[0].ReadOnly = true;
+            gvBranches.Columns[0].ReadOnly = true;*/
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
+        {/*
             // Check if the left mouse button is pressed
             if (e.Button == MouseButtons.Left)
             {
@@ -62,7 +63,7 @@ namespace application.Forms
 
                 // Send the message to move the form
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            }*/
         }
 
         private void btnDisplayBranches_Click(object sender, EventArgs e)
@@ -72,21 +73,21 @@ namespace application.Forms
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.GetCurrentProcess().Kill();
+           /* System.Diagnostics.Process.GetCurrentProcess().Kill();
             Application.Exit();
-            this.Close();
+            this.Close();*/
         }
 
         private void btnAddBranch_Click(object sender, EventArgs e)
         {
-            AddNewBranch addNewBranch = new AddNewBranch();
+           /* AddNewBranch addNewBranch = new AddNewBranch();
             addNewBranch.ShowDialog();
-            fillGVBranches();
+            fillGVBranches();*/
         }
 
         private void gvBranches_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            string branchName = "";
+           /* string branchName = "";
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 branchName = gvBranches.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
@@ -117,19 +118,19 @@ namespace application.Forms
                         {
                             MessageBox.Show("No branch was updated", "Failed update", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                    } 
+                    }
                 }
             }
             else
             {
                 MessageBox.Show("Branch name can't be less than 2 characters", "Failed message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            }*/
 
         }
 
         private void gvBranches_KeyDown(object sender, KeyEventArgs e)
         {
-            
+/*
             // Check if the pressed key is the Delete key
             if (e.KeyCode.ToString() == "Delete")
             {
@@ -152,7 +153,7 @@ namespace application.Forms
                                 gvBranches.Rows.Remove(row);
                                 fillGVBranches();
                             }
-                            catch 
+                            catch
                             {
                                 MessageBox.Show($"Can't delete branch with id ${branchID}", "Deleting failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
@@ -169,7 +170,15 @@ namespace application.Forms
                     MessageBox.Show($"Branch(es) deleted successfully", "Success deleting", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 }
-            }
+            }*/
+        }
+
+        private void btnDisplayDepartments_Click(object sender, EventArgs e)
+        {
+           /* btnDisplayDepartments.ForeColor = Color.White;
+            Departments departments = new Departments();
+            departments.ShowDialog();
+            btnDisplayDepartments.ForeColor = Color.DarkGray;*/
         }
     }
 }
