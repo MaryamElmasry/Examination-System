@@ -28,41 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            ExamsGV = new DataGridView();
+            crsList = new ComboBox();
+            DeptList = new ComboBox();
             Courses = new Label();
             label2 = new Label();
             EditExam = new Button();
             DeleteExam = new Button();
             GenerateExam = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            PrintBtn = new Button();
+            ((System.ComponentModel.ISupportInitialize)ExamsGV).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // ExamsGV
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 66);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(760, 330);
-            dataGridView1.TabIndex = 0;
+            ExamsGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ExamsGV.Location = new Point(3, 66);
+            ExamsGV.Name = "ExamsGV";
+            ExamsGV.RowHeadersWidth = 51;
+            ExamsGV.Size = new Size(760, 330);
+            ExamsGV.TabIndex = 0;
+            ExamsGV.SelectionChanged += SelectionChanged;
             // 
-            // comboBox1
+            // crsList
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(612, 18);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(151, 28);
-            comboBox1.TabIndex = 1;
+            crsList.FormattingEnabled = true;
+            crsList.Location = new Point(612, 18);
+            crsList.Name = "crsList";
+            crsList.Size = new Size(151, 28);
+            crsList.TabIndex = 1;
+            crsList.SelectedIndexChanged += updateGV;
+            crsList.DataSourceChanged += updateGV;
             // 
-            // comboBox2
+            // DeptList
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(378, 18);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(151, 28);
-            comboBox2.TabIndex = 2;
+            DeptList.FormattingEnabled = true;
+            DeptList.Location = new Point(378, 18);
+            DeptList.Name = "DeptList";
+            DeptList.Size = new Size(151, 28);
+            DeptList.TabIndex = 2;
+            DeptList.SelectedIndexChanged += DeptListChanged;
             // 
             // Courses
             // 
@@ -110,35 +115,47 @@
             GenerateExam.UseVisualStyleBackColor = true;
             GenerateExam.Click += GenerateExam_Click;
             // 
+            // PrintBtn
+            // 
+            PrintBtn.Location = new Point(217, 423);
+            PrintBtn.Name = "PrintBtn";
+            PrintBtn.Size = new Size(94, 29);
+            PrintBtn.TabIndex = 8;
+            PrintBtn.Text = "Print";
+            PrintBtn.UseVisualStyleBackColor = true;
+            PrintBtn.Click += PrintBtn_Click;
+            // 
             // ExamsControlcs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(PrintBtn);
             Controls.Add(GenerateExam);
             Controls.Add(DeleteExam);
             Controls.Add(EditExam);
             Controls.Add(label2);
             Controls.Add(Courses);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(DeptList);
+            Controls.Add(crsList);
+            Controls.Add(ExamsGV);
             Name = "ExamsControlcs";
             Size = new Size(766, 482);
             Load += ExamsControlcs_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ExamsGV).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private DataGridView ExamsGV;
+        private ComboBox crsList;
+        private ComboBox DeptList;
         private Label Courses;
         private Label label2;
         private Button EditExam;
         private Button DeleteExam;
         private Button GenerateExam;
+        private Button PrintBtn;
     }
 }

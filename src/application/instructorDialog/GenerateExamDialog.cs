@@ -14,11 +14,16 @@ namespace application.instructorDialog
 {
     public partial class GenerateExamDialog : Form
     {
+        private readonly int _deptid;
+        private readonly int _crsid;
+        
         public GenerateExamDialog(int deptid , int crsid)
         {
             InitializeComponent();
             dateTimePicker1.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            _deptid = deptid;
+            _crsid = crsid;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -39,11 +44,15 @@ namespace application.instructorDialog
             {
                 MessageBox.Show("please enter a valid number");
             }
-            MessageBox.Show(this.Owner.Name.ToString());
             using(var ctx = new iti_ExamContext())
             {
+                string dateTimeString = dateTimePicker1.Value.ToString();
+                string[] parts = dateTimeString.Split(' ');
+                string result = string.Join(" ", parts.Take(parts.Length - 1));
+
                 // @courseId int ,@deptId int, @date datetime , @mcqCount int, @TFcount int,@duration int
-                ctx.Exams.FromSqlRaw($"EXEC GenerateExam {1},{1},{dateTimePicker1.Value},{mcqNo} , {tfno},{duration}");
+                ctx.Database.ExecuteSql($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
+               // MessageBox.Show(dateTimePicker1.Value.ToString());
             }
         }
     }
