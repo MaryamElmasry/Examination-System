@@ -53,6 +53,7 @@
             courselst.Name = "courselst";
             courselst.Size = new Size(151, 28);
             courselst.TabIndex = 1;
+            courselst.SelectedValueChanged += CourseListUpdate;
             // 
             // label1
             // 
@@ -105,6 +106,7 @@
             Controls.Add(QuestionsGV);
             Name = "QuestionsControl";
             Size = new Size(766, 482);
+            Load += QuestionsControl_Load;
             ((System.ComponentModel.ISupportInitialize)QuestionsGV).EndInit();
             ResumeLayout(false);
             PerformLayout();

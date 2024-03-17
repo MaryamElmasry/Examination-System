@@ -1,6 +1,6 @@
 using application.Controllers;
 using application.Models;
-using application.Utilites;
+//using application.Utilites;
 namespace application.Forms
 {
     public partial class Login : Form
@@ -8,13 +8,13 @@ namespace application.Forms
         //instance of AuthController
         AuthController authController = new AuthController();
         //instance of IntalizeDB
-        InitializeDB intalizeDB = new InitializeDB();
+       // InitializeDB intalizeDB = new InitializeDB();
         //instance of iti_ExamContext
         iti_ExamContext context = new iti_ExamContext();
         public Login()
         {
             InitializeComponent();
-            intalizeDB.AddDummyUserData(context);
+          //  intalizeDB.AddDummyUserData(context);
 
         }
 
