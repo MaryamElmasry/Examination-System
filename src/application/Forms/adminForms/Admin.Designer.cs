@@ -255,6 +255,7 @@
             btnDisplayCourses.ForeColor = Color.DarkGray;
             btnDisplayCourses.Name = "btnDisplayCourses";
             btnDisplayCourses.UseVisualStyleBackColor = true;
+            btnDisplayCourses.Click += btnDisplayCourses_Click;
             // 
             // btnDisplayDepartments
             // 

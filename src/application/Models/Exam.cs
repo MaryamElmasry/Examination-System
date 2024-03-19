@@ -21,7 +21,7 @@ public partial class Exam
 
     public virtual Department Dept { get; set; }
 
-    public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
+    public virtual ICollection<ExamQuestion> ExamQuestions { get; set; } = new List<ExamQuestion>();
 
-    public virtual ICollection<QuestionPool> Questions { get; set; } = new List<QuestionPool>();
+    public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
 }

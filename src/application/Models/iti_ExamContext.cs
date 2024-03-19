@@ -23,11 +23,17 @@ public partial class iti_ExamContext : DbContext
 
     public virtual DbSet<CourseTopic> CourseTopics { get; set; }
 
+    public virtual DbSet<Course_Dept> Course_Depts { get; set; }
+
     public virtual DbSet<Department> Departments { get; set; }
 
     public virtual DbSet<Exam> Exams { get; set; }
 
+    public virtual DbSet<ExamQuestion> ExamQuestions { get; set; }
+
     public virtual DbSet<Instructor> Instructors { get; set; }
+
+    public virtual DbSet<Instructor_Course> Instructor_Courses { get; set; }
 
     public virtual DbSet<QuestionChoice> QuestionChoices { get; set; }
 
@@ -60,14 +66,11 @@ public partial class iti_ExamContext : DbContext
         {
             entity.HasKey(e => e.CourseID).HasName("PK__Courses__C92D7187F9416A37");
 
+            entity.HasIndex(e => e.CourseName, "CourseName_Courses").IsUnique();
+
             entity.Property(e => e.CourseName)
                 .IsRequired()
                 .HasMaxLength(255);
-
-            entity.HasOne(d => d.Instructor).WithMany(p => p.Courses)
-                .HasForeignKey(d => d.InstructorID)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Courses__Instruc__52593CB8");
         });
 
         modelBuilder.Entity<CourseTopic>(entity =>
@@ -80,6 +83,23 @@ public partial class iti_ExamContext : DbContext
                 .HasForeignKey(d => d.CourseID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__CourseTop__Cours__534D60F1");
+        });
+
+        modelBuilder.Entity<Course_Dept>(entity =>
+        {
+            entity.HasKey(e => new { e.CourseID, e.DeptId });
+
+            entity.ToTable("Course_Dept");
+
+            entity.HasOne(d => d.Course).WithMany(p => p.Course_Depts)
+                .HasForeignKey(d => d.CourseID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Course_Dept_Courses");
+
+            entity.HasOne(d => d.Dept).WithMany(p => p.Course_Depts)
+                .HasForeignKey(d => d.DeptId)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Course_Dept_Departments");
         });
 
         modelBuilder.Entity<Department>(entity =>
@@ -108,39 +128,53 @@ public partial class iti_ExamContext : DbContext
             entity.HasOne(d => d.Dept).WithMany(p => p.Exams)
                 .HasForeignKey(d => d.DeptID)
                 .HasConstraintName("FK_Exams_Departments");
+        });
 
-            entity.HasMany(d => d.Questions).WithMany(p => p.Exams)
-                .UsingEntity<Dictionary<string, object>>(
-                    "ExamQuestion",
-                    r => r.HasOne<QuestionPool>().WithMany()
-                        .HasForeignKey("QuestionID")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__ExamQuest__Quest__5629CD9C"),
-                    l => l.HasOne<Exam>().WithMany()
-                        .HasForeignKey("ExamID")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK__ExamQuest__ExamI__5535A963"),
-                    j =>
-                    {
-                        j.HasKey("ExamID", "QuestionID").HasName("PK__ExamQues__F9A9275FD4DDEE9C");
-                        j.ToTable("ExamQuestions");
-                    });
+        modelBuilder.Entity<ExamQuestion>(entity =>
+        {
+            entity.HasKey(e => new { e.ExamID, e.QuestionID }).HasName("PK__ExamQues__F9A9275FD4DDEE9C");
+
+            entity.HasOne(d => d.Exam).WithMany(p => p.ExamQuestions)
+                .HasForeignKey(d => d.ExamID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ExamQuest__ExamI__5535A963");
+
+            entity.HasOne(d => d.Question).WithMany(p => p.ExamQuestions)
+                .HasForeignKey(d => d.QuestionID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK__ExamQuest__Quest__5629CD9C");
         });
 
         modelBuilder.Entity<Instructor>(entity =>
         {
             entity.HasKey(e => e.InstructorID).HasName("PK__Instruct__9D010B7BD0D5A330");
 
-            entity.Property(e => e.InstructorID).ValueGeneratedOnAdd();
+            entity.Property(e => e.InstructorID).ValueGeneratedNever();
 
-            entity.HasOne(d => d.Dept).WithMany(p => p.Instructors)
-                .HasForeignKey(d => d.DeptID)
-                .HasConstraintName("FK__Instructo__DeptI__59063A47");
+            entity.HasOne(d => d.Branch).WithMany(p => p.Instructors)
+                .HasForeignKey(d => d.BranchID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Instructors_Branches");
 
             entity.HasOne(d => d.InstructorNavigation).WithOne(p => p.Instructor)
                 .HasForeignKey<Instructor>(d => d.InstructorID)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK__Instructo__Instr__59FA5E80");
+        });
+
+        modelBuilder.Entity<Instructor_Course>(entity =>
+        {
+            entity.HasKey(e => new { e.CourseID, e.InstructorID });
+
+            entity.HasOne(d => d.Course).WithMany(p => p.Instructor_Courses)
+                .HasForeignKey(d => d.CourseID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Instructor_Courses_Courses");
+
+            entity.HasOne(d => d.Instructor).WithMany(p => p.Instructor_Courses)
+                .HasForeignKey(d => d.InstructorID)
+                .OnDelete(DeleteBehavior.ClientSetNull)
+                .HasConstraintName("FK_Instructor_Courses_Instructors");
         });
 
         modelBuilder.Entity<QuestionChoice>(entity =>
@@ -248,6 +282,8 @@ public partial class iti_ExamContext : DbContext
                 .HasMaxLength(255);
         });
 
+        OnModelCreatingGeneratedProcedures(modelBuilder);
+        OnModelCreatingGeneratedFunctions(modelBuilder);
         OnModelCreatingPartial(modelBuilder);
     }
 

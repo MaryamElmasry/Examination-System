@@ -12,4 +12,6 @@ public partial class Branch
     public string BranchName { get; set; }
 
     public virtual ICollection<Department> Departments { get; set; } = new List<Department>();
+
+    public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
 }

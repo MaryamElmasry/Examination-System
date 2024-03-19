@@ -7,13 +7,13 @@ namespace application.Models;
 
 public partial class Instructor
 {
-    public int? DeptID { get; set; }
+    public int BranchID { get; set; }
 
     public int InstructorID { get; set; }
 
-    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
-
-    public virtual Department Dept { get; set; }
+    public virtual Branch Branch { get; set; }
 
     public virtual User InstructorNavigation { get; set; }
+
+    public virtual ICollection<Instructor_Course> Instructor_Courses { get; set; } = new List<Instructor_Course>();
 }

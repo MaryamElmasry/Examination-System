@@ -11,15 +11,13 @@ public partial class Course
 
     public string CourseName { get; set; }
 
-    public int DeptID { get; set; }
-
-    public int InstructorID { get; set; }
-
     public virtual ICollection<CourseTopic> CourseTopics { get; set; } = new List<CourseTopic>();
+
+    public virtual ICollection<Course_Dept> Course_Depts { get; set; } = new List<Course_Dept>();
 
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 
-    public virtual Instructor Instructor { get; set; }
+    public virtual ICollection<Instructor_Course> Instructor_Courses { get; set; } = new List<Instructor_Course>();
 
     public virtual ICollection<QuestionPool> QuestionPools { get; set; } = new List<QuestionPool>();
 

@@ -133,5 +133,10 @@ namespace application.Forms.adminForms
                 MessageBox.Show(ex.Message, "Update failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtDeptName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
