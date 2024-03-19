@@ -1,26 +1,23 @@
 using application.Controllers;
 using application.Models;
-//using application.Utilites;
+using application.Utilites;
+
 namespace application.Forms
 {
     public partial class Login : Form
     {
-        //instance of AuthController
         AuthController authController = new AuthController();
-        //instance of IntalizeDB
-       // InitializeDB intalizeDB = new InitializeDB();
-        //instance of iti_ExamContext
+        InitializeDB intalizeDB = new InitializeDB();
         iti_ExamContext context = new iti_ExamContext();
+
         public Login()
         {
             InitializeComponent();
-          //  intalizeDB.AddDummyUserData(context);
-
+            intalizeDB.AddDummyUserData(context);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Check if user is admin -> Static
             if (txtEmail.Text == "omar" && txtPassword.Text == "123")
             {
                 Admin admin = new Admin();
@@ -28,28 +25,36 @@ namespace application.Forms
                 this.Hide();
                 return;
             }
-            User user = authController.Login(txtEmail.Text, txtPassword.Text);
 
-            if(user == null)
+            (string userType, int userID) = authController.AuthenticateUser(txtEmail.Text, txtPassword.Text);
+
+            if (userType == "Invalid")
             {
                 MessageBox.Show("Invalid email or password", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //if user is student
-            else if (user.Student !=null)
+
+            // Redirect based on user type
+            if (userType == "Student")
             {
-                StudentForm studentform = new StudentForm(user.Student);
+                StudentExamForm studentform = new StudentExamForm(userID);
                 studentform.Show();
                 this.Hide();
-
             }
-            else if (user.Instructor != null)
+            else if (userType == "Instructor")
             {
-                //if user is instructor
-                InstructorForm instructor = new InstructorForm(user.Instructor);
+                InstructorForm instructor = new InstructorForm(userID);
                 instructor.Show();
                 this.Hide();
             }
+        }
+
+        private void ToogleShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            // Show or hide password
+            txtPassword.UseSystemPasswordChar = !ToogleShowPassword.Checked;
+
+
         }
     }
 }

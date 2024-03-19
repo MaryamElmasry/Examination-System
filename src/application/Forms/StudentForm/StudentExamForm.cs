@@ -30,8 +30,16 @@ namespace application.Forms
 
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HT_CAPTION = 0x2;
+
+        public int studentID;
         public StudentExamForm()
         {
+            InitializeComponent();
+            fillGVBranches();
+        }
+        public StudentExamForm( int studentID)
+        {
+            this.studentID = studentID;
             InitializeComponent();
             fillGVBranches();
         }
