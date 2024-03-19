@@ -1,28 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using application.Models;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
 namespace application.Controllers
 {
     public class AuthController
     {
         iti_ExamContext db = new iti_ExamContext();
-        public User Login(string email, string password)
-        {
-          var user = db.Users
-         .Include(u => u.Student)
-         .Include(u => u.Instructor)
-         .FirstOrDefault(u => u.Email == email && u.Password == password);
 
-            if (user != null)
-            {
-                return user;
-            }
-            return null;
+        public (string UserType, int ID) AuthenticateUser(string email, string password)
+        {
+            var userTypeParam = new SqlParameter("@UserType", SqlDbType.NVarChar, 50) { Direction = ParameterDirection.Output };
+            var userIDParam = new SqlParameter("@UserID", SqlDbType.Int) { Direction = ParameterDirection.Output };
+
+            db.Database.ExecuteSqlRaw("EXEC AuthenticateUser @Email, @Password, @UserType OUTPUT, @UserID OUTPUT",
+                new SqlParameter("@Email", email),
+                new SqlParameter("@Password", password),
+                userTypeParam,
+                userIDParam);
+
+            string userType = userTypeParam.Value?.ToString() ?? "Invalid";
+            int userID = userIDParam.Value as int? ?? -1;
+
+            return (userType, userID);
         }
-        
     }
 }
