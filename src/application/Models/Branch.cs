@@ -9,7 +9,9 @@ public partial class Branch
 
     public string BranchName { get; set; }
 
-    public virtual ICollection<Department> Departments { get; set; } = new List<Department>();
-
     public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
+
+    public virtual ICollection<Student> Students { get; set; } = new List<Student>();
+
+    public virtual ICollection<Department> Depts { get; set; } = new List<Department>();
 }

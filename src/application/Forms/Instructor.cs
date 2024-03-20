@@ -21,7 +21,6 @@ namespace application.Forms
         public InstructorForm()
         {
             InitializeComponent();
-
         }
         public InstructorForm(Instructor instructor)
         {

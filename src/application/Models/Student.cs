@@ -9,6 +9,10 @@ public partial class Student
 
     public int StudentId { get; set; }
 
+    public int? Branch { get; set; }
+
+    public virtual Branch BranchNavigation { get; set; }
+
     public virtual Department Dept { get; set; }
 
     public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();

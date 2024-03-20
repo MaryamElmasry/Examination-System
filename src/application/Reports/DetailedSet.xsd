@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DetailedSet" targetNamespace="http://tempuri.org/DetailedSet.xsd" xmlns:mstns="http://tempuri.org/DetailedSet.xsd" xmlns="http://tempuri.org/DetailedSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DetailedSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DetailedSet" msprop:Generator_DataSetName="DetailedSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Detailed" msprop:Generator_RowEvHandlerName="DetailedRowChangeEventHandler" msprop:Generator_RowDeletedName="DetailedRowDeleted" msprop:Generator_RowDeletingName="DetailedRowDeleting" msprop:Generator_RowEvArgName="DetailedRowChangeEvent" msprop:Generator_TablePropName="Detailed" msprop:Generator_RowChangedName="DetailedRowChanged" msprop:Generator_RowChangingName="DetailedRowChanging" msprop:Generator_TableClassName="DetailedDataTable" msprop:Generator_RowClassName="DetailedRow" msprop:Generator_TableVarName="tableDetailed" msprop:Generator_UserTableName="Detailed">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_UserColumnName="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Selected_x0020_Choice" msprop:Generator_ColumnPropNameInRow="Selected_Choice" msprop:Generator_ColumnPropNameInTable="Selected_ChoiceColumn" msprop:Generator_ColumnVarNameInTable="columnSelected_Choice" msprop:Generator_UserColumnName="Selected Choice" type="xs:string" minOccurs="0" />
+              <xs:element name="correct_x0020_Choice" msprop:Generator_ColumnPropNameInRow="correct_Choice" msprop:Generator_ColumnPropNameInTable="correct_ChoiceColumn" msprop:Generator_ColumnVarNameInTable="columncorrect_Choice" msprop:Generator_UserColumnName="correct Choice" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
