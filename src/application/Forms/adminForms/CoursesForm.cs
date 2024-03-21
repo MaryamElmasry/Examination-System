@@ -44,7 +44,7 @@ namespace application.Forms.adminForms
             //clear all the stored unchecked departments 
             uncheckedDepartments.Clear();
             //get the course id
-            int selectedID = getSelectedCourseId();
+            int selectedID = getSelectedCourseID();
 
             txtCourseName.Text = db
                                     .Courses
@@ -106,7 +106,7 @@ namespace application.Forms.adminForms
 
         }
 
-        private int getSelectedCourseId()
+        private int getSelectedCourseID()
         {
             int selectedID;
             if ((lstCourses.SelectedValue as Course) != null)
@@ -130,7 +130,7 @@ namespace application.Forms.adminForms
             clCourseDepts.DisplayMember = "DeptName";
             clCourseDepts.ValueMember = "DeptID";
             //get Course departments
-            int courseId = getSelectedCourseId();
+            int courseId = getSelectedCourseID();
             var courseDepts = db
                                 .Departments
                                 .FromSql($"exec getCourseDepartmentsAllInfo {courseId}")
@@ -221,7 +221,7 @@ namespace application.Forms.adminForms
             int itemAdded = 0;
             int itemDeleted = 0;
             //get the selectedCourseID
-            int selectedCourseID = getSelectedCourseId();
+            int selectedCourseID = getSelectedCourseID();
             //get the checked departments
             var checkedDepartments = clCourseDepts
                                         .CheckedItems;
@@ -267,7 +267,7 @@ namespace application.Forms.adminForms
         private void btnEditCourse_Click(object sender, EventArgs e)
         {
             //get the course
-            int courseID = getSelectedCourseId();
+            int courseID = getSelectedCourseID();
             //get the course name
             string courseName = txtCourseName.Text.ToString();
             if (courseName.Length < 2)

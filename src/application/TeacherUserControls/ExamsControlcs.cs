@@ -29,9 +29,9 @@ namespace application.TeacherUserControls
             {
                 DeptList.DataSource = ctx.Departments.FromSqlRaw("EXEC GetAllDepartments").ToList();
                 DeptList.SelectedItem = 0;
-                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptId}").ToList();
+                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
                 DeptList.DisplayMember = "DeptName";
-                DeptList.ValueMember = "DeptId";
+                DeptList.ValueMember = "DeptID";
                 crsList.ValueMember = "CourseID";
                 crsList.DisplayMember = "CourseName";
             }
@@ -44,7 +44,7 @@ namespace application.TeacherUserControls
             {
                 if (crsList.SelectedItem != null && DeptList.SelectedItem != null)
                 {
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam {((Department)DeptList.SelectedItem).DeptId} , {((Course)crsList.SelectedItem).CourseId}").ToList().Select(e => new { e.ExamId, e.ExamDate, e.Duration }).ToList();
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam {((Department)DeptList.SelectedItem).DeptID} , {((Course)crsList.SelectedItem).CourseID}").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
 
                     ExamsGV.DataSource = exams;
                     ExamsGV.Refresh();
@@ -61,7 +61,7 @@ namespace application.TeacherUserControls
 
                 if (selectedDept != null)
                 {
-                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptId}").ToList();
+                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptID}").ToList();
 
                     if (courses.Any())
                     {
