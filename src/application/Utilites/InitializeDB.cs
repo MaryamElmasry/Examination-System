@@ -51,13 +51,13 @@ namespace application.Utilites
             // Add dummy data for Students
             var student1 = new Student
             {
-                DeptId = department1.DeptId,
+                DeptID = department1.DeptID,
                 StudentNavigation = user1
             };
 
             var student2 = new Student
             {
-                DeptId = department1.DeptId,
+                DeptID = department1.DeptID,
                 StudentNavigation = user2
             };
 
@@ -67,7 +67,7 @@ namespace application.Utilites
             // Add dummy data for Instructors
             var instructor1 = new Instructor
             {
-                BranchId = 1,
+                BranchID = 1,
                 InstructorNavigation = new User
                 {
                     UserName = "Abdo",
@@ -81,7 +81,7 @@ namespace application.Utilites
 
             var instructor2 = new Instructor
             {
-                BranchId = 1,
+                BranchID = 1,
                 InstructorNavigation = new User
                 {
                     UserName = "saberr",
