@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "application", "application.csproj", "{BC0A6C31-71D8-4EE8-B891-A00750F5C81E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "application", "application.csproj", "{BC0A6C31-71D8-4EE8-B891-A00750F5C81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrystalReportGenerator", "..\CrystalReportGenerator\CrystalReportGenerator.csproj", "{33C74E88-1242-4F34-94AA-31BD222D40BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BC0A6C31-71D8-4EE8-B891-A00750F5C81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC0A6C31-71D8-4EE8-B891-A00750F5C81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC0A6C31-71D8-4EE8-B891-A00750F5C81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33C74E88-1242-4F34-94AA-31BD222D40BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33C74E88-1242-4F34-94AA-31BD222D40BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33C74E88-1242-4F34-94AA-31BD222D40BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33C74E88-1242-4F34-94AA-31BD222D40BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
