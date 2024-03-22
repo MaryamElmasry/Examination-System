@@ -778,6 +778,15 @@
   <data name="&gt;&gt;toolStrip.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="ID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ID.HeaderText" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="ID.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <metadata name="Exams.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -796,6 +805,15 @@
   <data name="Date.Width" type="System.Int32, mscorlib">
     <value>150</value>
   </data>
+  <metadata name="Duration.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="Duration.HeaderText" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="Duration.Width" type="System.Int32, mscorlib">
+    <value>150</value>
+  </data>
   <metadata name="Action.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -806,10 +824,10 @@
     <value>150</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>86, 220</value>
+    <value>30, 197</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>490, 150</value>
+    <value>631, 67</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>
@@ -6509,6 +6527,12 @@
   <data name="&gt;&gt;toolStripButton1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ID.Name" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="&gt;&gt;ID.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;Exams.Name" xml:space="preserve">
     <value>Exams</value>
   </data>
@@ -6519,6 +6543,12 @@
     <value>Date</value>
   </data>
   <data name="&gt;&gt;Date.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Duration.Name" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="&gt;&gt;Duration.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewTextBoxColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Action.Name" xml:space="preserve">
