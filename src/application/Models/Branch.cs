@@ -15,3 +15,4 @@ public partial class Branch
 
     public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
 }
+
