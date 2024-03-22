@@ -43,18 +43,18 @@ namespace application.Migrations
 
             modelBuilder.Entity("application.Models.Branch", b =>
                 {
-                    b.Property<int>("BranchID")
+                    b.Property<int>("BranchId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BranchId"));
 
                     b.Property<string>("BranchName")
                         .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
-                    b.HasKey("BranchID")
+                    b.HasKey("BranchId")
                         .HasName("PK__Branches__A1682FA532DF9A60");
 
                     b.ToTable("Branches");
@@ -112,7 +112,7 @@ namespace application.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DeptID"));
 
-                    b.Property<int?>("BranchID")
+                    b.Property<int?>("BranchId")
                         .HasColumnType("int");
 
                     b.Property<string>("DeptName")
@@ -123,7 +123,7 @@ namespace application.Migrations
                     b.HasKey("DeptID")
                         .HasName("PK__Departme__0148818E3DA310CE");
 
-                    b.HasIndex("BranchID");
+                    b.HasIndex("BranchId");
 
                     b.ToTable("Departments");
                 });
@@ -373,7 +373,7 @@ namespace application.Migrations
                 {
                     b.HasOne("application.Models.Branch", "Branch")
                         .WithMany("Departments")
-                        .HasForeignKey("BranchID")
+                        .HasForeignKey("BranchId")
                         .HasConstraintName("FK__Departmen__Branc__5441852A");
 
                     b.Navigation("Branch");

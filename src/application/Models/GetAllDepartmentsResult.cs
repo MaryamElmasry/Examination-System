@@ -9,6 +9,6 @@ namespace application.Models
     {
         public int DeptID { get; set; }
         public string DeptName { get; set; }
-        public int? BranchID { get; set; }
+        public int? BranchId { get; set; }
     }
 }

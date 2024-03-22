@@ -30,7 +30,7 @@ namespace application.TeacherUserControls
                 var depts = ctx.Departments.FromSqlRaw("EXEC GetDeptsforIns 1").ToList();
                 DeptsList.DataSource = depts;
                 DeptsList.DisplayMember = "DeptName";
-                DeptsList.ValueMember = "DeptId";
+                DeptsList.ValueMember = "DeptID";
             }
         }
 
@@ -44,7 +44,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 dynamic deptitem = DeptsList.SelectedItem;
-                var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptId}").ToList();
+                var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptID}").ToList();
                 CoursesList.DataSource = crs;
                 CoursesList.DisplayMember = "CourseName";
                 CoursesList.ValueMember = "CourseID";
@@ -56,7 +56,7 @@ namespace application.TeacherUserControls
             dynamic dept = DeptsList.SelectedItem;
             using (var ctx = new iti_ExamContext())
             {
-                StudentsGV.DataSource = ctx.Database.SqlQueryRaw<PStudent>($"EXEC GetStudentsByDept {dept.DeptId}").ToList();
+                StudentsGV.DataSource = ctx.Database.SqlQueryRaw<PStudent>($"EXEC GetStudentsByDept {dept.DeptID}").ToList();
 
             }
             studentitem = -1;
@@ -68,7 +68,7 @@ namespace application.TeacherUserControls
             dynamic crs = CoursesList.SelectedItem;
             using (var ctx = new iti_ExamContext())
             {
-                ExamsGV.DataSource = ctx.Database.SqlQueryRaw<ExamView>($"EXEC GetExamsDeptCourse {dept.DeptId} , {crs.CourseId}").ToList();
+                ExamsGV.DataSource = ctx.Database.SqlQueryRaw<ExamView>($"EXEC GetExamsDeptCourse {dept.DeptID} , {crs.CourseId}").ToList();
             }
             selecteditem = -1;
             if(StudentsGV.SelectedRows.Count > 0)

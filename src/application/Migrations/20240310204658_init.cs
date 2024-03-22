@@ -15,13 +15,13 @@ namespace application.Migrations
                 name: "Branches",
                 columns: table => new
                 {
-                    BranchID = table.Column<int>(type: "int", nullable: false)
+                    BranchId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     BranchName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK__Branches__A1682FA532DF9A60", x => x.BranchID);
+                    table.PrimaryKey("PK__Branches__A1682FA532DF9A60", x => x.BranchId);
                 });
 
             migrationBuilder.CreateTable(
@@ -49,16 +49,16 @@ namespace application.Migrations
                     DeptID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     DeptName = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    BranchID = table.Column<int>(type: "int", nullable: true)
+                    BranchId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__Departme__0148818E3DA310CE", x => x.DeptID);
                     table.ForeignKey(
                         name: "FK__Departmen__Branc__5441852A",
-                        column: x => x.BranchID,
+                        column: x => x.BranchId,
                         principalTable: "Branches",
-                        principalColumn: "BranchID");
+                        principalColumn: "BranchId");
                 });
 
             migrationBuilder.CreateTable(
@@ -293,9 +293,9 @@ namespace application.Migrations
                 column: "CourseID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Departments_BranchID",
+                name: "IX_Departments_BranchId",
                 table: "Departments",
-                column: "BranchID");
+                column: "BranchId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ExamQuestions_QuestionID",

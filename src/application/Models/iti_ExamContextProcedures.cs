@@ -44,7 +44,7 @@ namespace application.Models
             modelBuilder.Entity<getCourseDepartmentsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<getCourseInstructorsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<getCourseTopicsResult>().HasNoKey().ToView(null);
-            modelBuilder.Entity<GetDepartmentByNameAndBranchIDResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetDepartmentByNameAndBranchIdResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<getTopicByNameAndCourseIDResult>().HasNoKey().ToView(null);
         }
     }
@@ -479,7 +479,7 @@ namespace application.Models
             return _;
         }
 
-        public virtual async Task<List<GetDepartmentByNameAndBranchIDResult>> GetDepartmentByNameAndBranchIDAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<List<GetDepartmentByNameAndBranchIdResult>> GetDepartmentByNameAndBranchIdAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -505,7 +505,7 @@ namespace application.Models
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.SqlQueryAsync<GetDepartmentByNameAndBranchIDResult>("EXEC @returnValue = [dbo].[GetDepartmentByNameAndBranchID] @name, @id", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<GetDepartmentByNameAndBranchIdResult>("EXEC @returnValue = [dbo].[GetDepartmentByNameAndBranchId] @name, @id", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 
@@ -578,7 +578,7 @@ namespace application.Models
             return _;
         }
 
-        public virtual async Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
+        public virtual async Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default)
         {
             var parameterreturnValue = new SqlParameter
             {
@@ -604,13 +604,13 @@ namespace application.Models
                 },
                 new SqlParameter
                 {
-                    ParameterName = "BranchID",
-                    Value = BranchID ?? Convert.DBNull,
+                    ParameterName = "BranchId",
+                    Value = BranchId ?? Convert.DBNull,
                     SqlDbType = System.Data.SqlDbType.Int,
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[UpdateDepartment] @deptId, @deptName, @BranchID", sqlParameters, cancellationToken);
+            var _ = await _context.Database.ExecuteSqlRawAsync("EXEC @returnValue = [dbo].[UpdateDepartment] @deptId, @deptName, @BranchId", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

@@ -73,7 +73,7 @@ namespace application.instructorDialog
                 }
                 else
                 {
-                    ctx.Database.ExecuteSqlRaw($"EXEC updateQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', {quest.CorrectAnswerIndex}, 3, {questionPool.QuestionId}");
+                    ctx.Database.ExecuteSqlRaw($"EXEC updateQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', {quest.CorrectAnswerIndex}, 3, {questionPool.QuestionID}");
 
                 }
                 MessageBox.Show("Question Added Successfully");

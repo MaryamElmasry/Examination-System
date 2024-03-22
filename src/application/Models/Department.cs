@@ -11,7 +11,7 @@ public partial class Department
 
     public string DeptName { get; set; }
 
-    public int? BranchID { get; set; }
+    public int? BranchId { get; set; }
 
     public virtual Branch Branch { get; set; }
 

@@ -28,9 +28,9 @@ namespace application.Models
         Task<List<getCourseDepartmentsResult>> getCourseDepartmentsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseInstructorsResult>> getCourseInstructorsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseTopicsResult>> getCourseTopicsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<List<GetDepartmentByNameAndBranchIDResult>> GetDepartmentByNameAndBranchIDAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetDepartmentByNameAndBranchIdResult>> GetDepartmentByNameAndBranchIdAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getTopicByNameAndCourseIDResult>> getTopicByNameAndCourseIDAsync(int? courseId, string topicName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> updateBranchNameAsync(int? id, string newName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }
