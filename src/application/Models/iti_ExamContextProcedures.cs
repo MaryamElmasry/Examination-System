@@ -47,7 +47,7 @@ namespace application.Models
             modelBuilder.Entity<GetCourseExamsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<getCourseInstructorsResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<getCourseTopicsResult>().HasNoKey().ToView(null);
-            modelBuilder.Entity<GetDepartmentByNameAndBranchIDResult>().HasNoKey().ToView(null);
+            modelBuilder.Entity<GetDepartmentByNameAndBranchIdResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetExamGradesByStudentIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetGradesByStudentIDResult>().HasNoKey().ToView(null);
             modelBuilder.Entity<GetQuestionChoicesResult>().HasNoKey().ToView(null);
@@ -659,7 +659,7 @@ namespace application.Models
                 },
                 parameterreturnValue,
             };
-            var _ = await _context.SqlQueryAsync<GetDepartmentByNameAndBranchIDResult>("EXEC @returnValue = [dbo].[GetDepartmentByNameAndBranchID] @name, @id", sqlParameters, cancellationToken);
+            var _ = await _context.SqlQueryAsync<GetDepartmentByNameAndBranchIdResult>("EXEC @returnValue = [dbo].[GetDepartmentByNameAndBranchID] @name, @id", sqlParameters, cancellationToken);
 
             returnValue?.SetValue(parameterreturnValue.Value);
 

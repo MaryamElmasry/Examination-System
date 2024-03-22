@@ -33,7 +33,7 @@ namespace application.Models
         Task<List<GetCourseExamsResult>> GetCourseExamsAsync(int? DeptID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseInstructorsResult>> getCourseInstructorsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseTopicsResult>> getCourseTopicsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<List<GetDepartmentByNameAndBranchIDResult>> GetDepartmentByNameAndBranchIDAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetDepartmentByNameAndBranchIdResult>> GetDepartmentByNameAndBranchIdAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetExamGradesByStudentIDResult>> GetExamGradesByStudentIDAsync(int? StudentID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetGradesByStudentIDResult>> GetGradesByStudentIDAsync(int? StudentID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetQuestionChoicesResult>> GetQuestionChoicesAsync(int? ExamID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
