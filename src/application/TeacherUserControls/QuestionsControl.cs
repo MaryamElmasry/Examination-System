@@ -84,14 +84,14 @@ namespace application.TeacherUserControls
             var questions = ctx.Database.SqlQueryRaw<PCourse>("EXEC GetAllQuestions {0}", crsid).ToList();
 
             var questionsGV = this.Controls["QuestionsGV"] as DataGridView;
-            questionsGV.DataSource = questions;
+           // questionsGV.DataSource = questions;
         }
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
             using (var ctx = new iti_ExamContext())
             {
                 populateCourseList(ctx);
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
 
@@ -101,7 +101,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 if((courselst.SelectedItem as Course) != null)
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
     }

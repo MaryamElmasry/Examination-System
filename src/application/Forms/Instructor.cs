@@ -18,11 +18,20 @@ namespace application.Forms
     {
         public Instructor instructor;
         public Instructor owner;
+        public int InstructorID;
         public InstructorForm()
         {
             InitializeComponent();
         }
-        public InstructorForm(Instructor instructor):this()
+        // Login Constructor
+        public InstructorForm(int InstructorID)
+        {
+            this.InstructorID = InstructorID;
+            InitializeComponent();
+
+        }
+
+        public InstructorForm(Instructor instructor)
         {
             
             this.instructor = instructor;

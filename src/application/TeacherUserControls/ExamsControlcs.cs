@@ -32,9 +32,9 @@ namespace application.TeacherUserControls
             {
                 DeptList.DataSource = ctx.Departments.FromSqlRaw($"EXEC GetDeptsforIns {ins.InstructorId}").ToList();
                 DeptList.SelectedItem = 0;
-                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptId}").ToList();
+                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
                 DeptList.DisplayMember = "DeptName";
-                DeptList.ValueMember = "DeptId";
+                DeptList.ValueMember = "DeptID";
                 crsList.ValueMember = "CourseID";
                 crsList.DisplayMember = "CourseName";
             }
@@ -64,7 +64,7 @@ namespace application.TeacherUserControls
 
                 if (selectedDept != null)
                 {
-                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptId}").ToList();
+                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptID}").ToList();
 
                     if (courses.Any())
                     {

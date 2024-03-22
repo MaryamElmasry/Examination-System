@@ -46,6 +46,7 @@ namespace application.Forms
             BindingList<Models.Branch> bindingList = new BindingList<Models.Branch>(branches);
             gvBranches.DataSource = bindingList;
             gvBranches.Columns[2].Visible = false;
+            gvBranches.Columns[3].Visible = false;
             //Make the grid view editable
             gvBranches.ReadOnly = false;
             gvBranches.EditMode = DataGridViewEditMode.EditOnEnter;
@@ -179,6 +180,12 @@ namespace application.Forms
             Departments departments = new Departments();
             departments.ShowDialog();
             btnDisplayDepartments.ForeColor = Color.DarkGray;
+        }
+
+        private void btnDisplayCourses_Click(object sender, EventArgs e)
+        {
+            CoursesForm coursesForm = new CoursesForm();
+            coursesForm.ShowDialog();
         }
     }
 }

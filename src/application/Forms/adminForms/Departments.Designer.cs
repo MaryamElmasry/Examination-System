@@ -67,8 +67,7 @@
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Size = new Size(808, 456);
             panelShowReports.TabIndex = 52;
-            panelShowReports.Tag = "myTheme";
-            // 
+            panelShowReports.Tag = "myTheme";            // 
             // panel3
             // 
             panel3.BackColor = Color.Gold;
@@ -301,6 +300,7 @@
             txtDeptName.Name = "txtDeptName";
             txtDeptName.Size = new Size(185, 23);
             txtDeptName.TabIndex = 1;
+            txtDeptName.TextChanged += txtDeptName_TextChanged;
             // 
             // lstDepts
             // 

@@ -5,15 +5,13 @@ using System.Collections.Generic;
 
 namespace application.Models;
 
-public partial class StudentGrade
+public partial class Course_Dept
 {
     public int CourseID { get; set; }
 
-    public int studentID { get; set; }
-
-    public int? Grade { get; set; }
+    public int DeptId { get; set; }
 
     public virtual Course Course { get; set; }
 
-    public virtual Student student { get; set; }
+    public virtual Department Dept { get; set; }
 }

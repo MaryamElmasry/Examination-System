@@ -5,19 +5,13 @@ using System.Collections.Generic;
 
 namespace application.Models;
 
-public partial class StudentExamQuestion
+public partial class ExamQuestion
 {
-    public int SelectedAnswerIndex { get; set; }
-
     public int ExamID { get; set; }
 
     public int QuestionID { get; set; }
 
-    public int StudentID { get; set; }
-
     public virtual Exam Exam { get; set; }
 
     public virtual QuestionPool Question { get; set; }
-
-    public virtual Student Student { get; set; }
 }
