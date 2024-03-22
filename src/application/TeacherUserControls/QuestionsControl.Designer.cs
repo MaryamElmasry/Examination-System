@@ -32,7 +32,6 @@
             courselst = new ComboBox();
             label1 = new Label();
             AddQuestbtn = new Button();
-            DeleteQuestbtn = new Button();
             EditQuestbtn = new Button();
             ((System.ComponentModel.ISupportInitialize)QuestionsGV).BeginInit();
             SuspendLayout();
@@ -48,47 +47,42 @@
             // 
             // courselst
             // 
+            courselst.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
             courselst.FormattingEnabled = true;
-            courselst.Location = new Point(612, 33);
+            courselst.Location = new Point(599, 33);
             courselst.Name = "courselst";
-            courselst.Size = new Size(151, 28);
+            courselst.Size = new Size(151, 33);
             courselst.TabIndex = 1;
             courselst.SelectedValueChanged += CourseListUpdate;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(508, 36);
+            label1.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold);
+            label1.Location = new Point(468, 36);
             label1.Name = "label1";
-            label1.Size = new Size(98, 20);
+            label1.Size = new Size(125, 25);
             label1.TabIndex = 2;
             label1.Text = "Select Course";
             // 
             // AddQuestbtn
             // 
-            AddQuestbtn.Location = new Point(467, 425);
+            AddQuestbtn.BackColor = Color.FromArgb(0, 192, 0);
+            AddQuestbtn.Font = new Font("Segoe UI Semibold", 11F);
+            AddQuestbtn.Location = new Point(465, 425);
             AddQuestbtn.Name = "AddQuestbtn";
-            AddQuestbtn.Size = new Size(94, 29);
+            AddQuestbtn.Size = new Size(96, 39);
             AddQuestbtn.TabIndex = 3;
             AddQuestbtn.Text = "Add";
-            AddQuestbtn.UseVisualStyleBackColor = true;
+            AddQuestbtn.UseVisualStyleBackColor = false;
             AddQuestbtn.Click += AddQuestbtn_Click;
-            // 
-            // DeleteQuestbtn
-            // 
-            DeleteQuestbtn.Location = new Point(669, 425);
-            DeleteQuestbtn.Name = "DeleteQuestbtn";
-            DeleteQuestbtn.Size = new Size(94, 29);
-            DeleteQuestbtn.TabIndex = 4;
-            DeleteQuestbtn.Text = "Delete";
-            DeleteQuestbtn.UseVisualStyleBackColor = true;
-            DeleteQuestbtn.Click += DeleteQuestbtn_Click;
             // 
             // EditQuestbtn
             // 
+            EditQuestbtn.Font = new Font("Segoe UI Semibold", 11F);
             EditQuestbtn.Location = new Point(569, 425);
             EditQuestbtn.Name = "EditQuestbtn";
-            EditQuestbtn.Size = new Size(94, 29);
+            EditQuestbtn.Size = new Size(101, 39);
             EditQuestbtn.TabIndex = 5;
             EditQuestbtn.Text = "Edit";
             EditQuestbtn.UseVisualStyleBackColor = false;
@@ -99,7 +93,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(EditQuestbtn);
-            Controls.Add(DeleteQuestbtn);
             Controls.Add(AddQuestbtn);
             Controls.Add(label1);
             Controls.Add(courselst);
@@ -118,7 +111,6 @@
         private ComboBox courselst;
         private Label label1;
         private Button AddQuestbtn;
-        private Button DeleteQuestbtn;
         private Button EditQuestbtn;
     }
 }

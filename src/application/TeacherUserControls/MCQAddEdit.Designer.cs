@@ -41,6 +41,7 @@
             // Qr1
             // 
             Qr1.AutoSize = true;
+            Qr1.Font = new Font("Segoe UI Semibold", 12F);
             Qr1.Location = new Point(148, 69);
             Qr1.Name = "Qr1";
             Qr1.Size = new Size(17, 16);
@@ -51,6 +52,7 @@
             // Qr2
             // 
             Qr2.AutoSize = true;
+            Qr2.Font = new Font("Segoe UI Semibold", 12F);
             Qr2.Location = new Point(148, 102);
             Qr2.Name = "Qr2";
             Qr2.Size = new Size(17, 16);
@@ -61,6 +63,7 @@
             // Qr3
             // 
             Qr3.AutoSize = true;
+            Qr3.Font = new Font("Segoe UI Semibold", 12F);
             Qr3.Location = new Point(148, 135);
             Qr3.Name = "Qr3";
             Qr3.Size = new Size(17, 16);
@@ -71,6 +74,7 @@
             // Qr4
             // 
             Qr4.AutoSize = true;
+            Qr4.Font = new Font("Segoe UI Semibold", 12F);
             Qr4.Location = new Point(148, 168);
             Qr4.Name = "Qr4";
             Qr4.Size = new Size(17, 16);
@@ -80,30 +84,34 @@
             // 
             // Qc4
             // 
+            Qc4.Font = new Font("Segoe UI Semibold", 12F);
             Qc4.Location = new Point(171, 163);
             Qc4.Name = "Qc4";
-            Qc4.Size = new Size(273, 27);
+            Qc4.Size = new Size(273, 34);
             Qc4.TabIndex = 4;
             // 
             // Qc3
             // 
+            Qc3.Font = new Font("Segoe UI Semibold", 12F);
             Qc3.Location = new Point(171, 130);
             Qc3.Name = "Qc3";
-            Qc3.Size = new Size(273, 27);
+            Qc3.Size = new Size(273, 34);
             Qc3.TabIndex = 5;
             // 
             // Qc2
             // 
+            Qc2.Font = new Font("Segoe UI Semibold", 12F);
             Qc2.Location = new Point(171, 97);
             Qc2.Name = "Qc2";
-            Qc2.Size = new Size(273, 27);
+            Qc2.Size = new Size(273, 34);
             Qc2.TabIndex = 6;
             // 
             // Qc1
             // 
+            Qc1.Font = new Font("Segoe UI Semibold", 12F);
             Qc1.Location = new Point(171, 64);
             Qc1.Name = "Qc1";
-            Qc1.Size = new Size(273, 27);
+            Qc1.Size = new Size(273, 34);
             Qc1.TabIndex = 7;
             // 
             // MCQAddEdit

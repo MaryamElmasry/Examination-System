@@ -10,7 +10,7 @@ namespace application.projectionEntities
     {
         public bool isSelected { get; set; }
 
-        public int QuestionId { get; set; }
+        public int QuestionID { get; set; }
         public string Title { get; set; }
         public int Grade { get; set; }
 

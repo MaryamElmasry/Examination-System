@@ -1,4 +1,8 @@
-﻿using System;
+﻿using application.instructorDialog;
+using application.Models;
+using application.projectionEntities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +16,27 @@ namespace application.TeacherUserControls
 {
     public partial class MyCoursesControl : UserControl
     {
+        public Instructor ins;
         public MyCoursesControl()
         {
             InitializeComponent();
+
+
+
+        }
+
+        private void MyCoursesControl_Load(object sender, EventArgs e)
+        {
+            using (var ctx = new iti_ExamContext())
+            {
+                var nofstuds = ctx.Database.SqlQueryRaw<MyCoursesInfoP>($"EXEC getStudentsPerCourse {ins.InstructorID}").ToList();
+                dataGridView1.DataSource = nofstuds;
+            }
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            new PrintForm(this.ins.InstructorID, "MyCoursesInfo").Show();
         }
     }
 }

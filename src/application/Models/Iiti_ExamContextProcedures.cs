@@ -40,6 +40,6 @@ namespace application.Models
         Task<List<getTopicByNameAndCourseIDResult>> getTopicByNameAndCourseIDAsync(int? courseId, string topicName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> InsertSelectedAnswerIndexAsync(int? StudentID, int? ExamID, int? QuestionID, int? SelectedAnswerIndex, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> updateBranchNameAsync(int? id, string newName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
 }
