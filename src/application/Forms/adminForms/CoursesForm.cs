@@ -98,10 +98,10 @@ namespace application.Forms.adminForms
                         {
                             cLInstructors.SetItemChecked(itemIndex, true);
                         }
-                        
+
                     }
                 }
-                
+
             }
 
         }
@@ -323,7 +323,7 @@ namespace application.Forms.adminForms
                 }
             }
             //add the checked instructors to the database
-            foreach(int item in checkedInstructorsIds)
+            foreach (int item in checkedInstructorsIds)
             {
                 db.Database.ExecuteSqlRaw($"exec addInstructorCourse {selectedCrsID}, {item}");
             }
@@ -332,6 +332,37 @@ namespace application.Forms.adminForms
             populateCourseInstructors(selectedCrsID);
             //Done
             MessageBox.Show("Instructors updated successfully", "Updating success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnAddCourse_Click(object sender, EventArgs e)
+        {
+            //get the course name
+            string crsName = txtCrs.Text;
+            //check if the course name is not empty and more than 2 characters
+            if (crsName.Length < 2)
+            {
+                MessageBox.Show("Course name can't be less than 2 characters", "Adding fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //check if the name is not unique then display an error message
+            var courses = db.Courses.FromSql($"exec getCourseByName {crsName}").AsEnumerable().ToList();
+            if (courses.Any())
+            {
+                MessageBox.Show($"A course with the name {crsName} already exists", "Adding fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            //try to add the course in the database using a stored procedure (Display a success message if done)
+            try
+            {
+                db.Database.ExecuteSqlRaw($"exec AddCourse {crsName}");
+                populateCourseList();
+                MessageBox.Show("Course added successfully", "Adding success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("An unknown error occured", "Adding fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
