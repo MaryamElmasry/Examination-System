@@ -11,7 +11,7 @@ public partial class Instructor
 
     public virtual Branch Branch { get; set; }
 
-    public virtual ICollection<CourseDept> CourseDepts { get; set; } = new List<CourseDept>();
-
     public virtual User InstructorNavigation { get; set; }
+
+    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

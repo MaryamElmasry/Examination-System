@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             ExamsGV = new DataGridView();
             crsList = new ComboBox();
             DeptList = new ComboBox();
             Courses = new Label();
             label2 = new Label();
-            EditExam = new Button();
             DeleteExam = new Button();
             GenerateExam = new Button();
             PrintBtn = new Button();
@@ -43,6 +43,14 @@
             // ExamsGV
             // 
             ExamsGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            ExamsGV.DefaultCellStyle = dataGridViewCellStyle1;
             ExamsGV.Location = new Point(3, 66);
             ExamsGV.Name = "ExamsGV";
             ExamsGV.RowHeadersWidth = 51;
@@ -52,6 +60,7 @@
             // 
             // crsList
             // 
+            crsList.Font = new Font("Segoe UI Semibold", 9F);
             crsList.FormattingEnabled = true;
             crsList.Location = new Point(612, 18);
             crsList.Name = "crsList";
@@ -62,6 +71,7 @@
             // 
             // DeptList
             // 
+            DeptList.Font = new Font("Segoe UI Semibold", 9F);
             DeptList.FormattingEnabled = true;
             DeptList.Location = new Point(378, 18);
             DeptList.Name = "DeptList";
@@ -72,57 +82,57 @@
             // Courses
             // 
             Courses.AutoSize = true;
+            Courses.Font = new Font("Segoe UI Semibold", 9F);
             Courses.Location = new Point(546, 21);
             Courses.Name = "Courses";
-            Courses.Size = new Size(60, 20);
+            Courses.Size = new Size(62, 20);
             Courses.TabIndex = 3;
             Courses.Text = "Courses";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 9F);
             label2.Location = new Point(277, 21);
             label2.Name = "label2";
-            label2.Size = new Size(95, 20);
+            label2.Size = new Size(97, 20);
             label2.TabIndex = 4;
             label2.Text = "Departments";
             // 
-            // EditExam
-            // 
-            EditExam.Location = new Point(481, 423);
-            EditExam.Name = "EditExam";
-            EditExam.Size = new Size(94, 29);
-            EditExam.TabIndex = 5;
-            EditExam.Text = "Edit Exam";
-            EditExam.UseVisualStyleBackColor = true;
-            // 
             // DeleteExam
             // 
-            DeleteExam.Location = new Point(581, 423);
+            DeleteExam.BackColor = Color.Red;
+            DeleteExam.Font = new Font("Segoe UI Semibold", 11F);
+            DeleteExam.Location = new Point(481, 423);
             DeleteExam.Name = "DeleteExam";
-            DeleteExam.Size = new Size(159, 29);
+            DeleteExam.Size = new Size(159, 38);
             DeleteExam.TabIndex = 6;
             DeleteExam.Text = "Delete Exam";
-            DeleteExam.UseVisualStyleBackColor = true;
+            DeleteExam.UseVisualStyleBackColor = false;
+            DeleteExam.Click += DeleteExam_Click;
             // 
             // GenerateExam
             // 
+            GenerateExam.BackColor = SystemColors.ActiveCaption;
+            GenerateExam.Font = new Font("Segoe UI Semibold", 11F);
             GenerateExam.Location = new Point(317, 423);
             GenerateExam.Name = "GenerateExam";
-            GenerateExam.Size = new Size(158, 29);
+            GenerateExam.Size = new Size(158, 38);
             GenerateExam.TabIndex = 7;
             GenerateExam.Text = "Generate Exam";
-            GenerateExam.UseVisualStyleBackColor = true;
+            GenerateExam.UseVisualStyleBackColor = false;
             GenerateExam.Click += GenerateExam_Click;
             // 
             // PrintBtn
             // 
+            PrintBtn.BackColor = SystemColors.ActiveCaption;
+            PrintBtn.Font = new Font("Segoe UI Semibold", 11F);
             PrintBtn.Location = new Point(217, 423);
             PrintBtn.Name = "PrintBtn";
-            PrintBtn.Size = new Size(94, 29);
+            PrintBtn.Size = new Size(94, 38);
             PrintBtn.TabIndex = 8;
             PrintBtn.Text = "Print";
-            PrintBtn.UseVisualStyleBackColor = true;
+            PrintBtn.UseVisualStyleBackColor = false;
             PrintBtn.Click += PrintBtn_Click;
             // 
             // ExamsControlcs
@@ -132,7 +142,6 @@
             Controls.Add(PrintBtn);
             Controls.Add(GenerateExam);
             Controls.Add(DeleteExam);
-            Controls.Add(EditExam);
             Controls.Add(label2);
             Controls.Add(Courses);
             Controls.Add(DeptList);
@@ -153,7 +162,6 @@
         private ComboBox DeptList;
         private Label Courses;
         private Label label2;
-        private Button EditExam;
         private Button DeleteExam;
         private Button GenerateExam;
         private Button PrintBtn;

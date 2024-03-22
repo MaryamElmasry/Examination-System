@@ -15,16 +15,19 @@ namespace application.TeacherUserControls
 {
     public partial class GradesControl : UserControl
     {
+        private int selecteditem;
+        private int studentitem;
         public GradesControl()
         {
             InitializeComponent();
+
         }
 
         private void GradesControl_Load(object sender, EventArgs e)
         {
             using (var ctx = new iti_ExamContext())
             {
-                var depts = ctx.Database.SqlQueryRaw<PDepartment>($"EXEC GetDeptsforIns {4}").ToList();
+                var depts = ctx.Departments.FromSqlRaw("EXEC GetDeptsforIns 1").ToList();
                 DeptsList.DataSource = depts;
                 DeptsList.DisplayMember = "DeptName";
                 DeptsList.ValueMember = "DeptId";
@@ -41,7 +44,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 dynamic deptitem = DeptsList.SelectedItem;
-                var crs = ctx.Database.SqlQueryRaw<deptcrs>($"EXEC GetDeptCoursesforIns {4}, {deptitem.DeptId}").ToList();
+                var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptId}").ToList();
                 CoursesList.DataSource = crs;
                 CoursesList.DisplayMember = "CourseName";
                 CoursesList.ValueMember = "CourseID";
@@ -53,18 +56,43 @@ namespace application.TeacherUserControls
             dynamic dept = DeptsList.SelectedItem;
             using (var ctx = new iti_ExamContext())
             {
-                StudentsGV.DataSource = ctx.Database.SqlQueryRaw<studentName>($"EXEC GetStudentsByDeptBarch {1}, {dept.DeptId}").ToList();
+                StudentsGV.DataSource = ctx.Database.SqlQueryRaw<PStudent>($"EXEC GetStudentsByDept {dept.DeptId}").ToList();
 
             }
+            studentitem = -1;
         }
 
         private void UpdateExamGrid(object sender, EventArgs e)
         {
             dynamic dept = DeptsList.SelectedItem;
             dynamic crs = CoursesList.SelectedItem;
-            using (var  ctx = new iti_ExamContext())
+            using (var ctx = new iti_ExamContext())
             {
-                ExamsGV.DataSource = ctx.Database.SqlQueryRaw<ExamView>($"EXEC GetExamsDeptCourse {dept.DeptId} , {crs.CourseID}").ToList();
+                ExamsGV.DataSource = ctx.Database.SqlQueryRaw<ExamView>($"EXEC GetExamsDeptCourse {dept.DeptId} , {crs.CourseId}").ToList();
+            }
+            selecteditem = -1;
+            if(StudentsGV.SelectedRows.Count > 0)
+            {
+                studentitem = int.Parse(StudentsGV.SelectedRows[0].Cells[0].FormattedValue.ToString());
+
+            }
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+          if(selecteditem != -1 && studentitem != -1) {
+          
+
+
+          }
+
+        }
+
+        private void updateSelectedItem(object sender, EventArgs e)
+        {
+            if (StudentsGV.SelectedRows.Count > 0)
+            {
+                studentitem = int.Parse(StudentsGV.SelectedRows[0].Cells[0].FormattedValue.ToString());
             }
         }
     }

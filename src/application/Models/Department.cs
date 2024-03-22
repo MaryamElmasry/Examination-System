@@ -9,11 +9,13 @@ public partial class Department
 
     public string DeptName { get; set; }
 
-    public virtual ICollection<CourseDept> CourseDepts { get; set; } = new List<CourseDept>();
+    public int? BranchId { get; set; }
+
+    public virtual Branch Branch { get; set; }
 
     public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 
     public virtual ICollection<Student> Students { get; set; } = new List<Student>();
 
-    public virtual ICollection<Branch> Branches { get; set; } = new List<Branch>();
+    public virtual ICollection<Course> Courses { get; set; } = new List<Course>();
 }

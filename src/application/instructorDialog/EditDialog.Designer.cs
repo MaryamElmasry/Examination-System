@@ -37,17 +37,19 @@
             // 
             // QtE
             // 
-            QtE.Location = new Point(232, 63);
+            QtE.Font = new Font("Segoe UI Semibold", 12F);
+            QtE.Location = new Point(240, 63);
             QtE.Name = "QtE";
-            QtE.Size = new Size(394, 27);
+            QtE.Size = new Size(386, 34);
             QtE.TabIndex = 0;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(127, 66);
+            label1.Font = new Font("Segoe UI Semibold", 12F);
+            label1.Location = new Point(96, 66);
             label1.Name = "label1";
-            label1.Size = new Size(99, 20);
+            label1.Size = new Size(138, 28);
             label1.TabIndex = 1;
             label1.Text = "Question Text";
             // 
@@ -60,12 +62,14 @@
             // 
             // button1
             // 
-            button1.Location = new Point(659, 378);
+            button1.BackColor = SystemColors.ActiveCaption;
+            button1.Font = new Font("Segoe UI Semibold", 12F);
+            button1.Location = new Point(667, 390);
             button1.Name = "button1";
-            button1.Size = new Size(129, 60);
+            button1.Size = new Size(121, 48);
             button1.TabIndex = 3;
             button1.Text = "Save";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // tfAddEdit1

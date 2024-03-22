@@ -22,10 +22,14 @@ namespace application.Forms
         {
             InitializeComponent();
         }
-        public InstructorForm(Instructor instructor)
+        public InstructorForm(Instructor instructor):this()
         {
-            InitializeComponent();
+            
             this.instructor = instructor;
+            examsControlcs1.ins = this.instructor;
+            questionsControl1.ins = this.instructor;
+            myCoursesControl1.ins = this.instructor;
+
         }
 
         private void MyCoursesbtn_Click(object sender, EventArgs e)

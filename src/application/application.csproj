@@ -38,10 +38,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="Reports\DetailedSet.Designer.cs">
+    <Compile Update="Reports\CoursesInfo.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>DetailedSet.xsd</DependentUpon>
+      <DependentUpon>CoursesInfo.xsd</DependentUpon>
     </Compile>
     <Compile Update="Reports\ExamSet.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -62,9 +62,9 @@
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>iti_examDataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Update="Reports\DetailedSet.xsd">
+    <None Update="Reports\CoursesInfo.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DetailedSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>CoursesInfo.Designer.cs</LastGenOutput>
     </None>
     <None Update="Reports\ExamSet.xsd">
       <Generator>MSDataSetGenerator</Generator>

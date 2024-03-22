@@ -19,8 +19,6 @@ public partial class iti_ExamContext : DbContext
 
     public virtual DbSet<Course> Courses { get; set; }
 
-    public virtual DbSet<CourseDept> CourseDepts { get; set; }
-
     public virtual DbSet<CourseTopic> CourseTopics { get; set; }
 
     public virtual DbSet<Department> Departments { get; set; }
@@ -49,7 +47,7 @@ public partial class iti_ExamContext : DbContext
     {
         modelBuilder.Entity<Branch>(entity =>
         {
-            entity.HasKey(e => e.BranchId).HasName("PK__Branches__A1682FA5505AB23D");
+            entity.HasKey(e => e.BranchId).HasName("PK__Branches__A1682FA50509B352");
 
             entity.Property(e => e.BranchId).HasColumnName("BranchID");
             entity.Property(e => e.BranchName)
@@ -67,36 +65,47 @@ public partial class iti_ExamContext : DbContext
             entity.Property(e => e.CourseName)
                 .IsRequired()
                 .HasMaxLength(255);
-        });
 
-        modelBuilder.Entity<CourseDept>(entity =>
-        {
-            entity.HasKey(e => new { e.CourseId, e.DeptId, e.InsId });
+            entity.HasMany(d => d.Depts).WithMany(p => p.Courses)
+                .UsingEntity<Dictionary<string, object>>(
+                    "CourseDept",
+                    r => r.HasOne<Department>().WithMany()
+                        .HasForeignKey("DeptId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Course_Dept_Departments"),
+                    l => l.HasOne<Course>().WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Course_Dept_Courses"),
+                    j =>
+                    {
+                        j.HasKey("CourseId", "DeptId");
+                        j.ToTable("Course_Dept");
+                        j.IndexerProperty<int>("CourseId").HasColumnName("CourseID");
+                    });
 
-            entity.ToTable("Course_Dept");
-
-            entity.Property(e => e.CourseId).HasColumnName("CourseID");
-            entity.Property(e => e.InsId).HasColumnName("ins_id");
-
-            entity.HasOne(d => d.Course).WithMany(p => p.CourseDepts)
-                .HasForeignKey(d => d.CourseId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Course_Dept_Courses");
-
-            entity.HasOne(d => d.Dept).WithMany(p => p.CourseDepts)
-                .HasForeignKey(d => d.DeptId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Course_Dept_Departments");
-
-            entity.HasOne(d => d.Ins).WithMany(p => p.CourseDepts)
-                .HasForeignKey(d => d.InsId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Course_Dept_Instructors");
+            entity.HasMany(d => d.Instructors).WithMany(p => p.Courses)
+                .UsingEntity<Dictionary<string, object>>(
+                    "InstructorCourse",
+                    r => r.HasOne<Instructor>().WithMany()
+                        .HasForeignKey("InstructorId")
+                        .HasConstraintName("FK_Instructor_Courses_Instructors"),
+                    l => l.HasOne<Course>().WithMany()
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.ClientSetNull)
+                        .HasConstraintName("FK_Instructor_Courses_Courses"),
+                    j =>
+                    {
+                        j.HasKey("CourseId", "InstructorId");
+                        j.ToTable("Instructor_Courses");
+                        j.IndexerProperty<int>("CourseId").HasColumnName("CourseID");
+                        j.IndexerProperty<int>("InstructorId").HasColumnName("InstructorID");
+                    });
         });
 
         modelBuilder.Entity<CourseTopic>(entity =>
         {
-            entity.HasKey(e => new { e.Topic, e.CourseId }).HasName("PK__CourseTo__70515EC6E5D4A84C");
+            entity.HasKey(e => new { e.Topic, e.CourseId }).HasName("PK__CourseTo__70515EC69ECC23E6");
 
             entity.Property(e => e.Topic).HasMaxLength(255);
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
@@ -109,35 +118,22 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<Department>(entity =>
         {
-            entity.HasKey(e => e.DeptId).HasName("PK__Departme__0148818EDF086DEB");
+            entity.HasKey(e => e.DeptId).HasName("PK__Departme__0148818E574C3B28");
 
             entity.Property(e => e.DeptId).HasColumnName("DeptID");
+            entity.Property(e => e.BranchId).HasColumnName("BranchID");
             entity.Property(e => e.DeptName)
                 .IsRequired()
                 .HasMaxLength(255);
 
-            entity.HasMany(d => d.Branches).WithMany(p => p.Depts)
-                .UsingEntity<Dictionary<string, object>>(
-                    "DeptBranch",
-                    r => r.HasOne<Branch>().WithMany()
-                        .HasForeignKey("BranchId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_dept_Branches_Branches"),
-                    l => l.HasOne<Department>().WithMany()
-                        .HasForeignKey("DeptId")
-                        .OnDelete(DeleteBehavior.ClientSetNull)
-                        .HasConstraintName("FK_dept_Branches_Departments"),
-                    j =>
-                    {
-                        j.HasKey("DeptId", "BranchId");
-                        j.ToTable("dept_Branches");
-                        j.IndexerProperty<int>("DeptId").HasColumnName("deptId");
-                    });
+            entity.HasOne(d => d.Branch).WithMany(p => p.Departments)
+                .HasForeignKey(d => d.BranchId)
+                .HasConstraintName("FK__Departmen__Branc__5629CD9C");
         });
 
         modelBuilder.Entity<Exam>(entity =>
         {
-            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7F7929A2B");
+            entity.HasKey(e => e.ExamId).HasName("PK__Exams__297521A7BDD81A74");
 
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
@@ -165,7 +161,7 @@ public partial class iti_ExamContext : DbContext
                         .HasConstraintName("FK__ExamQuest__ExamI__571DF1D5"),
                     j =>
                     {
-                        j.HasKey("ExamId", "QuestionId").HasName("PK__ExamQues__F9A9275F9E0966EF");
+                        j.HasKey("ExamId", "QuestionId").HasName("PK__ExamQues__F9A9275F2F69A693");
                         j.ToTable("ExamQuestions");
                         j.IndexerProperty<int>("ExamId").HasColumnName("ExamID");
                         j.IndexerProperty<int>("QuestionId").HasColumnName("QuestionID");
@@ -188,13 +184,12 @@ public partial class iti_ExamContext : DbContext
 
             entity.HasOne(d => d.InstructorNavigation).WithOne(p => p.Instructor)
                 .HasForeignKey<Instructor>(d => d.InstructorId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_Instructors_Users");
+                .HasConstraintName("FK__Instructo__Instr__59FA5E80");
         });
 
         modelBuilder.Entity<QuestionChoice>(entity =>
         {
-            entity.HasKey(e => new { e.QuestionId, e.ChoiceIndex }).HasName("PK__Question__6CFB75DB806E9646");
+            entity.HasKey(e => new { e.QuestionId, e.ChoiceIndex }).HasName("PK__Question__6CFB75DBC197D186");
 
             entity.Property(e => e.QuestionId).HasColumnName("QuestionID");
             entity.Property(e => e.Choice)
@@ -209,7 +204,7 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<QuestionPool>(entity =>
         {
-            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8C0B9510FD");
+            entity.HasKey(e => e.QuestionId).HasName("PK__Question__0DC06F8C3C95DC14");
 
             entity.Property(e => e.QuestionId).HasColumnName("QuestionID");
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
@@ -225,16 +220,12 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<Student>(entity =>
         {
-            entity.HasKey(e => e.StudentId).HasName("PK__Students__32C52A79AE8CBA99");
+            entity.HasKey(e => e.StudentId).HasName("PK__Students__32C52A7961B647A0");
 
             entity.Property(e => e.StudentId)
                 .ValueGeneratedNever()
                 .HasColumnName("StudentID");
             entity.Property(e => e.DeptId).HasColumnName("DeptID");
-
-            entity.HasOne(d => d.BranchNavigation).WithMany(p => p.Students)
-                .HasForeignKey(d => d.Branch)
-                .HasConstraintName("FK_Students_Branches");
 
             entity.HasOne(d => d.Dept).WithMany(p => p.Students)
                 .HasForeignKey(d => d.DeptId)
@@ -247,7 +238,7 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<StudentExamQuestion>(entity =>
         {
-            entity.HasKey(e => new { e.ExamId, e.QuestionId, e.StudentId }).HasName("PK__StudentE__819BE27556042C8D");
+            entity.HasKey(e => new { e.ExamId, e.QuestionId, e.StudentId }).HasName("PK__StudentE__819BE2750EEF8A0A");
 
             entity.Property(e => e.ExamId).HasColumnName("ExamID");
             entity.Property(e => e.QuestionId).HasColumnName("QuestionID");
@@ -271,7 +262,7 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<StudentGrade>(entity =>
         {
-            entity.HasKey(e => new { e.CourseId, e.StudentId }).HasName("PK__StudentG__1DFC6CE20FE79FFF");
+            entity.HasKey(e => new { e.CourseId, e.StudentId }).HasName("PK__StudentG__1DFC6CE23993B37C");
 
             entity.Property(e => e.CourseId).HasColumnName("CourseID");
             entity.Property(e => e.StudentId).HasColumnName("studentID");
@@ -289,7 +280,7 @@ public partial class iti_ExamContext : DbContext
 
         modelBuilder.Entity<User>(entity =>
         {
-            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC91C15627");
+            entity.HasKey(e => e.UserId).HasName("PK__Users__1788CCAC32B0D273");
 
             entity.Property(e => e.UserId).HasColumnName("UserID");
             entity.Property(e => e.Address)

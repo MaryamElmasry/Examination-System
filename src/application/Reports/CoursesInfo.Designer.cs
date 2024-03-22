@@ -20,17 +20,17 @@ namespace application.Reports {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DetailedSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("CoursesInfo")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DetailedSet : global::System.Data.DataSet {
+    public partial class CoursesInfo : global::System.Data.DataSet {
         
-        private DetailedDataTable tableDetailed;
+        private MyCoursesInfoPDataTable tableMyCoursesInfoP;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DetailedSet() {
+        public CoursesInfo() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace application.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DetailedSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected CoursesInfo(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace application.Reports {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Detailed"] != null)) {
-                    base.Tables.Add(new DetailedDataTable(ds.Tables["Detailed"]));
+                if ((ds.Tables["MyCoursesInfoP"] != null)) {
+                    base.Tables.Add(new MyCoursesInfoPDataTable(ds.Tables["MyCoursesInfoP"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace application.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DetailedDataTable Detailed {
+        public MyCoursesInfoPDataTable MyCoursesInfoP {
             get {
-                return this.tableDetailed;
+                return this.tableMyCoursesInfoP;
             }
         }
         
@@ -127,7 +127,7 @@ namespace application.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DetailedSet cln = ((DetailedSet)(base.Clone()));
+            CoursesInfo cln = ((CoursesInfo)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace application.Reports {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Detailed"] != null)) {
-                    base.Tables.Add(new DetailedDataTable(ds.Tables["Detailed"]));
+                if ((ds.Tables["MyCoursesInfoP"] != null)) {
+                    base.Tables.Add(new MyCoursesInfoPDataTable(ds.Tables["MyCoursesInfoP"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace application.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDetailed = ((DetailedDataTable)(base.Tables["Detailed"]));
+            this.tableMyCoursesInfoP = ((MyCoursesInfoPDataTable)(base.Tables["MyCoursesInfoP"]));
             if ((initTable == true)) {
-                if ((this.tableDetailed != null)) {
-                    this.tableDetailed.InitVars();
+                if ((this.tableMyCoursesInfoP != null)) {
+                    this.tableMyCoursesInfoP.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace application.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DetailedSet";
+            this.DataSetName = "CoursesInfo";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DetailedSet.xsd";
+            this.Namespace = "http://tempuri.org/CoursesInfo.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDetailed = new DetailedDataTable();
-            base.Tables.Add(this.tableDetailed);
+            this.tableMyCoursesInfoP = new MyCoursesInfoPDataTable();
+            base.Tables.Add(this.tableMyCoursesInfoP);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeDetailed() {
+        private bool ShouldSerializeMyCoursesInfoP() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace application.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DetailedSet ds = new DetailedSet();
+            CoursesInfo ds = new CoursesInfo();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,25 +270,23 @@ namespace application.Reports {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void DetailedRowChangeEventHandler(object sender, DetailedRowChangeEvent e);
+        public delegate void MyCoursesInfoPRowChangeEventHandler(object sender, MyCoursesInfoPRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DetailedDataTable : global::System.Data.TypedTableBase<DetailedRow> {
+        public partial class MyCoursesInfoPDataTable : global::System.Data.TypedTableBase<MyCoursesInfoPRow> {
             
-            private global::System.Data.DataColumn columnTitle;
+            private global::System.Data.DataColumn columnCourseName;
             
-            private global::System.Data.DataColumn columnSelected_Choice;
-            
-            private global::System.Data.DataColumn columncorrect_Choice;
+            private global::System.Data.DataColumn columnNofStuds;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedDataTable() {
-                this.TableName = "Detailed";
+            public MyCoursesInfoPDataTable() {
+                this.TableName = "MyCoursesInfoP";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +294,7 @@ namespace application.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DetailedDataTable(global::System.Data.DataTable table) {
+            internal MyCoursesInfoPDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,32 +311,24 @@ namespace application.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected DetailedDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected MyCoursesInfoPDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn TitleColumn {
+            public global::System.Data.DataColumn CourseNameColumn {
                 get {
-                    return this.columnTitle;
+                    return this.columnCourseName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn Selected_ChoiceColumn {
+            public global::System.Data.DataColumn NofStudsColumn {
                 get {
-                    return this.columnSelected_Choice;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn correct_ChoiceColumn {
-                get {
-                    return this.columncorrect_Choice;
+                    return this.columnNofStuds;
                 }
             }
             
@@ -353,47 +343,46 @@ namespace application.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedRow this[int index] {
+            public MyCoursesInfoPRow this[int index] {
                 get {
-                    return ((DetailedRow)(this.Rows[index]));
+                    return ((MyCoursesInfoPRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DetailedRowChangeEventHandler DetailedRowChanging;
+            public event MyCoursesInfoPRowChangeEventHandler MyCoursesInfoPRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DetailedRowChangeEventHandler DetailedRowChanged;
+            public event MyCoursesInfoPRowChangeEventHandler MyCoursesInfoPRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DetailedRowChangeEventHandler DetailedRowDeleting;
+            public event MyCoursesInfoPRowChangeEventHandler MyCoursesInfoPRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event DetailedRowChangeEventHandler DetailedRowDeleted;
+            public event MyCoursesInfoPRowChangeEventHandler MyCoursesInfoPRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddDetailedRow(DetailedRow row) {
+            public void AddMyCoursesInfoPRow(MyCoursesInfoPRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedRow AddDetailedRow(string Title, string Selected_Choice, string correct_Choice) {
-                DetailedRow rowDetailedRow = ((DetailedRow)(this.NewRow()));
+            public MyCoursesInfoPRow AddMyCoursesInfoPRow(string CourseName, int NofStuds) {
+                MyCoursesInfoPRow rowMyCoursesInfoPRow = ((MyCoursesInfoPRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Title,
-                        Selected_Choice,
-                        correct_Choice};
-                rowDetailedRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDetailedRow);
-                return rowDetailedRow;
+                        CourseName,
+                        NofStuds};
+                rowMyCoursesInfoPRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMyCoursesInfoPRow);
+                return rowMyCoursesInfoPRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DetailedDataTable cln = ((DetailedDataTable)(base.Clone()));
+                MyCoursesInfoPDataTable cln = ((MyCoursesInfoPDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,52 +390,49 @@ namespace application.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DetailedDataTable();
+                return new MyCoursesInfoPDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
-                this.columnTitle = base.Columns["Title"];
-                this.columnSelected_Choice = base.Columns["Selected Choice"];
-                this.columncorrect_Choice = base.Columns["correct Choice"];
+                this.columnCourseName = base.Columns["CourseName"];
+                this.columnNofStuds = base.Columns["NofStuds"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             private void InitClass() {
-                this.columnTitle = new global::System.Data.DataColumn("Title", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTitle);
-                this.columnSelected_Choice = new global::System.Data.DataColumn("Selected Choice", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSelected_Choice);
-                this.columncorrect_Choice = new global::System.Data.DataColumn("correct Choice", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncorrect_Choice);
+                this.columnCourseName = new global::System.Data.DataColumn("CourseName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCourseName);
+                this.columnNofStuds = new global::System.Data.DataColumn("NofStuds", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNofStuds);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedRow NewDetailedRow() {
-                return ((DetailedRow)(this.NewRow()));
+            public MyCoursesInfoPRow NewMyCoursesInfoPRow() {
+                return ((MyCoursesInfoPRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DetailedRow(builder);
+                return new MyCoursesInfoPRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DetailedRow);
+                return typeof(MyCoursesInfoPRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DetailedRowChanged != null)) {
-                    this.DetailedRowChanged(this, new DetailedRowChangeEvent(((DetailedRow)(e.Row)), e.Action));
+                if ((this.MyCoursesInfoPRowChanged != null)) {
+                    this.MyCoursesInfoPRowChanged(this, new MyCoursesInfoPRowChangeEvent(((MyCoursesInfoPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -454,8 +440,8 @@ namespace application.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DetailedRowChanging != null)) {
-                    this.DetailedRowChanging(this, new DetailedRowChangeEvent(((DetailedRow)(e.Row)), e.Action));
+                if ((this.MyCoursesInfoPRowChanging != null)) {
+                    this.MyCoursesInfoPRowChanging(this, new MyCoursesInfoPRowChangeEvent(((MyCoursesInfoPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -463,8 +449,8 @@ namespace application.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DetailedRowDeleted != null)) {
-                    this.DetailedRowDeleted(this, new DetailedRowChangeEvent(((DetailedRow)(e.Row)), e.Action));
+                if ((this.MyCoursesInfoPRowDeleted != null)) {
+                    this.MyCoursesInfoPRowDeleted(this, new MyCoursesInfoPRowChangeEvent(((MyCoursesInfoPRow)(e.Row)), e.Action));
                 }
             }
             
@@ -472,14 +458,14 @@ namespace application.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DetailedRowDeleting != null)) {
-                    this.DetailedRowDeleting(this, new DetailedRowChangeEvent(((DetailedRow)(e.Row)), e.Action));
+                if ((this.MyCoursesInfoPRowDeleting != null)) {
+                    this.MyCoursesInfoPRowDeleting(this, new MyCoursesInfoPRowChangeEvent(((MyCoursesInfoPRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveDetailedRow(DetailedRow row) {
+            public void RemoveMyCoursesInfoPRow(MyCoursesInfoPRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -488,7 +474,7 @@ namespace application.Reports {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DetailedSet ds = new DetailedSet();
+                CoursesInfo ds = new CoursesInfo();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -506,7 +492,7 @@ namespace application.Reports {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DetailedDataTable";
+                attribute2.FixedValue = "MyCoursesInfoPDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -550,99 +536,71 @@ namespace application.Reports {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DetailedRow : global::System.Data.DataRow {
+        public partial class MyCoursesInfoPRow : global::System.Data.DataRow {
             
-            private DetailedDataTable tableDetailed;
+            private MyCoursesInfoPDataTable tableMyCoursesInfoP;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal DetailedRow(global::System.Data.DataRowBuilder rb) : 
+            internal MyCoursesInfoPRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDetailed = ((DetailedDataTable)(this.Table));
+                this.tableMyCoursesInfoP = ((MyCoursesInfoPDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Title {
+            public string CourseName {
                 get {
                     try {
-                        return ((string)(this[this.tableDetailed.TitleColumn]));
+                        return ((string)(this[this.tableMyCoursesInfoP.CourseNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Title\' in table \'Detailed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CourseName\' in table \'MyCoursesInfoP\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDetailed.TitleColumn] = value;
+                    this[this.tableMyCoursesInfoP.CourseNameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Selected_Choice {
+            public int NofStuds {
                 get {
                     try {
-                        return ((string)(this[this.tableDetailed.Selected_ChoiceColumn]));
+                        return ((int)(this[this.tableMyCoursesInfoP.NofStudsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Selected Choice\' in table \'Detailed\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NofStuds\' in table \'MyCoursesInfoP\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDetailed.Selected_ChoiceColumn] = value;
+                    this[this.tableMyCoursesInfoP.NofStudsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string correct_Choice {
-                get {
-                    try {
-                        return ((string)(this[this.tableDetailed.correct_ChoiceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'correct Choice\' in table \'Detailed\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDetailed.correct_ChoiceColumn] = value;
-                }
+            public bool IsCourseNameNull() {
+                return this.IsNull(this.tableMyCoursesInfoP.CourseNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsTitleNull() {
-                return this.IsNull(this.tableDetailed.TitleColumn);
+            public void SetCourseNameNull() {
+                this[this.tableMyCoursesInfoP.CourseNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetTitleNull() {
-                this[this.tableDetailed.TitleColumn] = global::System.Convert.DBNull;
+            public bool IsNofStudsNull() {
+                return this.IsNull(this.tableMyCoursesInfoP.NofStudsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsSelected_ChoiceNull() {
-                return this.IsNull(this.tableDetailed.Selected_ChoiceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetSelected_ChoiceNull() {
-                this[this.tableDetailed.Selected_ChoiceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Iscorrect_ChoiceNull() {
-                return this.IsNull(this.tableDetailed.correct_ChoiceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setcorrect_ChoiceNull() {
-                this[this.tableDetailed.correct_ChoiceColumn] = global::System.Convert.DBNull;
+            public void SetNofStudsNull() {
+                this[this.tableMyCoursesInfoP.NofStudsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -650,22 +608,22 @@ namespace application.Reports {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class DetailedRowChangeEvent : global::System.EventArgs {
+        public class MyCoursesInfoPRowChangeEvent : global::System.EventArgs {
             
-            private DetailedRow eventRow;
+            private MyCoursesInfoPRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedRowChangeEvent(DetailedRow row, global::System.Data.DataRowAction action) {
+            public MyCoursesInfoPRowChangeEvent(MyCoursesInfoPRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public DetailedRow Row {
+            public MyCoursesInfoPRow Row {
                 get {
                     return this.eventRow;
                 }

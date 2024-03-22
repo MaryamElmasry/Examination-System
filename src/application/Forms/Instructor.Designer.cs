@@ -56,52 +56,62 @@
             // 
             // Questionsbtn
             // 
-            Questionsbtn.Location = new Point(0, 294);
+            Questionsbtn.BackColor = SystemColors.ActiveCaption;
+            Questionsbtn.Font = new Font("Segoe UI Semibold", 12F);
+            Questionsbtn.Location = new Point(3, 294);
             Questionsbtn.Name = "Questionsbtn";
             Questionsbtn.Size = new Size(203, 49);
             Questionsbtn.TabIndex = 4;
             Questionsbtn.Text = "Questions";
-            Questionsbtn.UseVisualStyleBackColor = true;
+            Questionsbtn.UseVisualStyleBackColor = false;
             Questionsbtn.Click += Questionsbtn_Click;
             // 
             // Topicsbtn
             // 
-            Topicsbtn.Location = new Point(0, 239);
+            Topicsbtn.BackColor = SystemColors.ActiveCaption;
+            Topicsbtn.Font = new Font("Segoe UI Semibold", 12F);
+            Topicsbtn.Location = new Point(3, 239);
             Topicsbtn.Name = "Topicsbtn";
             Topicsbtn.Size = new Size(203, 49);
             Topicsbtn.TabIndex = 3;
             Topicsbtn.Text = "Topics";
-            Topicsbtn.UseVisualStyleBackColor = true;
+            Topicsbtn.UseVisualStyleBackColor = false;
             Topicsbtn.Click += Topicsbtn_Click;
             // 
             // GradesBtn
             // 
+            GradesBtn.BackColor = SystemColors.ActiveCaption;
+            GradesBtn.Font = new Font("Segoe UI Semibold", 12F);
             GradesBtn.Location = new Point(3, 184);
             GradesBtn.Name = "GradesBtn";
             GradesBtn.Size = new Size(203, 49);
             GradesBtn.TabIndex = 2;
             GradesBtn.Text = "Grades";
-            GradesBtn.UseVisualStyleBackColor = true;
+            GradesBtn.UseVisualStyleBackColor = false;
             GradesBtn.Click += GradesBtn_Click;
             // 
             // Examsbtn
             // 
-            Examsbtn.Location = new Point(0, 129);
+            Examsbtn.BackColor = SystemColors.ActiveCaption;
+            Examsbtn.Font = new Font("Segoe UI Semibold", 12F);
+            Examsbtn.Location = new Point(3, 129);
             Examsbtn.Name = "Examsbtn";
             Examsbtn.Size = new Size(203, 49);
             Examsbtn.TabIndex = 1;
             Examsbtn.Text = "Exams";
-            Examsbtn.UseVisualStyleBackColor = true;
+            Examsbtn.UseVisualStyleBackColor = false;
             Examsbtn.Click += Examsbtn_Click;
             // 
             // MyCoursesbtn
             // 
+            MyCoursesbtn.BackColor = SystemColors.ActiveCaption;
+            MyCoursesbtn.Font = new Font("Segoe UI Semibold", 12F);
             MyCoursesbtn.Location = new Point(3, 74);
             MyCoursesbtn.Name = "MyCoursesbtn";
             MyCoursesbtn.Size = new Size(203, 49);
             MyCoursesbtn.TabIndex = 0;
             MyCoursesbtn.Text = "MyCourses";
-            MyCoursesbtn.UseVisualStyleBackColor = true;
+            MyCoursesbtn.UseVisualStyleBackColor = false;
             MyCoursesbtn.Click += MyCoursesbtn_Click;
             // 
             // gradesControl1

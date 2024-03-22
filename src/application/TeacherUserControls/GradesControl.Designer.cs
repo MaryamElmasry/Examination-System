@@ -35,6 +35,7 @@
             CoursesList = new ComboBox();
             label1 = new Label();
             Departments = new Label();
+            printBtn = new Button();
             ((System.ComponentModel.ISupportInitialize)StudentsGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ExamsGV).BeginInit();
             SuspendLayout();
@@ -65,6 +66,7 @@
             ExamsGV.RowHeadersWidth = 51;
             ExamsGV.Size = new Size(367, 226);
             ExamsGV.TabIndex = 1;
+            ExamsGV.SelectionChanged += updateSelectedItem;
             // 
             // DeptsList
             // 
@@ -107,11 +109,23 @@
             Departments.TabIndex = 5;
             Departments.Text = "Departments";
             // 
+            // printBtn
+            // 
+            printBtn.Font = new Font("Segoe UI", 15F);
+            printBtn.Location = new Point(640, 402);
+            printBtn.Name = "printBtn";
+            printBtn.Size = new Size(110, 47);
+            printBtn.TabIndex = 6;
+            printBtn.Text = "print";
+            printBtn.UseVisualStyleBackColor = true;
+            printBtn.Click += printBtn_Click;
+            // 
             // GradesControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
+            Controls.Add(printBtn);
             Controls.Add(Departments);
             Controls.Add(label1);
             Controls.Add(CoursesList);
@@ -135,5 +149,6 @@
         private ComboBox CoursesList;
         private Label label1;
         private Label Departments;
+        private Button printBtn;
     }
 }
