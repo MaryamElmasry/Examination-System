@@ -28,127 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            StudentsGV = new DataGridView();
-            ExamsGV = new DataGridView();
-            DeptsList = new ComboBox();
-            CoursesList = new ComboBox();
+            tabPage1 = new TabPage();
+            button1 = new Button();
+            panel2 = new Panel();
+            textBoxExamId = new TextBox();
+            textBoxstdId = new TextBox();
+            dataGridView1 = new DataGridView();
+            Courses = new Label();
+            panel1 = new Panel();
             label1 = new Label();
-            Departments = new Label();
-            printBtn = new Button();
-            ((System.ComponentModel.ISupportInitialize)StudentsGV).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ExamsGV).BeginInit();
+            tabControlGrades = new TabControl();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            tabControlGrades.SuspendLayout();
             SuspendLayout();
             // 
-            // StudentsGV
+            // tabPage1
             // 
-            StudentsGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            StudentsGV.DefaultCellStyle = dataGridViewCellStyle1;
-            StudentsGV.Location = new Point(19, 116);
-            StudentsGV.Name = "StudentsGV";
-            StudentsGV.RowHeadersWidth = 51;
-            StudentsGV.Size = new Size(345, 226);
-            StudentsGV.TabIndex = 0;
-            StudentsGV.SelectionChanged += UpdateExamGrid;
+            tabPage1.Controls.Add(button1);
+            tabPage1.Controls.Add(panel2);
+            tabPage1.Controls.Add(textBoxExamId);
+            tabPage1.Controls.Add(textBoxstdId);
+            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Controls.Add(Courses);
+            tabPage1.Controls.Add(panel1);
+            tabPage1.Controls.Add(label1);
+            tabPage1.Location = new Point(4, 4);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(662, 327);
+            tabPage1.TabIndex = 0;
+            tabPage1.Text = "Student Details";
+            tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ExamsGV
+            // button1
             // 
-            ExamsGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ExamsGV.Location = new Point(383, 116);
-            ExamsGV.Name = "ExamsGV";
-            ExamsGV.RowHeadersWidth = 51;
-            ExamsGV.Size = new Size(367, 226);
-            ExamsGV.TabIndex = 1;
-            ExamsGV.SelectionChanged += updateSelectedItem;
+            button1.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
+            button1.Location = new Point(558, 42);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 11;
+            button1.Text = "Submit";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
-            // DeptsList
+            // panel2
             // 
-            DeptsList.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DeptsList.FormattingEnabled = true;
-            DeptsList.Location = new Point(282, 15);
-            DeptsList.Name = "DeptsList";
-            DeptsList.Size = new Size(151, 39);
-            DeptsList.TabIndex = 2;
-            DeptsList.SelectedIndexChanged += UpdatecrsList;
+            panel2.BackColor = Color.LightGray;
+            panel2.Font = new Font("Century Gothic", 10.2F);
+            panel2.Location = new Point(42, 56);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(204, 2);
+            panel2.TabIndex = 10;
             // 
-            // CoursesList
+            // textBoxExamId
             // 
-            CoursesList.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            CoursesList.FormattingEnabled = true;
-            CoursesList.Location = new Point(599, 15);
-            CoursesList.Name = "CoursesList";
-            CoursesList.Size = new Size(151, 39);
-            CoursesList.TabIndex = 3;
-            CoursesList.SelectedValueChanged += UpdateStudents;
+            textBoxExamId.BorderStyle = BorderStyle.None;
+            textBoxExamId.Location = new Point(42, 36);
+            textBoxExamId.Name = "textBoxExamId";
+            textBoxExamId.Size = new Size(204, 17);
+            textBoxExamId.TabIndex = 9;
+            // 
+            // textBoxstdId
+            // 
+            textBoxstdId.BorderStyle = BorderStyle.None;
+            textBoxstdId.Location = new Point(309, 34);
+            textBoxstdId.Name = "textBoxstdId";
+            textBoxstdId.Size = new Size(204, 17);
+            textBoxstdId.TabIndex = 0;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToOrderColumns = true;
+            dataGridView1.BackgroundColor = SystemColors.Control;
+            dataGridView1.BorderStyle = BorderStyle.None;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(42, 89);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.Size = new Size(535, 214);
+            dataGridView1.TabIndex = 8;
+            // 
+            // Courses
+            // 
+            Courses.AutoSize = true;
+            Courses.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
+            Courses.Location = new Point(45, 19);
+            Courses.Name = "Courses";
+            Courses.Size = new Size(63, 17);
+            Courses.TabIndex = 7;
+            Courses.Text = "Exam Id";
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.LightGray;
+            panel1.Font = new Font("Century Gothic", 10.2F);
+            panel1.Location = new Point(309, 56);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(204, 2);
+            panel1.TabIndex = 2;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            label1.Location = new Point(497, 18);
+            label1.Font = new Font("Century Gothic", 10.2F, FontStyle.Bold);
+            label1.Location = new Point(312, 17);
             label1.Name = "label1";
-            label1.Size = new Size(96, 31);
-            label1.TabIndex = 4;
-            label1.Text = "Courses";
-            label1.Click += label1_Click;
+            label1.Size = new Size(74, 17);
+            label1.TabIndex = 1;
+            label1.Text = "Student Id";
             // 
-            // Departments
+            // tabControlGrades
             // 
-            Departments.AutoSize = true;
-            Departments.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold);
-            Departments.Location = new Point(126, 18);
-            Departments.Name = "Departments";
-            Departments.Size = new Size(150, 31);
-            Departments.TabIndex = 5;
-            Departments.Text = "Departments";
-            // 
-            // printBtn
-            // 
-            printBtn.Font = new Font("Segoe UI", 15F);
-            printBtn.Location = new Point(640, 402);
-            printBtn.Name = "printBtn";
-            printBtn.Size = new Size(110, 47);
-            printBtn.TabIndex = 6;
-            printBtn.Text = "print";
-            printBtn.UseVisualStyleBackColor = true;
-            printBtn.Click += printBtn_Click;
+            tabControlGrades.Alignment = TabAlignment.Bottom;
+            tabControlGrades.Controls.Add(tabPage1);
+            tabControlGrades.Font = new Font("Century Gothic", 10.2F);
+            tabControlGrades.Location = new Point(0, 2);
+            tabControlGrades.Name = "tabControlGrades";
+            tabControlGrades.SelectedIndex = 0;
+            tabControlGrades.Size = new Size(670, 359);
+            tabControlGrades.TabIndex = 1;
             // 
             // GradesControl
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            Controls.Add(printBtn);
-            Controls.Add(Departments);
-            Controls.Add(label1);
-            Controls.Add(CoursesList);
-            Controls.Add(DeptsList);
-            Controls.Add(ExamsGV);
-            Controls.Add(StudentsGV);
+            Controls.Add(tabControlGrades);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "GradesControl";
-            Size = new Size(766, 482);
-            Load += GradesControl_Load;
-            ((System.ComponentModel.ISupportInitialize)StudentsGV).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ExamsGV).EndInit();
+            Size = new Size(670, 362);
+            tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            tabControlGrades.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView StudentsGV;
-        private DataGridView ExamsGV;
-        private ComboBox DeptsList;
-        private ComboBox CoursesList;
+        private TabPage tabPage1;
+        private Button button1;
+        private Panel panel2;
+        private TextBox textBoxExamId;
+        private TextBox textBoxstdId;
+        private DataGridView dataGridView1;
+        private Label Courses;
+        private Panel panel1;
         private Label label1;
-        private Label Departments;
-        private Button printBtn;
+        private TabControl tabControlGrades;
     }
 }

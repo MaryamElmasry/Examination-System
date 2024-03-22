@@ -73,11 +73,11 @@ namespace application.TeacherUserControls
         }
         private void populateCourseList(iti_ExamContext ctx)
         {
-            var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorId).ToList();
-            var combo = this.Controls["courselst"] as ComboBox;
-            combo.DataSource = courses;
-            combo.DisplayMember = "CourseName";
-            combo.ValueMember = "CourseID";
+            //var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorId).ToList();
+            //var combo = this.Controls["courselst"] as ComboBox;
+            //combo.DataSource = courses;
+            //combo.DisplayMember = "CourseName";
+            //combo.ValueMember = "CourseID";
         }
         private void populateQuestionGV(int crsid,iti_ExamContext ctx)
         {
@@ -88,11 +88,11 @@ namespace application.TeacherUserControls
         }
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
-            using (var ctx = new iti_ExamContext())
-            {
-                populateCourseList(ctx);
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
-            }
+            //using (var ctx = new iti_ExamContext())
+            //{
+            //    populateCourseList(ctx);
+            //    populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+            //}
         }
 
         private void CourseListUpdate(object sender, EventArgs e)
