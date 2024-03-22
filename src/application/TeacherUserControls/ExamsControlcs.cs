@@ -1,8 +1,10 @@
 ﻿using application.instructorDialog;
 using application.Models;
+using application.projectionEntities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Reporting.WinForms;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 
 namespace application.TeacherUserControls
@@ -10,6 +12,7 @@ namespace application.TeacherUserControls
     public partial class ExamsControlcs : UserControl
     {
         private int selectedRow;
+        public Instructor ins;
         public ExamsControlcs()
         {
             InitializeComponent();
@@ -27,7 +30,7 @@ namespace application.TeacherUserControls
         {
             using (var ctx = new iti_ExamContext())
             {
-                DeptList.DataSource = ctx.Departments.FromSqlRaw("EXEC GetAllDepartments").ToList();
+                DeptList.DataSource = ctx.Departments.FromSqlRaw($"EXEC GetDeptsforIns {ins.InstructorId}").ToList();
                 DeptList.SelectedItem = 0;
                 crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
                 DeptList.DisplayMember = "DeptName";
@@ -44,7 +47,7 @@ namespace application.TeacherUserControls
             {
                 if (crsList.SelectedItem != null && DeptList.SelectedItem != null)
                 {
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam {((Department)DeptList.SelectedItem).DeptID} , {((Course)crsList.SelectedItem).CourseID}").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseId} , {((Department)DeptList.SelectedItem).DeptId} ").ToList().Select(e => new { e.ExamId, e.ExamDate, e.Duration }).ToList();
 
                     ExamsGV.DataSource = exams;
                     ExamsGV.Refresh();
@@ -111,11 +114,27 @@ namespace application.TeacherUserControls
 
         private void PrintBtn_Click(object sender, EventArgs e)
         {
-            if(selectedRow != -1)
+            if (selectedRow != -1)
             {
                 var deptname = ((Department)DeptList.SelectedItem).DeptName;
                 var crsname = ((Course)crsList.SelectedItem).CourseName;
-                new PrintForm(selectedRow,deptname,crsname).Show();
+                new PrintForm(selectedRow, crsname, deptname, "PrintExam").Show();
+            }
+        }
+
+        private void DeleteExam_Click(object sender, EventArgs e)
+        {
+            using(var ctx = new iti_ExamContext())
+            {
+                var confirmResult = MessageBox.Show("Are you sure to delete this Exma ??",
+                                     "Confirm Delete!!",
+                                     MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
+                {
+                    ctx.Database.ExecuteSql($"EXEC DeleteExam {selectedRow}");
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseId} , {((Department)DeptList.SelectedItem).DeptId} ").ToList().Select(e => new { e.ExamId, e.ExamDate, e.Duration }).ToList();
+                    ExamsGV.DataSource = exams;
+                }
             }
         }
     }

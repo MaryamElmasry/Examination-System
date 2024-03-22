@@ -13,7 +13,12 @@ namespace application.instructorDialog
         private readonly ReportViewer reportViewer;
         public readonly int _examid ;
         public readonly string _crsname, _deptname;
-        public PrintForm(int examid , string crsname,string deptname)
+        private int sid;
+        private int examid;
+        string mode;
+        int insid;
+
+        public PrintForm()
         {
             InitializeComponent();
             Text = "Report viewer";
@@ -21,20 +26,35 @@ namespace application.instructorDialog
             reportViewer = new ReportViewer();
             reportViewer.Dock = DockStyle.Fill;
             Controls.Add(reportViewer);
+           
+        }
+        public PrintForm(int examid , string crsname,string deptname , string _mode):this()
+        {
             _examid = examid;
             _crsname = crsname;
             _deptname = deptname;
+            mode = _mode;
+        }
+      
+        public PrintForm(int sid , int examid):this()
+        {
+            this.sid = sid;
+            this.examid = examid;
+        }
+        public PrintForm(int insid,string mode):this()
+        {
+            this.mode = mode;
+            this.insid = insid;
+
         }
         protected override void OnLoad(EventArgs e)
         {
-            using (var ctx = new iti_ExamContext())
+            if(mode == "PrintExam") {
+                ReportF.LoadPrintExamReport(reportViewer.LocalReport, _examid, _deptname, _crsname);
+
+            }else if(mode == "MyCoursesInfo")
             {
-                var exam = ctx.Database.SqlQueryRaw<ExamReportView>($"Exec ExamReport {_examid}").ToList();
-                using var fs = new FileStream("..\\..\\..\\Reports\\Exam.rdlc", FileMode.Open);
-                reportViewer.LocalReport.LoadReportDefinition(fs);
-                reportViewer.LocalReport.SetParameters(new ReportParameter("crsname", _crsname));
-                reportViewer.LocalReport.SetParameters(new ReportParameter("deptname", _deptname));
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("ExamSet", exam));
+                ReportF.LoadCoursesInfo(reportViewer.LocalReport, insid);
             }
             reportViewer.RefreshReport();
             base.OnLoad(e);

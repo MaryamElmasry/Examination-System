@@ -35,9 +35,10 @@
             // TrueBtn
             // 
             TrueBtn.AutoSize = true;
-            TrueBtn.Location = new Point(232, 60);
+            TrueBtn.Font = new Font("Segoe UI Semibold", 12F);
+            TrueBtn.Location = new Point(232, 69);
             TrueBtn.Name = "TrueBtn";
-            TrueBtn.Size = new Size(58, 24);
+            TrueBtn.Size = new Size(72, 32);
             TrueBtn.TabIndex = 0;
             TrueBtn.TabStop = true;
             TrueBtn.Text = "True";
@@ -46,9 +47,10 @@
             // FalseBtn
             // 
             FalseBtn.AutoSize = true;
-            FalseBtn.Location = new Point(232, 90);
+            FalseBtn.Font = new Font("Segoe UI Semibold", 12F);
+            FalseBtn.Location = new Point(232, 107);
             FalseBtn.Name = "FalseBtn";
-            FalseBtn.Size = new Size(62, 24);
+            FalseBtn.Size = new Size(77, 32);
             FalseBtn.TabIndex = 1;
             FalseBtn.TabStop = true;
             FalseBtn.Text = "False";

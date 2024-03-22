@@ -22,7 +22,6 @@ namespace application.Forms
         public InstructorForm()
         {
             InitializeComponent();
-
         }
         // Login Constructor
         public InstructorForm(int InstructorID)
@@ -34,8 +33,12 @@ namespace application.Forms
 
         public InstructorForm(Instructor instructor)
         {
-            InitializeComponent();
+            
             this.instructor = instructor;
+            examsControlcs1.ins = this.instructor;
+            questionsControl1.ins = this.instructor;
+            myCoursesControl1.ins = this.instructor;
+
         }
 
         private void MyCoursesbtn_Click(object sender, EventArgs e)

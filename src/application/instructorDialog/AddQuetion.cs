@@ -9,13 +9,18 @@ namespace application.instructorDialog
     {
         string mode = string.Empty;
         QuestionPool questionPool;
-        public AddQuetion(string mode)
+        int crsid;
+        readonly string action;
+        public AddQuetion(string mode,int crsid)
         {
             InitializeComponent();
             this.mode = mode;
+            this.crsid = crsid;
+            action = "AddQuestion";
         }
         public AddQuetion(string mode, QuestionPool question)
         {
+            action = "updateQuestion";
             InitializeComponent();
             this.mode = mode;
             this.questionPool = question;
@@ -61,10 +66,19 @@ namespace application.instructorDialog
             using (var ctx = new iti_ExamContext())
             {
 
-                ctx.Database.ExecuteSqlRaw($"EXEC AddQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', '{qType}', {quest.CorrectAnswerIndex}, 3, 4");
+               if(action == "AddQuestion")
+                {
+                    ctx.Database.ExecuteSqlRaw($"EXEC AddQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', '{qType}', {quest.CorrectAnswerIndex}, 3, {crsid}");
+
+                }
+                else
+                {
+                    ctx.Database.ExecuteSqlRaw($"EXEC updateQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', {quest.CorrectAnswerIndex}, 3, {questionPool.QuestionId}");
+
+                }
                 MessageBox.Show("Question Added Successfully");
                 this.Close();
-                ctx.SaveChanges();
+               
 
             }
 
@@ -114,9 +128,17 @@ namespace application.instructorDialog
                     ChoiceIndex = 2
                 },
 
-               null,
+                 new QuestionChoice()
+                {
+                    Choice = "",
+                    ChoiceIndex = 3
+                },
 
-                null,
+                  new QuestionChoice()
+                {
+                    Choice = "",
+                    ChoiceIndex = 4
+                },
 
                 };
 
@@ -157,7 +179,7 @@ namespace application.instructorDialog
                 {
                     return 1;
                 }
-                else if ((mcqAddEdit1.Controls["FalseBtn"] as RadioButton).Checked)
+                else if ((tfAddEdit1.Controls["FalseBtn"] as RadioButton).Checked)
                 {
                     return 2;
                 }
@@ -177,9 +199,9 @@ namespace application.instructorDialog
             else
             {
                 if (quest.CorrectAnswerIndex == 1)
-                    (mcqAddEdit1.Controls["TrueBtn"] as RadioButton).Checked = true;
+                    (tfAddEdit1.Controls["TrueBtn"] as RadioButton).Checked = true;
                 else if (quest.CorrectAnswerIndex == 2)
-                    (mcqAddEdit1.Controls["FalseBtn"] as RadioButton).Checked = true;
+                    (tfAddEdit1.Controls["FalseBtn"] as RadioButton).Checked = true;
 
 
             }

@@ -50,9 +50,8 @@ namespace application.instructorDialog
                 string[] parts = dateTimeString.Split(' ');
                 string result = string.Join(" ", parts.Take(parts.Length - 1));
 
-                // @courseId int ,@deptId int, @date datetime , @mcqCount int, @TFcount int,@duration int
                 ctx.Database.ExecuteSql($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
-               // MessageBox.Show(dateTimePicker1.Value.ToString());
+                MessageBox.Show("Exam Generated Successfully");
             }
         }
     }

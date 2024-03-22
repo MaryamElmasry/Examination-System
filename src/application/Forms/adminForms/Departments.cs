@@ -61,16 +61,14 @@ namespace application.Forms.adminForms
             int selectedID;
             if ((lstDepts.SelectedValue as Department) != null)
             {
-                selectedID = int.Parse((lstDepts.SelectedValue as Department).DeptID.ToString());
+                selectedID = int.Parse((lstDepts.SelectedValue as Department).DeptId.ToString());
             }
             else
             {
                 selectedID = int.Parse(lstDepts.SelectedValue.ToString());
             }
             var dept = db.Departments
-                        .Include(d => d.Branch)
-                        .SingleOrDefault(d => d.DeptID == selectedID);
-            cbBranch.SelectedValue = dept.BranchID;
+                        .SingleOrDefault(d => d.DeptId == selectedID);
             txtDeptName.Text = dept.DeptName.ToString();
         }
 
