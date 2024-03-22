@@ -51,27 +51,29 @@
             toolStrip = new ToolStrip();
             panelShowReports = new Panel();
             dataGridView1 = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
             Exams = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
+            Duration = new DataGridViewTextBoxColumn();
             Action = new DataGridViewButtonColumn();
             panel4 = new Panel();
             label9 = new Label();
             panelDisplayClass = new Panel();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            label22 = new Label();
+            label24 = new Label();
+            label19 = new Label();
+            label18 = new Label();
+            txtClassName = new MaskedTextBox();
+            lblClassID = new Label();
+            btnEditClass = new PictureBox();
+            btnDeleteClass = new PictureBox();
+            pictureBox10 = new PictureBox();
+            lstClass = new ListBox();
+            button2 = new Button();
+            btnSearchClass = new MaskedTextBox();
             panel6 = new Panel();
             label25 = new Label();
-            btnSearchClass = new MaskedTextBox();
-            button2 = new Button();
-            lstClass = new ListBox();
-            pictureBox10 = new PictureBox();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            btnDeleteClass = new PictureBox();
-            btnEditClass = new PictureBox();
-            lblClassID = new Label();
-            txtClassName = new MaskedTextBox();
-            label18 = new Label();
-            label19 = new Label();
-            label24 = new Label();
-            label22 = new Label();
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             button4 = new Button();
@@ -86,11 +88,11 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel4.SuspendLayout();
             panelDisplayClass.SuspendLayout();
-            panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)btnDeleteClass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnDeleteClass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -242,13 +244,19 @@
             resources.ApplyResources(panelShowReports, "panelShowReports");
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Tag = "myTheme";
+            panelShowReports.Paint += panelShowReports_Paint;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Exams, Date, Action });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Exams, Date, Duration, Action });
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
+            // 
+            // ID
+            // 
+            resources.ApplyResources(ID, "ID");
+            ID.Name = "ID";
             // 
             // Exams
             // 
@@ -260,10 +268,17 @@
             resources.ApplyResources(Date, "Date");
             Date.Name = "Date";
             // 
+            // Duration
+            // 
+            resources.ApplyResources(Duration, "Duration");
+            Duration.Name = "Duration";
+            // 
             // Action
             // 
             resources.ApplyResources(Action, "Action");
             Action.Name = "Action";
+            Action.Text = "Start";
+            Action.UseColumnTextForButtonValue = true;
             // 
             // panel4
             // 
@@ -289,45 +304,6 @@
             resources.ApplyResources(panelDisplayClass, "panelDisplayClass");
             panelDisplayClass.Name = "panelDisplayClass";
             // 
-            // panel6
-            // 
-            panel6.BackColor = Color.Teal;
-            panel6.Controls.Add(label25);
-            resources.ApplyResources(panel6, "panel6");
-            panel6.Name = "panel6";
-            // 
-            // label25
-            // 
-            resources.ApplyResources(label25, "label25");
-            label25.ForeColor = Color.White;
-            label25.Name = "label25";
-            // 
-            // btnSearchClass
-            // 
-            resources.ApplyResources(btnSearchClass, "btnSearchClass");
-            btnSearchClass.Name = "btnSearchClass";
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.Teal;
-            button2.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(button2, "button2");
-            button2.ForeColor = Color.White;
-            button2.Name = "button2";
-            button2.UseVisualStyleBackColor = false;
-            // 
-            // lstClass
-            // 
-            resources.ApplyResources(lstClass, "lstClass");
-            lstClass.FormattingEnabled = true;
-            lstClass.Name = "lstClass";
-            // 
-            // pictureBox10
-            // 
-            resources.ApplyResources(pictureBox10, "pictureBox10");
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.TabStop = false;
-            // 
             // tableLayoutPanel3
             // 
             resources.ApplyResources(tableLayoutPanel3, "tableLayoutPanel3");
@@ -341,43 +317,12 @@
             tableLayoutPanel3.Controls.Add(btnDeleteClass, 3, 1);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             // 
-            // btnDeleteClass
+            // label22
             // 
-            resources.ApplyResources(btnDeleteClass, "btnDeleteClass");
-            btnDeleteClass.Name = "btnDeleteClass";
-            btnDeleteClass.TabStop = false;
-            // 
-            // btnEditClass
-            // 
-            resources.ApplyResources(btnEditClass, "btnEditClass");
-            btnEditClass.Name = "btnEditClass";
-            btnEditClass.TabStop = false;
-            // 
-            // lblClassID
-            // 
-            resources.ApplyResources(lblClassID, "lblClassID");
-            lblClassID.BackColor = Color.Transparent;
-            lblClassID.ForeColor = Color.Black;
-            lblClassID.Name = "lblClassID";
-            // 
-            // txtClassName
-            // 
-            resources.ApplyResources(txtClassName, "txtClassName");
-            txtClassName.Name = "txtClassName";
-            // 
-            // label18
-            // 
-            resources.ApplyResources(label18, "label18");
-            label18.BackColor = Color.Teal;
-            label18.ForeColor = Color.White;
-            label18.Name = "label18";
-            // 
-            // label19
-            // 
-            resources.ApplyResources(label19, "label19");
-            label19.BackColor = Color.Teal;
-            label19.ForeColor = Color.White;
-            label19.Name = "label19";
+            resources.ApplyResources(label22, "label22");
+            label22.BackColor = Color.Teal;
+            label22.ForeColor = Color.White;
+            label22.Name = "label22";
             // 
             // label24
             // 
@@ -386,12 +331,82 @@
             label24.ForeColor = Color.White;
             label24.Name = "label24";
             // 
-            // label22
+            // label19
             // 
-            resources.ApplyResources(label22, "label22");
-            label22.BackColor = Color.Teal;
-            label22.ForeColor = Color.White;
-            label22.Name = "label22";
+            resources.ApplyResources(label19, "label19");
+            label19.BackColor = Color.Teal;
+            label19.ForeColor = Color.White;
+            label19.Name = "label19";
+            // 
+            // label18
+            // 
+            resources.ApplyResources(label18, "label18");
+            label18.BackColor = Color.Teal;
+            label18.ForeColor = Color.White;
+            label18.Name = "label18";
+            // 
+            // txtClassName
+            // 
+            resources.ApplyResources(txtClassName, "txtClassName");
+            txtClassName.Name = "txtClassName";
+            // 
+            // lblClassID
+            // 
+            resources.ApplyResources(lblClassID, "lblClassID");
+            lblClassID.BackColor = Color.Transparent;
+            lblClassID.ForeColor = Color.Black;
+            lblClassID.Name = "lblClassID";
+            // 
+            // btnEditClass
+            // 
+            resources.ApplyResources(btnEditClass, "btnEditClass");
+            btnEditClass.Name = "btnEditClass";
+            btnEditClass.TabStop = false;
+            // 
+            // btnDeleteClass
+            // 
+            resources.ApplyResources(btnDeleteClass, "btnDeleteClass");
+            btnDeleteClass.Name = "btnDeleteClass";
+            btnDeleteClass.TabStop = false;
+            // 
+            // pictureBox10
+            // 
+            resources.ApplyResources(pictureBox10, "pictureBox10");
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.TabStop = false;
+            // 
+            // lstClass
+            // 
+            resources.ApplyResources(lstClass, "lstClass");
+            lstClass.FormattingEnabled = true;
+            lstClass.Name = "lstClass";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.Teal;
+            button2.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(button2, "button2");
+            button2.ForeColor = Color.White;
+            button2.Name = "button2";
+            button2.UseVisualStyleBackColor = false;
+            // 
+            // btnSearchClass
+            // 
+            resources.ApplyResources(btnSearchClass, "btnSearchClass");
+            btnSearchClass.Name = "btnSearchClass";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Teal;
+            panel6.Controls.Add(label25);
+            resources.ApplyResources(panel6, "panel6");
+            panel6.Name = "panel6";
+            // 
+            // label25
+            // 
+            resources.ApplyResources(label25, "label25");
+            label25.ForeColor = Color.White;
+            label25.Name = "label25";
             // 
             // pictureBox1
             // 
@@ -445,6 +460,7 @@
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "StudentExamForm";
+            Load += StudentExamForm_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -459,13 +475,13 @@
             panel4.PerformLayout();
             panelDisplayClass.ResumeLayout(false);
             panelDisplayClass.PerformLayout();
-            panel6.ResumeLayout(false);
-            panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)btnDeleteClass).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnDeleteClass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -497,9 +513,6 @@
         private Panel panel4;
         private Label label9;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Exams;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewButtonColumn Action;
         private Panel panelDisplayClass;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label22;
@@ -521,5 +534,10 @@
         private Button button4;
         private Button button1;
         private Button btnDisplayExams;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn Exams;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn Duration;
+        private DataGridViewButtonColumn Action;
     }
 }

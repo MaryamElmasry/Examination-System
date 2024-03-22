@@ -72,12 +72,13 @@
             toolStrip = new ToolStrip();
             panelShowReports = new Panel();
             dataGridView1 = new DataGridView();
-            panel4 = new Panel();
-            label9 = new Label();
+            ID = new DataGridViewTextBoxColumn();
             Exams = new DataGridViewTextBoxColumn();
             Date = new DataGridViewTextBoxColumn();
             Grade = new DataGridViewTextBoxColumn();
             Report = new DataGridViewButtonColumn();
+            panel4 = new Panel();
+            label9 = new Label();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnDeleteClass).BeginInit();
@@ -403,22 +404,14 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Exams, Date, Grade, Report });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Exams, Date, Grade, Report });
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
             // 
-            // panel4
+            // ID
             // 
-            panel4.BackColor = Color.FromArgb(73, 178, 202);
-            panel4.Controls.Add(label9);
-            resources.ApplyResources(panel4, "panel4");
-            panel4.Name = "panel4";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(label9, "label9");
-            label9.ForeColor = Color.White;
-            label9.Name = "label9";
+            resources.ApplyResources(ID, "ID");
+            ID.Name = "ID";
             // 
             // Exams
             // 
@@ -441,6 +434,21 @@
             Report.Name = "Report";
             Report.Resizable = DataGridViewTriState.True;
             Report.SortMode = DataGridViewColumnSortMode.Automatic;
+            Report.Text = "Report";
+            Report.UseColumnTextForButtonValue = true;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(73, 178, 202);
+            panel4.Controls.Add(label9);
+            resources.ApplyResources(panel4, "panel4");
+            panel4.Name = "panel4";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(label9, "label9");
+            label9.ForeColor = Color.White;
+            label9.Name = "label9";
             // 
             // StudentGrades
             // 
@@ -453,6 +461,7 @@
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
             Name = "StudentGrades";
+            Load += StudentGrades_Load;
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).EndInit();
@@ -526,6 +535,7 @@
         private DataGridView dataGridView1;
         private Button button1;
         private Button button4;
+        private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Exams;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Grade;

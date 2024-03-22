@@ -12,10 +12,12 @@ namespace application.Models
 {
     public partial interface Iiti_ExamContextProcedures
     {
+        Task<int> addCourseDepartmentAsync(int? courseID, int? deptID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> addCourseTopicAsync(int? courseId, string topicName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> AddNewBranchAsync(string branchName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> AddNewDepartmentAsync(string deptName, int? branchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteBranchAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> deleteCourseDepartmentAsync(int? courseID, int? deptID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> deleteCourseTopicAsync(int? courseId, string topicName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> DeleteDepartmentByIdAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<GetAllBranchesResult>> GetAllBranchesAsync(OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
@@ -25,11 +27,18 @@ namespace application.Models
         Task<List<GetBrancheByIDResult>> GetBrancheByIDAsync(int? branchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getBranchesDepartmentsResult>> getBranchesDepartmentsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getBranchNameResult>> getBranchNameAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<getCourseDepartmentResult>> getCourseDepartmentAsync(int? courseID, int? deptID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseDepartmentsResult>> getCourseDepartmentsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<getCourseDepartmentsAllInfoResult>> getCourseDepartmentsAllInfoAsync(int? courseId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetCourseExamsResult>> GetCourseExamsAsync(int? DeptID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseInstructorsResult>> getCourseInstructorsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getCourseTopicsResult>> getCourseTopicsAsync(int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
-        Task<List<GetDepartmentByNameAndBranchIdResult>> GetDepartmentByNameAndBranchIdAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetDepartmentByNameAndBranchIDResult>> GetDepartmentByNameAndBranchIDAsync(string name, int? id, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetExamGradesByStudentIDResult>> GetExamGradesByStudentIDAsync(int? StudentID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetGradesByStudentIDResult>> GetGradesByStudentIDAsync(int? StudentID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<List<GetQuestionChoicesResult>> GetQuestionChoicesAsync(int? ExamID, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<List<getTopicByNameAndCourseIDResult>> getTopicByNameAndCourseIDAsync(int? courseId, string topicName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
+        Task<int> InsertSelectedAnswerIndexAsync(int? StudentID, int? ExamID, int? QuestionID, int? SelectedAnswerIndex, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> updateBranchNameAsync(int? id, string newName, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
         Task<int> UpdateDepartmentAsync(int? deptId, string deptName, int? BranchId, OutputParameter<int> returnValue = null, CancellationToken cancellationToken = default);
     }
