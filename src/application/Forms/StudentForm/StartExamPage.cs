@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,172 +19,170 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace application.Forms
 {
+
     public partial class StartExamPage : Form
     {
         iti_ExamContext db = new iti_ExamContext();
-        public XmlSerializer serializer;
-        // Import the necessary Windows API methods
-        [DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
-
-        private const int WM_NCLBUTTONDOWN = 0xA1;
-        private const int HT_CAPTION = 0x2;
-        public StartExamPage()
+        int currentQuestion;
+        //List of questions
+        List<ExamQuestion> questions = new List<ExamQuestion>();
+        //List of selected answers with length of questions
+        int[] selectedAnswers;
+        
+        
+        public StartExamPage(int ExamID = 0)
         {
             InitializeComponent();
-            fillGVBranches();
-        }
-
-        void fillGVBranches()
-        {
-            /* //Bind the grid view to a list in order to allow the deleting
-             List<Models.Branch> branchesList = db.Branches.FromSql($"exec GetAllBranches").ToList();
-             IList<Models.Branch> branches = branchesList.ToList();
-
-             // Create a BindingList<T> using the IList<T>
-             BindingList<Models.Branch> bindingList = new BindingList<Models.Branch>(branches);
-             gvBranches.DataSource = bindingList;
-             gvBranches.Columns[2].Visible = false;
-             //Make the grid view editable
-             gvBranches.ReadOnly = false;
-             gvBranches.EditMode = DataGridViewEditMode.EditOnEnter;
-             //Make the id column read only
-             gvBranches.Columns[0].ReadOnly = true;*/
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {/*
-            // Check if the left mouse button is pressed
-            if (e.Button == MouseButtons.Left)
+            #region Get Questions and Initialize Selected Answers
+            questions = db.Database.SqlQuery<ExamQuestion>($"EXEC [dbo].[GetQuestionChoices] @ExamID = {ExamID};").ToList();
+            selectedAnswers = new int[questions.Count];
+            for (int i = 0; i < selectedAnswers.Length; i++)
             {
-                // Release capture to enable normal mouse operation like clicking on buttons
-                ReleaseCapture();
+                selectedAnswers[i] = -1;
+            }
+            #endregion
+            DisplayQuestion(questions[currentQuestion]);
 
-                // Send the message to move the form
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }*/
         }
 
-        private void btnDisplayBranches_Click(object sender, EventArgs e)
+        private void DisplayQuestion(ExamQuestion question)
         {
+                #region Display The Question and Choices 
+                qTitle.Text = question.Title;
+                string[] choices = question.Choices.Split(',');
+                qChoice1.Text = choices[0];
+                qChoice2.Text = choices[1];
+                qChoice3.Text = choices[2];
+                qChoice4.Text = choices[3];
+                #endregion
+
+                #region Check The Radio Button of the Selected Answer for current Question
+                switch (selectedAnswers[currentQuestion])
+                {
+                     case -1:
+                        qChoice1.Checked = false;
+                        qChoice2.Checked = false;
+                        qChoice3.Checked = false;
+                        qChoice4.Checked = false;
+                        break;
+                    case 0:
+                        qChoice1.Checked = true;
+                        break;
+                    case 1:
+                        qChoice2.Checked = true;
+                        break;
+                    case 2:
+                        qChoice3.Checked = true;
+                        break;
+                    case 3:
+                        qChoice4.Checked = true;
+                        break;
+
+                }
+                #endregion
 
         }
+
+
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            /* System.Diagnostics.Process.GetCurrentProcess().Kill();
-             Application.Exit();
-             this.Close();*/
+            System.Diagnostics.Process.GetCurrentProcess().Kill();
+            Application.Exit();
+            this.Close();
         }
 
-        private void btnAddBranch_Click(object sender, EventArgs e)
+        private void btnPrev_Click(object sender, EventArgs e)
         {
-            /* AddNewBranch addNewBranch = new AddNewBranch();
-             addNewBranch.ShowDialog();
-             fillGVBranches();*/
-        }
+            // Display current question if >0 >Display it
+            if (currentQuestion > 0)
+            {
+                currentQuestion--;
+                DisplayQuestion(questions[currentQuestion]);
+            }
 
-        private void gvBranches_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            /* string branchName = "";
-             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-             {
-                 branchName = gvBranches.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-             }
-             if (branchName.Trim().Length > 1)
-             {
-                 int branchID = int.Parse(gvBranches.Rows[e.RowIndex].Cells[0].Value.ToString());
-
-                 SqlParameter branchIdParameter = new SqlParameter("@id", branchID);
-                 var oldBranchName = db.Database.SqlQuery<string>($"exec getBranchName {branchIdParameter}").AsEnumerable().FirstOrDefault();
-                 if (oldBranchName != null && branchName != oldBranchName)
-                 {
-                     var branchesWithSameName = db.Branches.FromSql($"exec getBranchByName {branchName}").ToList();
-
-                     if (branchesWithSameName.Count > 0)
-                     {
-                         gvBranches.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = oldBranchName;
-                         MessageBox.Show("Branch with the same name already exists", "Duplicated Name", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                     }
-                     else
-                     {
-                         int result = db.Database.ExecuteSqlRaw($"exec updateBranchName {branchID}, {branchName}");
-                         if (result != 0)
-                         {
-                             MessageBox.Show("Branch updated successfully", "success update", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                         }
-                         else
-                         {
-                             MessageBox.Show("No branch was updated", "Failed update", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                         }
-                     }
-                 }
-             }
-             else
-             {
-                 MessageBox.Show("Branch name can't be less than 2 characters", "Failed message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-             }*/
 
         }
 
-        private void gvBranches_KeyDown(object sender, KeyEventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
-            /*
-                        // Check if the pressed key is the Delete key
-                        if (e.KeyCode.ToString() == "Delete")
-                        {
-                            int result = 0;
-                            // Remove the selected row(s)
-                            foreach (DataGridViewRow row in gvBranches.SelectedRows)
-                            {
-                                if (!row.IsNewRow) // Skip the new row if present
-                                {
-                                    //check if the branch has departments then don't remove it
-                                    //get the branch id
-                                    var branchID = (int)row.Cells[0].Value;
-                                    //get the branches departments
-                                    var branchDeptartments = db.Departments.FromSql($"exec getBranchesDepartments {branchID}").ToList();
-                                    if (branchDeptartments.Count == 0)
-                                    {
-                                        try
-                                        {
-                                            result = db.Database.ExecuteSqlRaw($"exec DeleteBranch {branchID}");
-                                            gvBranches.Rows.Remove(row);
-                                            fillGVBranches();
-                                        }
-                                        catch
-                                        {
-                                            MessageBox.Show($"Can't delete branch with id ${branchID}", "Deleting failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show($"Branch with id {branchID} has departments", "Can't delete branch", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    }
-                                }
-                            }
+            // Display current question if < questions.Count >Display it
+            if (currentQuestion < questions.Count - 1)
+            {
+                currentQuestion++;
+                DisplayQuestion(questions[currentQuestion]);
+            }
 
-                            if (result != 0)
-                            {
-                                MessageBox.Show($"Branch(es) deleted successfully", "Success deleting", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            }
-                        }*/
         }
 
-        private void btnDisplayDepartments_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
-            /* btnDisplayDepartments.ForeColor = Color.White;
-             Departments departments = new Departments();
-             departments.ShowDialog();
-             btnDisplayDepartments.ForeColor = Color.DarkGray;*/
+            
+            //Are you sure you want to submit the exam?
+            DialogResult dialogResult = MessageBox.Show("Are you sure you want to submit the exam?", "Submit Exam", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                int StudentID = 1;
+                int ExamID = 0;
+                int CourseID = 1;
+                db.Database.ExecuteSqlRaw($"Delete from [StudentGrades] Where [CourseID]={CourseID} And [studentID]={StudentID};");
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[GetStudentGrades] @StudentID = {StudentID}, @ExamID = {ExamID} , @CourseID={CourseID};");
+                this.Close();
+
+            }
+            return;
+
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void qChoice1_CheckedChanged(object sender, EventArgs e)
         {
+         
+                selectedAnswers[currentQuestion] = 0;
 
+                #region Save to Database
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                #endregion
+            
+        }
+
+        private void qChoice2_CheckedChanged(object sender, EventArgs e)
+        {
+ 
+                selectedAnswers[currentQuestion] = 1;
+                #region Save to Database
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                #endregion
+
+        }
+
+        private void qChoice3_CheckedChanged(object sender, EventArgs e)
+        {
+                selectedAnswers[currentQuestion] = 2;
+                #region Save to Database
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                #endregion
+        }
+
+        private void qChoice4_CheckedChanged(object sender, EventArgs e)
+        {      
+                selectedAnswers[currentQuestion] = 3;
+                #region Save to Database
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                #endregion
+        }
+    }
+    public class ExamQuestion
+    {
+        public int QuestionID { get; set; }
+        public string Title { get; set; }
+
+        public string Choices { get; set; }
+
+        //override to string
+
+        public override string ToString()
+        {
+            return $"{Title}  , {Choices}";
         }
     }
 }

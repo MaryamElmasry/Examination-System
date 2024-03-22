@@ -47,6 +47,9 @@
             panel6 = new Panel();
             label25 = new Label();
             panel2 = new Panel();
+            button4 = new Button();
+            button1 = new Button();
+            btnDisplayExams = new Button();
             pictureBox1 = new PictureBox();
             btnClose = new Button();
             label4 = new Label();
@@ -68,22 +71,19 @@
             toolStripButton1 = new ToolStripButton();
             toolStrip = new ToolStrip();
             panelShowReports = new Panel();
-            button7 = new Button();
-            button6 = new Button();
+            btnNext = new Button();
+            btnPrev = new Button();
             panel5 = new Panel();
             textBox1 = new TextBox();
             button5 = new Button();
-            radioButton4 = new RadioButton();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            label2 = new Label();
+            qChoice1 = new RadioButton();
+            qChoice2 = new RadioButton();
+            qChoice4 = new RadioButton();
+            qChoice3 = new RadioButton();
+            qTitle = new Label();
             panel4 = new Panel();
             label9 = new Label();
-            button8 = new Button();
-            button4 = new Button();
-            button1 = new Button();
-            btnDisplayExams = new Button();
+            btnSubmit = new Button();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnDeleteClass).BeginInit();
@@ -235,6 +235,30 @@
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
+            // button4
+            // 
+            resources.ApplyResources(button4, "button4");
+            button4.FlatAppearance.BorderSize = 0;
+            button4.ForeColor = Color.DarkGray;
+            button4.Name = "button4";
+            button4.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            resources.ApplyResources(button1, "button1");
+            button1.FlatAppearance.BorderSize = 0;
+            button1.ForeColor = Color.DarkGray;
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // btnDisplayExams
+            // 
+            resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
+            btnDisplayExams.FlatAppearance.BorderSize = 0;
+            btnDisplayExams.ForeColor = Color.DarkGray;
+            btnDisplayExams.Name = "btnDisplayExams";
+            btnDisplayExams.UseVisualStyleBackColor = true;
+            // 
             // pictureBox1
             // 
             resources.ApplyResources(pictureBox1, "pictureBox1");
@@ -292,7 +316,6 @@
             panel1.Controls.Add(btnClose);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
-            panel1.MouseDown += panel1_MouseDown;
             // 
             // panel3
             // 
@@ -377,35 +400,36 @@
             // 
             panelShowReports.BackColor = SystemColors.Control;
             resources.ApplyResources(panelShowReports, "panelShowReports");
-            panelShowReports.Controls.Add(button7);
-            panelShowReports.Controls.Add(button6);
+            panelShowReports.Controls.Add(btnNext);
+            panelShowReports.Controls.Add(btnPrev);
             panelShowReports.Controls.Add(panel5);
-            panelShowReports.Controls.Add(radioButton4);
-            panelShowReports.Controls.Add(radioButton3);
-            panelShowReports.Controls.Add(radioButton2);
-            panelShowReports.Controls.Add(radioButton1);
-            panelShowReports.Controls.Add(label2);
+            panelShowReports.Controls.Add(qChoice1);
+            panelShowReports.Controls.Add(qChoice2);
+            panelShowReports.Controls.Add(qChoice4);
+            panelShowReports.Controls.Add(qChoice3);
+            panelShowReports.Controls.Add(qTitle);
             panelShowReports.Controls.Add(panel4);
             panelShowReports.Controls.Add(panel3);
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Tag = "myTheme";
             // 
-            // button7
+            // btnNext
             // 
-            button7.BackColor = Color.FromArgb(0, 7, 95);
-            resources.ApplyResources(button7, "button7");
-            button7.ForeColor = Color.White;
-            button7.Name = "button7";
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
+            btnNext.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(btnNext, "btnNext");
+            btnNext.ForeColor = Color.White;
+            btnNext.Name = "btnNext";
+            btnNext.UseVisualStyleBackColor = false;
+            btnNext.Click += btnNext_Click;
             // 
-            // button6
+            // btnPrev
             // 
-            button6.BackColor = Color.FromArgb(0, 7, 95);
-            resources.ApplyResources(button6, "button6");
-            button6.ForeColor = Color.White;
-            button6.Name = "button6";
-            button6.UseVisualStyleBackColor = false;
+            btnPrev.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(btnPrev, "btnPrev");
+            btnPrev.ForeColor = Color.White;
+            btnPrev.Name = "btnPrev";
+            btnPrev.UseVisualStyleBackColor = false;
+            btnPrev.Click += btnPrev_Click;
             // 
             // panel5
             // 
@@ -427,38 +451,42 @@
             button5.Name = "button5";
             button5.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // qChoice1
             // 
-            resources.ApplyResources(radioButton4, "radioButton4");
-            radioButton4.Name = "radioButton4";
-            radioButton4.TabStop = true;
-            radioButton4.UseVisualStyleBackColor = true;
+            resources.ApplyResources(qChoice1, "qChoice1");
+            qChoice1.Name = "qChoice1";
+            qChoice1.TabStop = true;
+            qChoice1.UseVisualStyleBackColor = true;
+            qChoice1.CheckedChanged += qChoice1_CheckedChanged;
             // 
-            // radioButton3
+            // qChoice2
             // 
-            resources.ApplyResources(radioButton3, "radioButton3");
-            radioButton3.Name = "radioButton3";
-            radioButton3.TabStop = true;
-            radioButton3.UseVisualStyleBackColor = true;
+            resources.ApplyResources(qChoice2, "qChoice2");
+            qChoice2.Name = "qChoice2";
+            qChoice2.TabStop = true;
+            qChoice2.UseVisualStyleBackColor = true;
+            qChoice2.CheckedChanged += qChoice2_CheckedChanged;
             // 
-            // radioButton2
+            // qChoice4
             // 
-            resources.ApplyResources(radioButton2, "radioButton2");
-            radioButton2.Name = "radioButton2";
-            radioButton2.TabStop = true;
-            radioButton2.UseVisualStyleBackColor = true;
+            resources.ApplyResources(qChoice4, "qChoice4");
+            qChoice4.Name = "qChoice4";
+            qChoice4.TabStop = true;
+            qChoice4.UseVisualStyleBackColor = true;
+            qChoice4.CheckedChanged += qChoice4_CheckedChanged;
             // 
-            // radioButton1
+            // qChoice3
             // 
-            resources.ApplyResources(radioButton1, "radioButton1");
-            radioButton1.Name = "radioButton1";
-            radioButton1.TabStop = true;
-            radioButton1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(qChoice3, "qChoice3");
+            qChoice3.Name = "qChoice3";
+            qChoice3.TabStop = true;
+            qChoice3.UseVisualStyleBackColor = true;
+            qChoice3.CheckedChanged += qChoice3_CheckedChanged;
             // 
-            // label2
+            // qTitle
             // 
-            resources.ApplyResources(label2, "label2");
-            label2.Name = "label2";
+            resources.ApplyResources(qTitle, "qTitle");
+            qTitle.Name = "qTitle";
             // 
             // panel4
             // 
@@ -473,43 +501,20 @@
             label9.ForeColor = Color.White;
             label9.Name = "label9";
             // 
-            // button8
+            // btnSubmit
             // 
-            button8.BackColor = Color.FromArgb(0, 7, 95);
-            resources.ApplyResources(button8, "button8");
-            button8.ForeColor = Color.White;
-            button8.Name = "button8";
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button4
-            // 
-            resources.ApplyResources(button4, "button4");
-            button4.FlatAppearance.BorderSize = 0;
-            button4.ForeColor = Color.DarkGray;
-            button4.Name = "button4";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            resources.ApplyResources(button1, "button1");
-            button1.FlatAppearance.BorderSize = 0;
-            button1.ForeColor = Color.DarkGray;
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayExams
-            // 
-            resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
-            btnDisplayExams.FlatAppearance.BorderSize = 0;
-            btnDisplayExams.ForeColor = Color.DarkGray;
-            btnDisplayExams.Name = "btnDisplayExams";
-            btnDisplayExams.UseVisualStyleBackColor = true;
+            btnSubmit.BackColor = Color.FromArgb(0, 7, 95);
+            resources.ApplyResources(btnSubmit, "btnSubmit");
+            btnSubmit.ForeColor = Color.White;
+            btnSubmit.Name = "btnSubmit";
+            btnSubmit.UseVisualStyleBackColor = false;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // StartExamPage
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(button8);
+            Controls.Add(btnSubmit);
             Controls.Add(panelShowReports);
             Controls.Add(panel1);
             Controls.Add(toolStrip);
@@ -588,17 +593,17 @@
         private Panel panelShowReports;
         private Panel panel4;
         private Label label9;
-        private Label label2;
+        private Label qTitle;
         private Panel panel5;
-        private RadioButton radioButton4;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton qChoice1;
+        private RadioButton qChoice2;
+        private RadioButton qChoice4;
+        private RadioButton qChoice3;
         private Button button5;
         private TextBox textBox1;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button btnPrev;
+        private Button btnNext;
+        private Button btnSubmit;
         private Button button4;
         private Button button1;
         private Button btnDisplayExams;
