@@ -1,4 +1,4 @@
-﻿#nullable disable
+#nullable disable
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ public partial class Instructor
 {
     public int BranchId { get; set; }
 
-    public int InstructorId { get; set; }
+    public int InstructorID { get; set; }
 
     public virtual Branch Branch { get; set; }
 

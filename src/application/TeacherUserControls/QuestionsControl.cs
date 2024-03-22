@@ -63,7 +63,7 @@ namespace application.TeacherUserControls
             {
                 using (var ctx = new iti_ExamContext())
                 {
-                    ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionId).ToList();
+                   // ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionId).ToList();
                     QuestionsGV.Refresh();
 
                 }
@@ -81,22 +81,22 @@ namespace application.TeacherUserControls
         }
         private void populateQuestionGV(int crsid,iti_ExamContext ctx)
         {
-            var questions = ctx.PCourses
-             .FromSqlRaw("EXEC GetAllQuestions {0}", crsid)
-             .AsEnumerable()
-             .ToList()
+           // var questions = ctx.PCourses
+            // .FromSqlRaw("EXEC GetAllQuestions {0}", crsid)
+            // .AsEnumerable()
+           //  .ToList()
 
-             ;
+           //  ;
 
             var questionsGV = this.Controls["QuestionsGV"] as DataGridView;
-            questionsGV.DataSource = questions;
+           // questionsGV.DataSource = questions;
         }
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
             using (var ctx = new iti_ExamContext())
             {
                 populateCourseList(ctx);
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
 
@@ -106,7 +106,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 if((courselst.SelectedItem as Course) != null)
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
     }
