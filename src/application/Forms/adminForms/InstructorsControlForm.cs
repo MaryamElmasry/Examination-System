@@ -95,6 +95,13 @@ namespace application.Forms
             }
             if (e.ColumnIndex == 8)
             {
+                int InstructorID = (int)gvInstructors.Rows[e.RowIndex].Cells[0].Value;
+                ManageInstructorCourses manageInstructorCourses = new ManageInstructorCourses(InstructorID);
+                manageInstructorCourses.ShowDialog();
+                
+            }
+            if (e.ColumnIndex == 9)
+            {
                 DialogResult result = MessageBox.Show("Are you sure you want to delete this instructor?", "Delete Instructor", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {

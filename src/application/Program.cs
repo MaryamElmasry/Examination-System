@@ -1,4 +1,5 @@
 using application.Forms;
+using application.Forms.adminForms;
 namespace application
 {
     internal static class Program

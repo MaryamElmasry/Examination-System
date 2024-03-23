@@ -42,9 +42,10 @@
             btnAddDepartment.FlatStyle = FlatStyle.Flat;
             btnAddDepartment.Font = new Font("Segoe UI", 11F);
             btnAddDepartment.ForeColor = SystemColors.ButtonFace;
-            btnAddDepartment.Location = new Point(242, 174);
+            btnAddDepartment.Location = new Point(205, 232);
+            btnAddDepartment.Margin = new Padding(3, 4, 3, 4);
             btnAddDepartment.Name = "btnAddDepartment";
-            btnAddDepartment.Size = new Size(153, 36);
+            btnAddDepartment.Size = new Size(175, 48);
             btnAddDepartment.TabIndex = 5;
             btnAddDepartment.Text = "Add department";
             btnAddDepartment.UseVisualStyleBackColor = false;
@@ -54,26 +55,27 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(34, 64);
+            label1.Location = new Point(39, 85);
             label1.Name = "label1";
-            label1.Size = new Size(139, 21);
+            label1.Size = new Size(174, 28);
             label1.TabIndex = 4;
             label1.Text = "Department Name";
             // 
             // txtDeptName
             // 
-            txtDeptName.Location = new Point(179, 66);
+            txtDeptName.Location = new Point(205, 88);
+            txtDeptName.Margin = new Padding(3, 4, 3, 4);
             txtDeptName.Name = "txtDeptName";
-            txtDeptName.Size = new Size(216, 23);
+            txtDeptName.Size = new Size(246, 27);
             txtDeptName.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(34, 115);
+            label2.Location = new Point(39, 153);
             label2.Name = "label2";
-            label2.Size = new Size(101, 21);
+            label2.Size = new Size(124, 28);
             label2.TabIndex = 7;
             label2.Text = "Branch name";
             // 
@@ -81,21 +83,23 @@
             // 
             cbBranches.DropDownStyle = ComboBoxStyle.DropDownList;
             cbBranches.FormattingEnabled = true;
-            cbBranches.Location = new Point(179, 117);
+            cbBranches.Location = new Point(205, 156);
+            cbBranches.Margin = new Padding(3, 4, 3, 4);
             cbBranches.Name = "cbBranches";
-            cbBranches.Size = new Size(216, 23);
+            cbBranches.Size = new Size(246, 28);
             cbBranches.TabIndex = 8;
             // 
             // AddDepartment
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(467, 253);
+            ClientSize = new Size(534, 337);
             Controls.Add(cbBranches);
             Controls.Add(label2);
             Controls.Add(btnAddDepartment);
             Controls.Add(label1);
             Controls.Add(txtDeptName);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "AddDepartment";
             StartPosition = FormStartPosition.CenterParent;
             Text = "AddDepartment";

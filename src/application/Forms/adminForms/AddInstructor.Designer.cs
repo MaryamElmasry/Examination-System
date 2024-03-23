@@ -53,7 +53,7 @@
             btnAddInstructor.FlatStyle = FlatStyle.Flat;
             btnAddInstructor.Font = new Font("Segoe UI", 11F);
             btnAddInstructor.ForeColor = Color.White;
-            btnAddInstructor.Location = new Point(151, 282);
+            btnAddInstructor.Location = new Point(190, 284);
             btnAddInstructor.Margin = new Padding(3, 4, 3, 4);
             btnAddInstructor.Name = "btnAddInstructor";
             btnAddInstructor.Size = new Size(175, 48);
@@ -186,7 +186,7 @@
             // 
             M.AutoSize = true;
             M.Location = new Point(199, 212);
-            M.Margin = new Padding(2, 2, 2, 2);
+            M.Margin = new Padding(2);
             M.Name = "M";
             M.Size = new Size(63, 24);
             M.TabIndex = 18;
@@ -198,7 +198,7 @@
             // 
             F.AutoSize = true;
             F.Location = new Point(329, 212);
-            F.Margin = new Padding(2, 2, 2, 2);
+            F.Margin = new Padding(2);
             F.Name = "F";
             F.Size = new Size(78, 24);
             F.TabIndex = 19;

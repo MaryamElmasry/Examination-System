@@ -6618,6 +6618,15 @@
   <data name="Edit.MinimumWidth" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <metadata name="ManageCourses.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="ManageCourses.HeaderText" xml:space="preserve">
+    <value>ManageCourses</value>
+  </data>
+  <data name="ManageCourses.MinimumWidth" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
   <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -6760,6 +6769,12 @@
     <value>Edit</value>
   </data>
   <data name="&gt;&gt;Edit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ManageCourses.Name" xml:space="preserve">
+    <value>ManageCourses</value>
+  </data>
+  <data name="&gt;&gt;ManageCourses.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Delete.Name" xml:space="preserve">

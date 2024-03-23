@@ -86,6 +86,7 @@
             Address = new DataGridViewTextBoxColumn();
             Gender = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewButtonColumn();
+            ManageCourses = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
@@ -462,7 +463,7 @@
             gvInstructors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvInstructors.BackgroundColor = SystemColors.Control;
             gvInstructors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvInstructors.Columns.AddRange(new DataGridViewColumn[] { ID, InsName, Email, Password, PhoneNumber, Address, Gender, Edit, Delete });
+            gvInstructors.Columns.AddRange(new DataGridViewColumn[] { ID, InsName, Email, Password, PhoneNumber, Address, Gender, Edit, ManageCourses, Delete });
             resources.ApplyResources(gvInstructors, "gvInstructors");
             gvInstructors.Name = "gvInstructors";
             gvInstructors.ReadOnly = true;
@@ -517,6 +518,16 @@
             Edit.ReadOnly = true;
             Edit.Text = "Edit";
             Edit.UseColumnTextForButtonValue = true;
+            // 
+            // ManageCourses
+            // 
+            resources.ApplyResources(ManageCourses, "ManageCourses");
+            ManageCourses.Name = "ManageCourses";
+            ManageCourses.ReadOnly = true;
+            ManageCourses.Resizable = DataGridViewTriState.True;
+            ManageCourses.SortMode = DataGridViewColumnSortMode.Automatic;
+            ManageCourses.Text = "Manage Courses";
+            ManageCourses.UseColumnTextForButtonValue = true;
             // 
             // Delete
             // 
@@ -613,6 +624,9 @@
         private Label label9;
         private ComboBox cbBranches;
         private Label label2;
+        private Button button1;
+        private Button btnDisplayCourses;
+        private Button btnAccounts;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn InsName;
         private DataGridViewTextBoxColumn Email;
@@ -621,9 +635,7 @@
         private DataGridViewTextBoxColumn Address;
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewButtonColumn Edit;
+        private DataGridViewButtonColumn ManageCourses;
         private DataGridViewButtonColumn Delete;
-        private Button button1;
-        private Button btnDisplayCourses;
-        private Button btnAccounts;
     }
 }
