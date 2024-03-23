@@ -44,6 +44,9 @@ namespace application.Forms
                 dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Grade);
             }
 
+            string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {StudentID}").AsEnumerable().FirstOrDefault();
+            lblUserName.Text = StudentName;
+
         }
         private void button4_Click(object sender, EventArgs e)
         {

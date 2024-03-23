@@ -197,6 +197,7 @@
             // 
             resources.ApplyResources(lblUserName, "lblUserName");
             lblUserName.Name = "lblUserName";
+            lblUserName.Click += lblUserName_Click;
             // 
             // lblRoleError
             // 
