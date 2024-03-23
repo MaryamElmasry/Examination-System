@@ -62,23 +62,6 @@ namespace application.Forms
         private void gvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex == 7)
-            {
-                int studentID = (int)gvStudents.Rows[e.RowIndex].Cells[0].Value;
-                var student = db.Students.Include(s => s.StudentNavigation).Where(s => s.StudentID == studentID).FirstOrDefault();
-                AddStudent addStudent = new AddStudent(student);
-                addStudent.ShowDialog();
-            }
-            if (e.ColumnIndex == 8)
-            {
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this student?", "Delete Student", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                   MessageBox.Show("Student Deleted Successfully", "Delete Student", MessageBoxButtons.OK);
-
-                }
-               
-            }
         }
 
         private void cbDepts_SelectedIndexChanged(object sender, EventArgs e)

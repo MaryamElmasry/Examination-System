@@ -45,10 +45,6 @@
             button3 = new Button();
             lblUserName = new Label();
             lblRoleError = new Label();
-            toolStripPageLabel = new ToolStripLabel();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton1 = new ToolStripButton();
-            toolStrip = new ToolStrip();
             panelShowReports = new Panel();
             dataGridView1 = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
@@ -77,13 +73,11 @@
             pictureBox1 = new PictureBox();
             panel2 = new Panel();
             button4 = new Button();
-            button1 = new Button();
             btnDisplayExams = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).BeginInit();
-            toolStrip.SuspendLayout();
             panelShowReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel4.SuspendLayout();
@@ -155,7 +149,6 @@
             panel1.Controls.Add(btnClose);
             resources.ApplyResources(panel1, "panel1");
             panel1.Name = "panel1";
-            panel1.MouseDown += panel1_MouseDown;
             // 
             // panel3
             // 
@@ -211,31 +204,6 @@
             lblRoleError.ForeColor = Color.IndianRed;
             lblRoleError.Name = "lblRoleError";
             // 
-            // toolStripPageLabel
-            // 
-            toolStripPageLabel.Name = "toolStripPageLabel";
-            resources.ApplyResources(toolStripPageLabel, "toolStripPageLabel");
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(toolStripButton2, "toolStripButton2");
-            toolStripButton2.Name = "toolStripButton2";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.BackColor = SystemColors.Control;
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            resources.ApplyResources(toolStripButton1, "toolStripButton1");
-            toolStripButton1.Name = "toolStripButton1";
-            // 
-            // toolStrip
-            // 
-            resources.ApplyResources(toolStrip, "toolStrip");
-            toolStrip.ImageScalingSize = new Size(20, 20);
-            toolStrip.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripPageLabel });
-            toolStrip.Name = "toolStrip";
-            // 
             // panelShowReports
             // 
             panelShowReports.Controls.Add(dataGridView1);
@@ -252,6 +220,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Exams, Date, Duration, Action });
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ID
             // 
@@ -418,7 +387,6 @@
             // 
             panel2.BackColor = Color.FromArgb(0, 7, 95);
             panel2.Controls.Add(button4);
-            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnDisplayExams);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panelDisplayClass);
@@ -433,14 +401,6 @@
             button4.Name = "button4";
             button4.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            resources.ApplyResources(button1, "button1");
-            button1.FlatAppearance.BorderSize = 0;
-            button1.ForeColor = Color.DarkGray;
-            button1.Name = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // btnDisplayExams
             // 
             resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
@@ -448,6 +408,7 @@
             btnDisplayExams.ForeColor = Color.DarkGray;
             btnDisplayExams.Name = "btnDisplayExams";
             btnDisplayExams.UseVisualStyleBackColor = true;
+            btnDisplayExams.Click += btnDisplayExams_Click;
             // 
             // StudentExamForm
             // 
@@ -455,7 +416,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelShowReports);
             Controls.Add(panel1);
-            Controls.Add(toolStrip);
             Controls.Add(label21);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -467,8 +427,6 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).EndInit();
-            toolStrip.ResumeLayout(false);
-            toolStrip.PerformLayout();
             panelShowReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel4.ResumeLayout(false);
@@ -505,10 +463,6 @@
         private Button button3;
         private Label lblUserName;
         private Label lblRoleError;
-        private ToolStripLabel toolStripPageLabel;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton1;
-        private ToolStrip toolStrip;
         private Panel panelShowReports;
         private Panel panel4;
         private Label label9;
@@ -532,7 +486,6 @@
         private PictureBox pictureBox1;
         private Panel panel2;
         private Button button4;
-        private Button button1;
         private Button btnDisplayExams;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn Exams;
