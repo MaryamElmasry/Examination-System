@@ -29,6 +29,19 @@ namespace CrystalReportGenerator
 
                 engine.ShowReport(report);
             }
+            public static void DisplayGradesReport(int StudentID ,string StudentName)
+            {
+                CrystalReportsEngine engine = new CrystalReportsEngine();
+
+                var report = new Report("StudentGrades.rpt", "Student Grades Report");
+
+                report.Parameters.Add("@StudentID", StudentID);
+
+                report.Parameters.Add("Student Name", StudentName);
+
+                engine.ShowReport(report);
+            }
+
 
 
         }

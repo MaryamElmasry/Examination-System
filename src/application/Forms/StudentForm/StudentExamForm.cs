@@ -14,6 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace application.Forms
@@ -21,7 +22,7 @@ namespace application.Forms
     public partial class StudentExamForm : Form
     {
         iti_ExamContext db = new iti_ExamContext();
-   
+
         public int studentID;
 
         public StudentExamForm(int studentID)
@@ -51,6 +52,8 @@ namespace application.Forms
                 dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
             }
 
+            string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {studentID}").AsEnumerable().FirstOrDefault();
+            lblUserName.Text = StudentName;
 
         }
 
@@ -63,7 +66,7 @@ namespace application.Forms
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-           if (e.ColumnIndex==4)
+            if (e.ColumnIndex == 4)
             {
                 int ExamId = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                 int CourseID = db.Database.SqlQuery<int>($"exec GetCourseIdByExamID {ExamId}").AsEnumerable().FirstOrDefault();
@@ -71,22 +74,22 @@ namespace application.Forms
                 string Date = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                 DateTime ExamDate = DateTime.Parse(Date);
 
-  
+
                 StartExamPage startExamPage = new StartExamPage(ExamId, studentID, CourseID, ExamDate, Duration);
                 startExamPage.ShowDialog();
-               
+
 
             }
             return;
-            //Make Timer  from Exam Date and Duration
 
-            //if the exam date is less than the current date
-            /*                if (DateTime.Compare(ExamDate, DateTime.Now) < 0)
-                            {
-                                MessageBox.Show("The Exam is already finished");
-                                return;
-                            }
-            */
+            
+        }
+
+        private void lblUserName_Click(object sender, EventArgs e)
+        {
+           /* string UserName;
+
+            int StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {UserName}").FirstOrDefault();*/
         }
     }
 }
