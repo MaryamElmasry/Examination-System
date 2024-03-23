@@ -47,7 +47,7 @@
             btnSR.TabIndex = 6;
             btnSR.Text = "Generate Students Report";
             btnSR.UseVisualStyleBackColor = false;
-            btnSR.Click += this.btnSR_Click_1;
+            btnSR.Click += btnSR_Click_1;
             // 
             // label1
             // 
@@ -67,7 +67,7 @@
             txtDeptID.Size = new Size(246, 27);
             txtDeptID.TabIndex = 8;
             // 
-            // Reports
+            // ReportsForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -75,7 +75,8 @@
             Controls.Add(txtDeptID);
             Controls.Add(label1);
             Controls.Add(btnSR);
-            Name = "Reports";
+            Name = "ReportsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "GenerateForm";
             ResumeLayout(false);
             PerformLayout();

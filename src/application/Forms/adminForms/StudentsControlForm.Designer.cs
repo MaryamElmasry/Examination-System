@@ -1,6 +1,6 @@
 ﻿namespace application.Forms
 {
-    partial class Admin3
+    partial class StudentsControlForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentsControlForm));
             label21 = new Label();
             label22 = new Label();
             label24 = new Label();
@@ -47,11 +47,9 @@
             panel6 = new Panel();
             label25 = new Label();
             panel2 = new Panel();
-            btnAddUser = new Button();
-            btnDisplayExams = new Button();
+            btnAccounts = new Button();
+            button1 = new Button();
             btnDisplayCourses = new Button();
-            btnDisplayDepartments = new Button();
-            btnDisplayBranches = new Button();
             pictureBox1 = new PictureBox();
             btnClose = new Button();
             label4 = new Label();
@@ -68,10 +66,10 @@
             button3 = new Button();
             lblUserName = new Label();
             lblRoleError = new Label();
-            btnAddInstructor = new Button();
+            btnAddStudent = new Button();
             panelShow = new Panel();
             label2 = new Label();
-            cbBranches = new ComboBox();
+            cbDeptsStudent = new ComboBox();
             toolStripPageLabel = new ToolStripLabel();
             toolStripButton2 = new ToolStripButton();
             toolStripButton1 = new ToolStripButton();
@@ -79,9 +77,9 @@
             panelShowReports = new Panel();
             panel4 = new Panel();
             label9 = new Label();
-            gvInstructors = new DataGridView();
+            gvStudents = new DataGridView();
             ID = new DataGridViewTextBoxColumn();
-            InsName = new DataGridViewTextBoxColumn();
+            stdName = new DataGridViewTextBoxColumn();
             Email = new DataGridViewTextBoxColumn();
             Password = new DataGridViewTextBoxColumn();
             PhoneNumber = new DataGridViewTextBoxColumn();
@@ -105,7 +103,7 @@
             toolStrip.SuspendLayout();
             panelShowReports.SuspendLayout();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)gvInstructors).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)gvStudents).BeginInit();
             SuspendLayout();
             // 
             // label21
@@ -233,31 +231,31 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(0, 7, 95);
-            panel2.Controls.Add(btnAddUser);
-            panel2.Controls.Add(btnDisplayExams);
+            panel2.Controls.Add(btnAccounts);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnDisplayCourses);
-            panel2.Controls.Add(btnDisplayDepartments);
-            panel2.Controls.Add(btnDisplayBranches);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(panelDisplayClass);
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
-            // btnAddUser
+            // btnAccounts
             // 
-            resources.ApplyResources(btnAddUser, "btnAddUser");
-            btnAddUser.FlatAppearance.BorderSize = 0;
-            btnAddUser.ForeColor = Color.DarkGray;
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.UseVisualStyleBackColor = true;
+            resources.ApplyResources(btnAccounts, "btnAccounts");
+            btnAccounts.FlatAppearance.BorderSize = 0;
+            btnAccounts.ForeColor = Color.DarkGray;
+            btnAccounts.Name = "btnAccounts";
+            btnAccounts.UseVisualStyleBackColor = true;
+            btnAccounts.Click += btnAccounts_Click;
             // 
-            // btnDisplayExams
+            // button1
             // 
-            resources.ApplyResources(btnDisplayExams, "btnDisplayExams");
-            btnDisplayExams.FlatAppearance.BorderSize = 0;
-            btnDisplayExams.ForeColor = Color.DarkGray;
-            btnDisplayExams.Name = "btnDisplayExams";
-            btnDisplayExams.UseVisualStyleBackColor = true;
+            resources.ApplyResources(button1, "button1");
+            button1.FlatAppearance.BorderSize = 0;
+            button1.ForeColor = Color.DarkGray;
+            button1.Name = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnDisplayCourses
             // 
@@ -266,22 +264,6 @@
             btnDisplayCourses.ForeColor = Color.DarkGray;
             btnDisplayCourses.Name = "btnDisplayCourses";
             btnDisplayCourses.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayDepartments
-            // 
-            resources.ApplyResources(btnDisplayDepartments, "btnDisplayDepartments");
-            btnDisplayDepartments.FlatAppearance.BorderSize = 0;
-            btnDisplayDepartments.ForeColor = Color.DarkGray;
-            btnDisplayDepartments.Name = "btnDisplayDepartments";
-            btnDisplayDepartments.UseVisualStyleBackColor = true;
-            // 
-            // btnDisplayBranches
-            // 
-            resources.ApplyResources(btnDisplayBranches, "btnDisplayBranches");
-            btnDisplayBranches.FlatAppearance.BorderSize = 0;
-            btnDisplayBranches.ForeColor = Color.White;
-            btnDisplayBranches.Name = "btnDisplayBranches";
-            btnDisplayBranches.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -395,21 +377,21 @@
             lblRoleError.ForeColor = Color.IndianRed;
             lblRoleError.Name = "lblRoleError";
             // 
-            // btnAddInstructor
+            // btnAddStudent
             // 
-            btnAddInstructor.BackColor = Color.Teal;
-            btnAddInstructor.FlatAppearance.BorderSize = 0;
-            resources.ApplyResources(btnAddInstructor, "btnAddInstructor");
-            btnAddInstructor.ForeColor = SystemColors.Control;
-            btnAddInstructor.Name = "btnAddInstructor";
-            btnAddInstructor.UseVisualStyleBackColor = false;
-            btnAddInstructor.Click += btnAddInstructor_Click;
+            btnAddStudent.BackColor = Color.Teal;
+            btnAddStudent.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(btnAddStudent, "btnAddStudent");
+            btnAddStudent.ForeColor = SystemColors.Control;
+            btnAddStudent.Name = "btnAddStudent";
+            btnAddStudent.UseVisualStyleBackColor = false;
+            btnAddStudent.Click += btnAddStudent_Click;
             // 
             // panelShow
             // 
             panelShow.Controls.Add(label2);
-            panelShow.Controls.Add(cbBranches);
-            panelShow.Controls.Add(btnAddInstructor);
+            panelShow.Controls.Add(cbDeptsStudent);
+            panelShow.Controls.Add(btnAddStudent);
             resources.ApplyResources(panelShow, "panelShow");
             panelShow.Name = "panelShow";
             panelShow.Tag = "myTheme";
@@ -419,11 +401,12 @@
             resources.ApplyResources(label2, "label2");
             label2.Name = "label2";
             // 
-            // cbBranches
+            // cbDeptsStudent
             // 
-            cbBranches.FormattingEnabled = true;
-            resources.ApplyResources(cbBranches, "cbBranches");
-            cbBranches.Name = "cbBranches";
+            cbDeptsStudent.FormattingEnabled = true;
+            resources.ApplyResources(cbDeptsStudent, "cbDeptsStudent");
+            cbDeptsStudent.Name = "cbDeptsStudent";
+            cbDeptsStudent.SelectedIndexChanged += cbDepts_SelectedIndexChanged;
             // 
             // toolStripPageLabel
             // 
@@ -454,7 +437,7 @@
             // 
             panelShowReports.Controls.Add(panel4);
             panelShowReports.Controls.Add(panel3);
-            panelShowReports.Controls.Add(gvInstructors);
+            panelShowReports.Controls.Add(gvStudents);
             panelShowReports.Controls.Add(panelShow);
             resources.ApplyResources(panelShowReports, "panelShowReports");
             panelShowReports.Name = "panelShowReports";
@@ -473,18 +456,18 @@
             label9.ForeColor = Color.White;
             label9.Name = "label9";
             // 
-            // gvInstructors
+            // gvStudents
             // 
-            gvInstructors.AllowUserToAddRows = false;
-            gvInstructors.AllowUserToDeleteRows = false;
-            gvInstructors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            gvInstructors.BackgroundColor = SystemColors.Control;
-            gvInstructors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvInstructors.Columns.AddRange(new DataGridViewColumn[] { ID, InsName, Email, Password, PhoneNumber, Address, Gender, Edit, Delete });
-            resources.ApplyResources(gvInstructors, "gvInstructors");
-            gvInstructors.Name = "gvInstructors";
-            gvInstructors.ReadOnly = true;
-            gvInstructors.CellContentClick += gvInstructors_CellContentClick_1;
+            gvStudents.AllowUserToAddRows = false;
+            gvStudents.AllowUserToDeleteRows = false;
+            gvStudents.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            gvStudents.BackgroundColor = SystemColors.Control;
+            gvStudents.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvStudents.Columns.AddRange(new DataGridViewColumn[] { ID, stdName, Email, Password, PhoneNumber, Address, Gender, Edit, Delete });
+            resources.ApplyResources(gvStudents, "gvStudents");
+            gvStudents.Name = "gvStudents";
+            gvStudents.ReadOnly = true;
+            gvStudents.CellContentClick += gvStudents_CellContentClick;
             // 
             // ID
             // 
@@ -492,11 +475,11 @@
             ID.Name = "ID";
             ID.ReadOnly = true;
             // 
-            // InsName
+            // stdName
             // 
-            resources.ApplyResources(InsName, "InsName");
-            InsName.Name = "InsName";
-            InsName.ReadOnly = true;
+            resources.ApplyResources(stdName, "stdName");
+            stdName.Name = "stdName";
+            stdName.ReadOnly = true;
             // 
             // Email
             // 
@@ -544,7 +527,7 @@
             Delete.Text = "Delete";
             Delete.UseColumnTextForButtonValue = true;
             // 
-            // Admin3
+            // StudentsControlForm
             // 
             resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
@@ -554,7 +537,8 @@
             Controls.Add(label21);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Admin3";
+            Name = "StudentsControlForm";
+            Load += StudentsControlForm_Load;
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).EndInit();
@@ -579,7 +563,7 @@
             panelShowReports.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)gvInstructors).EndInit();
+            ((System.ComponentModel.ISupportInitialize)gvStudents).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -603,11 +587,7 @@
         private Panel panel6;
         private Label label25;
         private Panel panel2;
-        private Button btnAddUser;
-        private Button btnDisplayExams;
         private Button btnDisplayCourses;
-        private Button btnDisplayDepartments;
-        private Button btnDisplayBranches;
         private PictureBox pictureBox1;
         private Button btnClose;
         private Label label4;
@@ -624,20 +604,20 @@
         private Button button3;
         private Label lblUserName;
         private Label lblRoleError;
-        private Button btnAddInstructor;
+        private Button btnAddStudent;
         private Panel panelShow;
         private ToolStripLabel toolStripPageLabel;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton1;
         private ToolStrip toolStrip;
         private Panel panelShowReports;
-        private DataGridView gvInstructors;
+        private DataGridView gvStudents;
         private Panel panel4;
         private Label label9;
-        private ComboBox cbBranches;
+        private ComboBox cbDeptsStudent;
         private Label label2;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn InsName;
+        private DataGridViewTextBoxColumn stdName;
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn Password;
         private DataGridViewTextBoxColumn PhoneNumber;
@@ -645,5 +625,7 @@
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
+        private Button button1;
+        private Button btnAccounts;
     }
 }

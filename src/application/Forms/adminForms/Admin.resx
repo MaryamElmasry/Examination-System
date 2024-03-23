@@ -5466,79 +5466,46 @@
   <data name="&gt;&gt;panelDisplayClass.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="btnAddUser.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        oqzsX6SgjEH/9bRSAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="btnAddUser.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+  <data name="btnAccounts.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
-  <data name="btnAddUser.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnAccounts.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnAddUser.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnAccounts.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11pt</value>
   </data>
-  <data name="btnAddUser.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnAccounts.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnAddUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnAccounts.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnAddUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-126, 509</value>
+  <data name="btnAccounts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-71, 623</value>
   </data>
-  <data name="btnAddUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="btnAccounts.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
-  <data name="btnAddUser.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnAccounts.Size" type="System.Drawing.Size, System.Drawing">
     <value>370, 48</value>
   </data>
-  <data name="btnAddUser.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
+  <data name="btnAccounts.TabIndex" type="System.Int32, mscorlib">
+    <value>52</value>
   </data>
-  <data name="btnAddUser.Text" xml:space="preserve">
-    <value>                                       Add New User</value>
+  <data name="btnAccounts.Text" xml:space="preserve">
+    <value>-&gt; Account Managment</value>
   </data>
-  <data name="&gt;&gt;btnAddUser.Name" xml:space="preserve">
-    <value>btnAddUser</value>
+  <data name="&gt;&gt;btnAccounts.Name" xml:space="preserve">
+    <value>btnAccounts</value>
   </data>
-  <data name="&gt;&gt;btnAddUser.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnAccounts.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnAddUser.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnAccounts.Parent" xml:space="preserve">
     <value>panel2</value>
   </data>
-  <data name="&gt;&gt;btnAddUser.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnAccounts.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="btnDisplayExams.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -5572,7 +5539,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnDisplayExams.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-128, 595</value>
+    <value>-126, 524</value>
   </data>
   <data name="btnDisplayExams.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -5584,7 +5551,7 @@
     <value>26</value>
   </data>
   <data name="btnDisplayExams.Text" xml:space="preserve">
-    <value>                                      Exams</value>
+    <value>                                      Reports</value>
   </data>
   <data name="&gt;&gt;btnDisplayExams.Name" xml:space="preserve">
     <value>btnDisplayExams</value>
@@ -6702,6 +6669,9 @@
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Admin</value>

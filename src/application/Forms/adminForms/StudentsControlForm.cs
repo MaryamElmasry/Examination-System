@@ -18,30 +18,31 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace application.Forms
 {
-    public partial class Admin2 : Form
+    public partial class StudentsControlForm : Form
     {
         iti_ExamContext db = new iti_ExamContext();
 
-        public Admin2()
+        public StudentsControlForm()
         {
             InitializeComponent();
-            loadDepartments();
-            loadStudents();    
+            StudentsControlForm_Load(null, null);
+            loadStudents();
         }
-        private void loadDepartments()
+        private void StudentsControlForm_Load(object sender, EventArgs e)
         {
             #region Fill Departments ComboBox
             var departments = db.Departments.FromSql($"exec GetAllDepartments").ToList();
-            cbDepts.DataSource = departments;
-            cbDepts.DisplayMember = "DeptName";
-            cbDepts.ValueMember = "DeptID";
+            //clear cbDepts
+            cbDeptsStudent.DataSource = departments;
+            cbDeptsStudent.DisplayMember = "DeptName";
+            cbDeptsStudent.ValueMember = "DeptID";
             #endregion
         }
         private void loadStudents()
         {
             gvStudents.Rows.Clear();
             #region Fill Students Grid
-            int deptID = (int)cbDepts.SelectedValue;
+            int deptID = 1;
             var students = db.Database.SqlQuery<StudentResult>($"exec GetStudentsByDeptID {deptID}").ToList();
             foreach (var student in students)
             {
@@ -66,7 +67,7 @@ namespace application.Forms
 
         private void cbDepts_SelectedIndexChanged(object sender, EventArgs e)
         {
-           loadStudents();
+            loadStudents();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -80,6 +81,20 @@ namespace application.Forms
         {
             AddStudent addStudent = new AddStudent();
             addStudent.ShowDialog();
+
+        }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InstructorsControlForm instructorsControlForm = new InstructorsControlForm();
+            instructorsControlForm.ShowDialog();
+            this.Close();
+
 
         }
     }

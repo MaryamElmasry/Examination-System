@@ -18,11 +18,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace application.Forms
 {
-    public partial class Admin3 : Form
+    public partial class InstructorsControlForm : Form
     {
         iti_ExamContext db = new iti_ExamContext();
 
-        public Admin3()
+        public InstructorsControlForm()
         {
             InitializeComponent();
             loadDepartments();
@@ -62,7 +62,7 @@ namespace application.Forms
         private void gvInstructors_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-           
+
         }
 
         private void cbBranches_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,6 +104,18 @@ namespace application.Forms
 
             }
 
+        }
+
+        private void btnAccounts_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnDisplayCourses_Click(object sender, EventArgs e)
+        {
+            StudentsControlForm studentControlForm = new StudentsControlForm();
+            studentControlForm.ShowDialog();
+            this.Close();
         }
     }
 
