@@ -22,6 +22,11 @@ namespace application.Forms
 
     public partial class StartExamPage : Form
     {
+        int ExamID;
+        public int Duration;
+        public DateTime ExamDate;
+        int StudentID;
+        int CourseID;
         iti_ExamContext db = new iti_ExamContext();
         int currentQuestion;
         //List of questions
@@ -30,8 +35,13 @@ namespace application.Forms
         int[] selectedAnswers;
         
         
-        public StartExamPage(int ExamID = 0)
+        public StartExamPage(int examID, int studentID , int courseID , DateTime ExamDate, int Duration)
         {
+            this.StudentID = studentID;
+            this.ExamID = examID;
+            this.CourseID = courseID;
+            this.Duration = Duration*60;
+            this.ExamDate = ExamDate;
             InitializeComponent();
             #region Get Questions and Initialize Selected Answers
             questions = db.Database.SqlQuery<ExamQuestion>($"EXEC [dbo].[GetQuestionChoices] @ExamID = {ExamID};").ToList();
@@ -42,7 +52,24 @@ namespace application.Forms
             }
             #endregion
             DisplayQuestion(questions[currentQuestion]);
+            //Make Timer Object from ExamDate and duration and tick it
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
+            timer.Interval = 1000;
+            timer.Tick += (s, ev) =>
+            {
+                this.Duration--;
+                if (this.Duration == 0)
+                {
+                    timer.Stop();
+                    MessageBox.Show("Time is up");
+                    return;
+                }
+                //Show it as time Format hh:mm:ss from $
+                txtTimer.Text = $"{this.Duration / 3600}:{(this.Duration % 3600) / 60}:{this.Duration % 60}";
 
+
+            };
+            timer.Start();
         }
 
         private void DisplayQuestion(ExamQuestion question)
@@ -122,14 +149,18 @@ namespace application.Forms
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to submit the exam?", "Submit Exam", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                int StudentID = 1;
-                int ExamID = 0;
-                int CourseID = 1;
+                //Msgbox to show student id,coursid,exam id
+                //StudentIDMessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
                 db.Database.ExecuteSqlRaw($"Delete from [StudentGrades] Where [CourseID]={CourseID} And [studentID]={StudentID};");
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[GetStudentGrades] @StudentID = {StudentID}, @ExamID = {ExamID} , @CourseID={CourseID};");
-                this.Close();
-
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[GetStudentGrades] @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
+               this.Close();
+         /*       //Close the apllication
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                Application.Exit();*/
+                //open parent
+                
             }
+
             return;
 
         }
