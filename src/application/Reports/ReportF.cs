@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using application.Models;
 using application.projectionEntities;
 using Microsoft.EntityFrameworkCore;
@@ -14,6 +15,7 @@ namespace application.Reports
     {
       
         internal record InsInfo(string UserName, string BranchName);
+        internal record ExamInfo(double Grade, string CourseName);
 
 
         internal static void LoadPrintExamReport(LocalReport report , int _examid,string _deptname,string _crsname)
@@ -47,6 +49,36 @@ namespace application.Reports
                 report.SetParameters(new ReportParameter("InsBranch", info.BranchName));
                 report.DataSources.Add(new ReportDataSource("CoursesInfo", crs));
 
+            }
+        }
+        internal static void LoadTopics(LocalReport report, int courseId)
+        {
+
+            using (var ctx = new iti_ExamContext())
+            {
+                var topics = ctx.CourseTopics.FromSqlRaw($"exec GetCourseTopics {courseId} ").ToList();
+                dynamic course  = ctx.Courses.FromSqlRaw($"select * from courses where courseid =  {courseId} ").ToList().FirstOrDefault();
+                using var fs = new FileStream("..\\..\\..\\Reports\\Topics.rdlc", FileMode.Open);
+                report.LoadReportDefinition(fs);
+                report.SetParameters(new ReportParameter("CourseName", course.CourseName));
+                report.DataSources.Add(new ReportDataSource("DataSet1",topics));
+
+            }
+        }
+        internal static void DetailedExamReport(LocalReport report, int ExamId,int stdId)
+        {
+            using (var ctx = new iti_ExamContext())
+            {
+                dynamic result = ctx.Database.SqlQueryRaw<DetailedExam>($"EXEC GetExamForStdReport {ExamId}, {stdId}").ToList();
+                dynamic std  = ctx.Users.FromSqlRaw($"select * from users where UserID = {stdId}").ToList().FirstOrDefault();
+                var examInfo = ctx.Database.SqlQueryRaw<ExamInfo>($"EXEC GetExamInfo {ExamId}, {stdId}").ToList().FirstOrDefault();
+                using var fs = new FileStream("..\\..\\..\\Reports\\DetailedExam.rdlc", FileMode.Open);
+                report.LoadReportDefinition(fs);
+                report.SetParameters(new ReportParameter("stdName", std.UserName));
+                report.SetParameters(new ReportParameter("ExamName", examInfo.CourseName));
+                report.SetParameters(new ReportParameter("Grade", examInfo.Grade.ToString()));
+                report.DataSources.Add(new ReportDataSource("DataSet2",result));
+                
             }
         }
 

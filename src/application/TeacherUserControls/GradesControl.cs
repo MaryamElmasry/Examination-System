@@ -1,4 +1,5 @@
-﻿using application.Models;
+﻿using application.instructorDialog;
+using application.Models;
 using application.projectionEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -54,6 +55,24 @@ namespace application.TeacherUserControls
             {
                 MessageBox.Show("Error loading data: " + ex.Message);
             }
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            //int examid = 1;
+            //int stdid = 2;
+            if (!int.TryParse(textBoxstdId.Text.Trim(), out int stdId))
+            {
+                MessageBox.Show("Error: Student ID must be a valid Number.");
+                return;
+            }
+
+            if (!int.TryParse(textBoxExamId.Text.Trim(), out int ExamId))
+            {
+                MessageBox.Show("Error: Exam ID must be a valid Number.");
+                return;
+            }
+            new PrintForm(ExamId, stdId, "detailedExam").Show();
         }
     }
 }

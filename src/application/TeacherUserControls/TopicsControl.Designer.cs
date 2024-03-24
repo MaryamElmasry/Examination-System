@@ -45,6 +45,7 @@
             PrintBtn.TabIndex = 13;
             PrintBtn.Text = "Print";
             PrintBtn.UseVisualStyleBackColor = true;
+            PrintBtn.Click += PrintBtn_Click;
             // 
             // Courses
             // 

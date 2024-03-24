@@ -16,8 +16,7 @@ namespace application.instructorDialog
         private int sid;
         private int examid;
         string mode;
-        int insid;
-
+        int insid , courseId, detailedexamId, stdid;
         public PrintForm()
         {
             InitializeComponent();
@@ -47,6 +46,19 @@ namespace application.instructorDialog
             this.insid = insid;
 
         }
+        public PrintForm(int courseid,string mode,int test):this()
+        {
+            this.mode = mode;
+            this.courseId = courseid;
+
+        }
+        public PrintForm(int examid,int stdId,string mode):this()
+        {
+            this.mode = mode;
+            this.detailedexamId = examid;
+            this.stdid = stdId;
+
+        }
         protected override void OnLoad(EventArgs e)
         {
             if(mode == "PrintExam") {
@@ -55,6 +67,12 @@ namespace application.instructorDialog
             }else if(mode == "MyCoursesInfo")
             {
                 ReportF.LoadCoursesInfo(reportViewer.LocalReport, insid);
+            }else if (mode == "LoadTopics")
+            {
+                ReportF.LoadTopics(reportViewer.LocalReport,courseId);
+            }else if (mode == "detailedExam")
+            {
+                ReportF.DetailedExamReport(reportViewer.LocalReport,detailedexamId,stdid);
             }
             reportViewer.RefreshReport();
             base.OnLoad(e);

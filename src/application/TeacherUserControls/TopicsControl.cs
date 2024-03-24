@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using application.instructorDialog;
 using application.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ namespace application.TeacherUserControls
 {
     public partial class TopicsControl : UserControl
     {
+        int courseId;
         public TopicsControl()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace application.TeacherUserControls
             if (comboBoxClass.SelectedValue != null)
             {
                 string x = comboBoxClass.SelectedValue.ToString();
-                int courseId;
+                
                 if (int.TryParse(x, out courseId))
                 {
                     using (var ctx = new iti_ExamContext())
@@ -67,6 +69,12 @@ namespace application.TeacherUserControls
         {
             dataGridView.Rows.Clear();
             displayTopics();
+        }
+
+        private void PrintBtn_Click(object sender, EventArgs e)
+        {
+            
+            new PrintForm(courseId, "LoadTopics", 1).Show();
         }
     }
 }

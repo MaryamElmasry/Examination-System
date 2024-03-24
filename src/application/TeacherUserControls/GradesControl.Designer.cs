@@ -38,6 +38,7 @@
             panel1 = new Panel();
             label1 = new Label();
             tabControlGrades = new TabControl();
+            PrintBtn = new Button();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tabControlGrades.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(PrintBtn);
             tabPage1.Controls.Add(button1);
             tabPage1.Controls.Add(panel2);
             tabPage1.Controls.Add(textBoxExamId);
@@ -108,7 +110,7 @@
             dataGridView1.Location = new Point(42, 89);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(535, 214);
+            dataGridView1.Size = new Size(501, 214);
             dataGridView1.TabIndex = 8;
             // 
             // Courses
@@ -151,6 +153,17 @@
             tabControlGrades.Size = new Size(670, 359);
             tabControlGrades.TabIndex = 1;
             // 
+            // PrintBtn
+            // 
+            PrintBtn.Location = new Point(558, 300);
+            PrintBtn.Margin = new Padding(3, 2, 3, 2);
+            PrintBtn.Name = "PrintBtn";
+            PrintBtn.Size = new Size(82, 22);
+            PrintBtn.TabIndex = 14;
+            PrintBtn.Text = "Print";
+            PrintBtn.UseVisualStyleBackColor = true;
+            PrintBtn.Click += PrintBtn_Click;
+            // 
             // GradesControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,5 +192,6 @@
         private Panel panel1;
         private Label label1;
         private TabControl tabControlGrades;
+        private Button PrintBtn;
     }
 }
