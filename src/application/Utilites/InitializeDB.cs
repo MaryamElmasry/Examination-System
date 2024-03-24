@@ -67,7 +67,7 @@ namespace application.Utilites
             // Add dummy data for Instructors
             var instructor1 = new Instructor
             {
-                BranchId = 1,
+                BranchID = 1,
                 InstructorNavigation = new User
                 {
                     UserName = "Abdo",
@@ -81,7 +81,7 @@ namespace application.Utilites
 
             var instructor2 = new Instructor
             {
-                BranchId = 1,
+                BranchID = 1,
                 InstructorNavigation = new User
                 {
                     UserName = "saberr",

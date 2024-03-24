@@ -1,5 +1,5 @@
 using application.Forms;
-using application.Forms.adminForms;
+using application.Models;
 namespace application
 {
     internal static class Program
@@ -13,7 +13,7 @@ namespace application
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new StudentExamForm(1));
+            Application.Run(new Login());
         }
     }
 }

@@ -27,11 +27,15 @@ namespace application.Forms
         public InstructorForm(int InstructorID)
         {
             this.InstructorID = InstructorID;
+            using (var ctx = new iti_ExamContext())
+            {
+                instructor = ctx.Instructors.Find(InstructorID);
+            }
             InitializeComponent();
 
         }
 
-        public InstructorForm(Instructor instructor)
+        public InstructorForm(Instructor instructor):this()
         {
             
             this.instructor = instructor;

@@ -43,7 +43,7 @@ namespace application.Forms
             }
             else if (userType == "Instructor")
             {
-                InstructorForm instructor = new InstructorForm(userID);
+                InstructorForm instructor = new InstructorForm(new Instructor() { InstructorID = userID });
                 instructor.Show();
                 this.Hide();
             }

@@ -7,7 +7,7 @@ namespace application.Models
 {
     public partial class GetAllBranchesResult
     {
-        public int BranchId { get; set; }
+        public int BranchID { get; set; }
         public string BranchName { get; set; }
     }
 }

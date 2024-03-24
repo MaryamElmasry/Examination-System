@@ -9,7 +9,7 @@ public partial class Course_Dept
 {
     public int CourseID { get; set; }
 
-    public int DeptID { get; set; }
+    public int DeptId { get; set; }
 
     public virtual Course Course { get; set; }
 

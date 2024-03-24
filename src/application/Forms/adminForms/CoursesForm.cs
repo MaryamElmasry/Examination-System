@@ -229,7 +229,7 @@ namespace application.Forms.adminForms
             foreach (var item in checkedDepartments)
             {
                 //check if the coursedepartment already exists
-                var duplicatedCourseDepartments = db.Course_Depts.FromSql($"exec getCourseDepartment {selectedCourseID}, {(item as Department).DeptID}").ToList();
+                var duplicatedCourseDepartments = db.Courses.FromSql($"exec getCourseDepartment {selectedCourseID}, {(item as Department).DeptID}").ToList();
                 if (duplicatedCourseDepartments.Count > 0) continue;
 
                 db.Database.ExecuteSqlRaw($"exec addCourseDepartment {selectedCourseID}, {(item as Department).DeptID}");

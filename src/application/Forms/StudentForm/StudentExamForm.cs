@@ -49,7 +49,7 @@ namespace application.Forms
             var ExamTable = await db.GetProcedures().GetCourseExamsAsync(1);
             foreach (var item in ExamTable)
             {
-                dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
+               dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
             }
 
             string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {studentID}").AsEnumerable().FirstOrDefault();

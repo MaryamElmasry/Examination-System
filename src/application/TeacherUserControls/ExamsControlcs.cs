@@ -32,11 +32,19 @@ namespace application.TeacherUserControls
             {
                 DeptList.DataSource = ctx.Departments.FromSqlRaw($"EXEC GetDeptsforIns {ins.InstructorID}").ToList();
                 DeptList.SelectedItem = 0;
-                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
-                DeptList.DisplayMember = "DeptName";
-                DeptList.ValueMember = "DeptID";
-                crsList.ValueMember = "CourseID";
-                crsList.DisplayMember = "CourseName";
+                try
+                {
+                    crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
+                    DeptList.DisplayMember = "DeptName";
+                    DeptList.ValueMember = "DeptID";
+                    crsList.ValueMember = "CourseID";
+                    crsList.DisplayMember = "CourseName";
+                }
+                catch
+                {
+                    MessageBox.Show("No Courses Found");
+                }
+                
             }
 
 

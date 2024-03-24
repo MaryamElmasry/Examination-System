@@ -7,7 +7,7 @@ namespace application.Models;
 
 public partial class Branch
 {
-    public int BranchId { get; set; }
+    public int BranchID { get; set; }
 
     public string BranchName { get; set; }
 
@@ -15,4 +15,3 @@ public partial class Branch
 
     public virtual ICollection<Instructor> Instructors { get; set; } = new List<Instructor>();
 }
-

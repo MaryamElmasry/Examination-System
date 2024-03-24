@@ -47,6 +47,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>CoursesInfo.xsd</DependentUpon>
     </Compile>
+    <Compile Update="Reports\DataSet1.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Reports\DataSet2.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Reports\ExamSet.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -69,6 +79,14 @@
     <None Update="Reports\CoursesInfo.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>CoursesInfo.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Reports\DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Reports\DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
     </None>
     <None Update="Reports\ExamSet.xsd">
       <Generator>MSDataSetGenerator</Generator>

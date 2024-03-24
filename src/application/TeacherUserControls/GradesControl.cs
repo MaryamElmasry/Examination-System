@@ -1,4 +1,5 @@
-﻿using application.Models;
+﻿using application.instructorDialog;
+using application.Models;
 using application.projectionEntities;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,78 +23,56 @@ namespace application.TeacherUserControls
             InitializeComponent();
 
         }
-
-        private void GradesControl_Load(object sender, EventArgs e)
-        {
-            using (var ctx = new iti_ExamContext())
-            {
-                var depts = ctx.Departments.FromSqlRaw("EXEC GetDeptsforIns 1").ToList();
-                DeptsList.DataSource = depts;
-                DeptsList.DisplayMember = "DeptName";
-                DeptsList.ValueMember = "DeptID";
-            }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void UpdatecrsList(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            using (var ctx = new iti_ExamContext())
+            if (!int.TryParse(textBoxstdId.Text.Trim(), out int stdId))
             {
-                dynamic deptitem = DeptsList.SelectedItem;
-                var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptID}").ToList();
-                CoursesList.DataSource = crs;
-                CoursesList.DisplayMember = "CourseName";
-                CoursesList.ValueMember = "CourseID";
+                MessageBox.Show("Error: Student ID must be a valid Number.");
+                return;
+            }
+
+            if (!int.TryParse(textBoxExamId.Text.Trim(), out int ExamId))
+            {
+                MessageBox.Show("Error: Exam ID must be a valid Number.");
+                return;
+            }
+            try
+            {
+
+                using (var ctx = new iti_ExamContext())
+                {
+                    var result = ctx.Database.SqlQueryRaw<DetailedExam>($"EXEC GetExamForStdReport {ExamId}, {stdId}").ToList();
+                    //Data.FromSql($"EXEC GetExamForStdReport {ExamId}, {stdId}").ToList();
+                    dataGridView1.DataSource = result;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loading data: " + ex.Message);
             }
         }
 
-        private void UpdateStudents(object sender, EventArgs e)
+        private void PrintBtn_Click(object sender, EventArgs e)
         {
-            dynamic dept = DeptsList.SelectedItem;
-            using (var ctx = new iti_ExamContext())
+            //int examid = 1;
+            //int stdid = 2;
+            if (!int.TryParse(textBoxstdId.Text.Trim(), out int stdId))
             {
-                StudentsGV.DataSource = ctx.Database.SqlQueryRaw<PStudent>($"EXEC GetStudentsByDept {dept.DeptID}").ToList();
-
+                MessageBox.Show("Error: Student ID must be a valid Number.");
+                return;
             }
-            studentitem = -1;
-        }
 
-        private void UpdateExamGrid(object sender, EventArgs e)
-        {
-            dynamic dept = DeptsList.SelectedItem;
-            dynamic crs = CoursesList.SelectedItem;
-            using (var ctx = new iti_ExamContext())
+            if (!int.TryParse(textBoxExamId.Text.Trim(), out int ExamId))
             {
-                ExamsGV.DataSource = ctx.Database.SqlQueryRaw<ExamView>($"EXEC GetExamsDeptCourse {dept.DeptID} , {crs.CourseId}").ToList();
+                MessageBox.Show("Error: Exam ID must be a valid Number.");
+                return;
             }
-            selecteditem = -1;
-            if(StudentsGV.SelectedRows.Count > 0)
-            {
-                studentitem = int.Parse(StudentsGV.SelectedRows[0].Cells[0].FormattedValue.ToString());
-
-            }
-        }
-
-        private void printBtn_Click(object sender, EventArgs e)
-        {
-          if(selecteditem != -1 && studentitem != -1) {
-          
-
-
-          }
-
-        }
-
-        private void updateSelectedItem(object sender, EventArgs e)
-        {
-            if (StudentsGV.SelectedRows.Count > 0)
-            {
-                studentitem = int.Parse(StudentsGV.SelectedRows[0].Cells[0].FormattedValue.ToString());
-            }
+            new PrintForm(ExamId, stdId, "detailedExam").Show();
         }
     }
 }

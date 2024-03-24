@@ -48,7 +48,7 @@ namespace application.Forms.adminForms
             else
                 F.Checked = true;
 
-            cbBranches.SelectedValue = Instructor.BranchId;
+            cbBranches.SelectedValue = Instructor.BranchID;
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
