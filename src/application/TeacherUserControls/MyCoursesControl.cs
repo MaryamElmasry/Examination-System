@@ -29,14 +29,14 @@ namespace application.TeacherUserControls
         {
             using (var ctx = new iti_ExamContext())
             {
-                var nofstuds = ctx.Database.SqlQueryRaw<MyCoursesInfoP>($"EXEC getStudentsPerCourse {ins.InstructorId}").ToList();
+                var nofstuds = ctx.Database.SqlQueryRaw<MyCoursesInfoP>($"EXEC getStudentsPerCourse {ins.InstructorID}").ToList();
                 dataGridView1.DataSource = nofstuds;
             }
         }
 
         private void printBtn_Click(object sender, EventArgs e)
         {
-            new PrintForm(this.ins.InstructorId, "MyCoursesInfo").Show();
+            new PrintForm(this.ins.InstructorID, "MyCoursesInfo").Show();
         }
     }
 }

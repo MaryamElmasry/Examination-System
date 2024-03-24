@@ -56,12 +56,16 @@ namespace application.instructorDialog
             {
                 throw new Exception("try to select at least one question");
             }
-
+            
             SetQuestionChoices(quest);
             var ch1 = quest.QuestionChoices.ElementAt(0).Choice;
             var ch2 = quest.QuestionChoices.ElementAt(1).Choice;
             var ch3 = quest.QuestionChoices.ElementAt(2).Choice;
             var ch4 = quest.QuestionChoices.ElementAt(3).Choice;
+            if (string.IsNullOrEmpty(quest.Title)|| string.IsNullOrEmpty(ch1) || string.IsNullOrEmpty(ch2) || string.IsNullOrEmpty(ch3) || string.IsNullOrEmpty(ch4))
+            {
+             throw new Exception("One or more text fields are empty or null.");
+            }
             var qType = TFRadio.Checked ? 0: 1;
             using (var ctx = new iti_ExamContext())
             {
@@ -73,7 +77,7 @@ namespace application.instructorDialog
                 }
                 else
                 {
-                    ctx.Database.ExecuteSqlRaw($"EXEC updateQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', {quest.CorrectAnswerIndex}, 3, {questionPool.QuestionId}");
+                    ctx.Database.ExecuteSqlRaw($"EXEC updateQuestion '{quest.Title}', '{ch1}', '{ch2}', '{ch3}', '{ch4}', {quest.CorrectAnswerIndex}, 3, {questionPool.QuestionID}");
 
                 }
                 MessageBox.Show("Question Added Successfully");
@@ -170,7 +174,7 @@ namespace application.instructorDialog
                 }
                 else
                 {
-                    return -1;
+                    throw new Exception("make sure you checked the correct answer");
                 }
             }
             else
@@ -185,7 +189,7 @@ namespace application.instructorDialog
                 }
                 else
                 {
-                    return -1;
+                    throw new Exception("make sure you checked the correct answer");
                 }
             }
 

@@ -51,7 +51,9 @@ namespace application.instructorDialog
                 string result = string.Join(" ", parts.Take(parts.Length - 1));
 
                 ctx.Database.ExecuteSql($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
-                MessageBox.Show("Exam Generated Successfully");
+                this.Close();
+                MessageBox.Show("Exam Generated Successfully Please Reselect the course from the course list to refersh the page ");
+                
             }
         }
     }

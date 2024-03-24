@@ -41,14 +41,14 @@ namespace application.TeacherUserControls
 
         private void UpdatecrsList(object sender, EventArgs e)
         {
-            using (var ctx = new iti_ExamContext())
-            {
-                dynamic deptitem = DeptsList.SelectedItem;
-                var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptId}").ToList();
-                CoursesList.DataSource = crs;
-                CoursesList.DisplayMember = "CourseName";
-                CoursesList.ValueMember = "CourseID";
-            }
+        //    using (var ctx = new iti_ExamContext())
+        //    {
+        //        dynamic deptitem = DeptsList.SelectedItem;
+        //        var crs = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {deptitem.DeptId}").ToList();
+        //        CoursesList.DataSource = crs;
+        //        CoursesList.DisplayMember = "CourseName";
+        //        CoursesList.ValueMember = "CourseID";
+        //    }
         }
 
         private void UpdateStudents(object sender, EventArgs e)

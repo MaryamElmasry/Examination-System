@@ -31,7 +31,7 @@ namespace application.Forms
 
         }
 
-        public InstructorForm(Instructor instructor)
+        public InstructorForm(Instructor instructor):this()
         {
             
             this.instructor = instructor;

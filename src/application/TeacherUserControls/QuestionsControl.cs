@@ -73,7 +73,7 @@ namespace application.TeacherUserControls
         }
         private void populateCourseList(iti_ExamContext ctx)
         {
-            var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorId).ToList();
+            var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorID).ToList();
             var combo = this.Controls["courselst"] as ComboBox;
             combo.DataSource = courses;
             combo.DisplayMember = "CourseName";
@@ -84,7 +84,7 @@ namespace application.TeacherUserControls
             var questions = ctx.Database.SqlQueryRaw<PCourse>("EXEC GetAllQuestions {0}", crsid).ToList();
 
             var questionsGV = this.Controls["QuestionsGV"] as DataGridView;
-           // questionsGV.DataSource = questions;
+            questionsGV.DataSource = questions;
         }
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
