@@ -91,7 +91,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 populateCourseList(ctx);
-                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
+                //populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
 

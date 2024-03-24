@@ -46,14 +46,14 @@ namespace application.Forms
 
         private async void StudentExamForm_Load(object sender, EventArgs e)
         {
-            //var ExamTable = await db.GetProcedures().GetCourseExamsAsync(1);
-            //foreach (var item in ExamTable)
-            //{
-            //    dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
-            //}
+            var ExamTable = await db.GetProcedures().GetCourseExamsAsync(1);
+            foreach (var item in ExamTable)
+            {
+               dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
+            }
 
-            //string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {studentID}").AsEnumerable().FirstOrDefault();
-            //lblUserName.Text = StudentName;
+            string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {studentID}").AsEnumerable().FirstOrDefault();
+            lblUserName.Text = StudentName;
 
         }
 
