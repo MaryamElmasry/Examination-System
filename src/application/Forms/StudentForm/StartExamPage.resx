@@ -124,7 +124,141 @@
   <data name="panelShowReports.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Zoom</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="qChoice1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qChoice1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="qChoice1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>119, 235</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="qChoice1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="qChoice1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>40, 24</value>
+  </data>
+  <data name="qChoice1.TabIndex" type="System.Int32, mscorlib">
+    <value>62</value>
+  </data>
+  <data name="qChoice1.Text" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="&gt;&gt;qChoice1.Name" xml:space="preserve">
+    <value>qChoice1</value>
+  </data>
+  <data name="&gt;&gt;qChoice1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qChoice1.Parent" xml:space="preserve">
+    <value>panelShowReports</value>
+  </data>
+  <data name="&gt;&gt;qChoice1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="qChoice2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qChoice2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="qChoice2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 283</value>
+  </data>
+  <data name="qChoice2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="qChoice2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 24</value>
+  </data>
+  <data name="qChoice2.TabIndex" type="System.Int32, mscorlib">
+    <value>61</value>
+  </data>
+  <data name="qChoice2.Text" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="&gt;&gt;qChoice2.Name" xml:space="preserve">
+    <value>qChoice2</value>
+  </data>
+  <data name="&gt;&gt;qChoice2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qChoice2.Parent" xml:space="preserve">
+    <value>panelShowReports</value>
+  </data>
+  <data name="&gt;&gt;qChoice2.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="qChoice4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qChoice4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="qChoice4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 376</value>
+  </data>
+  <data name="qChoice4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="qChoice4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>41, 24</value>
+  </data>
+  <data name="qChoice4.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="qChoice4.Text" xml:space="preserve">
+    <value>D</value>
+  </data>
+  <data name="&gt;&gt;qChoice4.Name" xml:space="preserve">
+    <value>qChoice4</value>
+  </data>
+  <data name="&gt;&gt;qChoice4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qChoice4.Parent" xml:space="preserve">
+    <value>panelShowReports</value>
+  </data>
+  <data name="&gt;&gt;qChoice4.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="qChoice3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="qChoice3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="qChoice3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>117, 327</value>
+  </data>
+  <data name="qChoice3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="qChoice3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>39, 24</value>
+  </data>
+  <data name="qChoice3.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="qChoice3.Text" xml:space="preserve">
+    <value>C</value>
+  </data>
+  <data name="&gt;&gt;qChoice3.Name" xml:space="preserve">
+    <value>qChoice3</value>
+  </data>
+  <data name="&gt;&gt;qChoice3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qChoice3.Parent" xml:space="preserve">
+    <value>panelShowReports</value>
+  </data>
+  <data name="&gt;&gt;qChoice3.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <data name="btnNext.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt, style=Bold</value>
   </data>
@@ -134,14 +268,12 @@
   <data name="btnNext.Location" type="System.Drawing.Point, System.Drawing">
     <value>487, 527</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnNext.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
   </data>
   <data name="btnNext.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 60</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnNext.TabIndex" type="System.Int32, mscorlib">
     <value>58</value>
   </data>
@@ -158,7 +290,7 @@
     <value>panelShowReports</value>
   </data>
   <data name="&gt;&gt;btnNext.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>4</value>
   </data>
   <data name="btnPrev.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt, style=Bold</value>
@@ -188,138 +320,6 @@
     <value>panelShowReports</value>
   </data>
   <data name="&gt;&gt;btnPrev.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="qChoice1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="qChoice1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="qChoice1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 217</value>
-  </data>
-  <data name="qChoice1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="qChoice1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 24</value>
-  </data>
-  <data name="qChoice1.TabIndex" type="System.Int32, mscorlib">
-    <value>55</value>
-  </data>
-  <data name="qChoice1.Text" xml:space="preserve">
-    <value>A</value>
-  </data>
-  <data name="&gt;&gt;qChoice1.Name" xml:space="preserve">
-    <value>qChoice1</value>
-  </data>
-  <data name="&gt;&gt;qChoice1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;qChoice1.Parent" xml:space="preserve">
-    <value>panelShowReports</value>
-  </data>
-  <data name="&gt;&gt;qChoice1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="qChoice2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="qChoice2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="qChoice2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 272</value>
-  </data>
-  <data name="qChoice2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="qChoice2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 24</value>
-  </data>
-  <data name="qChoice2.TabIndex" type="System.Int32, mscorlib">
-    <value>54</value>
-  </data>
-  <data name="qChoice2.Text" xml:space="preserve">
-    <value>B</value>
-  </data>
-  <data name="&gt;&gt;qChoice2.Name" xml:space="preserve">
-    <value>qChoice2</value>
-  </data>
-  <data name="&gt;&gt;qChoice2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;qChoice2.Parent" xml:space="preserve">
-    <value>panelShowReports</value>
-  </data>
-  <data name="&gt;&gt;qChoice2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="qChoice4.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="qChoice4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="qChoice4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 388</value>
-  </data>
-  <data name="qChoice4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="qChoice4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>41, 24</value>
-  </data>
-  <data name="qChoice4.TabIndex" type="System.Int32, mscorlib">
-    <value>53</value>
-  </data>
-  <data name="qChoice4.Text" xml:space="preserve">
-    <value>D</value>
-  </data>
-  <data name="&gt;&gt;qChoice4.Name" xml:space="preserve">
-    <value>qChoice4</value>
-  </data>
-  <data name="&gt;&gt;qChoice4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;qChoice4.Parent" xml:space="preserve">
-    <value>panelShowReports</value>
-  </data>
-  <data name="&gt;&gt;qChoice4.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="qChoice3.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="qChoice3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="qChoice3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>116, 328</value>
-  </data>
-  <data name="qChoice3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="qChoice3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>39, 24</value>
-  </data>
-  <data name="qChoice3.TabIndex" type="System.Int32, mscorlib">
-    <value>52</value>
-  </data>
-  <data name="qChoice3.Text" xml:space="preserve">
-    <value>C</value>
-  </data>
-  <data name="&gt;&gt;qChoice3.Name" xml:space="preserve">
-    <value>qChoice3</value>
-  </data>
-  <data name="&gt;&gt;qChoice3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;qChoice3.Parent" xml:space="preserve">
-    <value>panelShowReports</value>
-  </data>
-  <data name="&gt;&gt;qChoice3.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="qTitle.AutoSize" type="System.Boolean, mscorlib">
@@ -372,54 +372,6 @@
   </data>
   <data name="&gt;&gt;panelShowReports.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtTimer.Name" xml:space="preserve">
-    <value>txtTimer</value>
-  </data>
-  <data name="&gt;&gt;txtTimer.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtTimer.Parent" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;txtTimer.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
-  </data>
-  <data name="&gt;&gt;button5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button5.Parent" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1027, 57</value>
-  </data>
-  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
-    <value>56</value>
-  </data>
-  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
-    <value>panel5</value>
-  </data>
-  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="txtTimer.Location" type="System.Drawing.Point, System.Drawing">
     <value>717, 10</value>
@@ -477,6 +429,30 @@
   </data>
   <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1027, 57</value>
+  </data>
+  <data name="panel5.TabIndex" type="System.Int32, mscorlib">
+    <value>56</value>
+  </data>
+  <data name="&gt;&gt;panel5.Name" xml:space="preserve">
+    <value>panel5</value>
+  </data>
+  <data name="&gt;&gt;panel5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel5.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="btnSubmit.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 11.25pt, style=Bold</value>

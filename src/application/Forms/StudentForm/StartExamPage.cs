@@ -28,7 +28,7 @@ namespace application.Forms
         int StudentID;
         int CourseID;
         iti_ExamContext db = new iti_ExamContext();
-        int currentQuestion;
+        int currentQuestion =0 ;
         //List of questions
         List<ExamQuestion> questions = new List<ExamQuestion>();
         //List of selected answers with length of questions
@@ -43,6 +43,7 @@ namespace application.Forms
             this.Duration = Duration*60;
             this.ExamDate = ExamDate;
             InitializeComponent();
+            MessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
             #region Get Questions and Initialize Selected Answers
             questions = db.Database.SqlQuery<ExamQuestion>($"EXEC [dbo].[GetQuestionChoices] @ExamID = {ExamID};").ToList();
             selectedAnswers = new int[questions.Count];
@@ -70,6 +71,7 @@ namespace application.Forms
 
             };
             timer.Start();
+            
         }
 
         private void DisplayQuestion(ExamQuestion question)
@@ -81,32 +83,32 @@ namespace application.Forms
                 qChoice2.Text = choices[1];
                 qChoice3.Text = choices[2];
                 qChoice4.Text = choices[3];
-                #endregion
+            #endregion
 
-                #region Check The Radio Button of the Selected Answer for current Question
-                switch (selectedAnswers[currentQuestion])
-                {
-                     case -1:
-                        qChoice1.Checked = false;
-                        qChoice2.Checked = false;
-                        qChoice3.Checked = false;
-                        qChoice4.Checked = false;
-                        break;
-                    case 0:
-                        qChoice1.Checked = true;
-                        break;
-                    case 1:
-                        qChoice2.Checked = true;
-                        break;
-                    case 2:
-                        qChoice3.Checked = true;
-                        break;
-                    case 3:
-                        qChoice4.Checked = true;
-                        break;
+            #region Check The Radio Button of the Selected Answer for current Question
+            switch (selectedAnswers[currentQuestion])
+            {
+                case -1:
+                    qChoice1.Checked = false;
+                    qChoice2.Checked = false;
+                    qChoice3.Checked = false;
+                    qChoice4.Checked = false;
+                    break;
+                case 1:
+                    qChoice1.Checked = true;
+                    break;
+                case 2:
+                    qChoice2.Checked = true;
+                    break;
+                case 3:
+                    qChoice3.Checked = true;
+                    break;
+                case 4:
+                    qChoice4.Checked = true;
+                    break;
 
-                }
-                #endregion
+            }
+            #endregion
 
         }
 
@@ -167,39 +169,38 @@ namespace application.Forms
 
         private void qChoice1_CheckedChanged(object sender, EventArgs e)
         {
-         
-                selectedAnswers[currentQuestion] = 0;
-
+                selectedAnswers[currentQuestion] = 1;
                 #region Save to Database
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {StudentID}, @ExamID = {ExamID}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
                 #endregion
             
         }
 
         private void qChoice2_CheckedChanged(object sender, EventArgs e)
         {
- 
-                selectedAnswers[currentQuestion] = 1;
+
+            selectedAnswers[currentQuestion] = 2;
                 #region Save to Database
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {StudentID}, @ExamID = {ExamID}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
                 #endregion
 
         }
 
         private void qChoice3_CheckedChanged(object sender, EventArgs e)
         {
-                selectedAnswers[currentQuestion] = 2;
-                #region Save to Database
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
-                #endregion
+
+            selectedAnswers[currentQuestion] = 3;
+            #region Save to Database
+            db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {StudentID} , @ExamID =  {ExamID}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
+            #endregion
         }
 
         private void qChoice4_CheckedChanged(object sender, EventArgs e)
-        {      
-                selectedAnswers[currentQuestion] = 3;
-                #region Save to Database
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {1}, @ExamID = {0}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion]};");
-                #endregion
+        {
+            selectedAnswers[currentQuestion] = 4;
+            #region Save to Database
+            db.Database.ExecuteSqlRaw($"EXEC [dbo].[InsertOrUpdateSelectedAnswerIndex] @StudentID = {StudentID} , @ExamID =  {ExamID}, @QuestionID = {questions[currentQuestion].QuestionID}, @SelectedAnswerIndex = {selectedAnswers[currentQuestion] };");
+            #endregion
         }
     }
     public class ExamQuestion

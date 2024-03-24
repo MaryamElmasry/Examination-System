@@ -46,6 +46,8 @@ namespace application.Forms
 
         private async void StudentExamForm_Load(object sender, EventArgs e)
         {
+            // Get DeptID of Student. ##########################
+
             var ExamTable = await db.GetProcedures().GetCourseExamsAsync(1);
             foreach (var item in ExamTable)
             {

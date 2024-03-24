@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartExamPage));
             panelShowReports = new Panel();
-            btnNext = new Button();
-            btnPrev = new Button();
             qChoice1 = new RadioButton();
             qChoice2 = new RadioButton();
             qChoice4 = new RadioButton();
             qChoice3 = new RadioButton();
+            btnNext = new Button();
+            btnPrev = new Button();
             qTitle = new Label();
             panel5 = new Panel();
             txtTimer = new TextBox();
@@ -49,15 +49,43 @@
             // 
             resources.ApplyResources(panelShowReports, "panelShowReports");
             panelShowReports.BackColor = SystemColors.Control;
-            panelShowReports.Controls.Add(btnNext);
-            panelShowReports.Controls.Add(btnPrev);
             panelShowReports.Controls.Add(qChoice1);
             panelShowReports.Controls.Add(qChoice2);
             panelShowReports.Controls.Add(qChoice4);
             panelShowReports.Controls.Add(qChoice3);
+            panelShowReports.Controls.Add(btnNext);
+            panelShowReports.Controls.Add(btnPrev);
             panelShowReports.Controls.Add(qTitle);
             panelShowReports.Name = "panelShowReports";
             panelShowReports.Tag = "myTheme";
+            // 
+            // qChoice1
+            // 
+            resources.ApplyResources(qChoice1, "qChoice1");
+            qChoice1.Name = "qChoice1";
+            qChoice1.UseVisualStyleBackColor = true;
+            qChoice1.CheckedChanged += qChoice1_CheckedChanged;
+            // 
+            // qChoice2
+            // 
+            resources.ApplyResources(qChoice2, "qChoice2");
+            qChoice2.Name = "qChoice2";
+            qChoice2.UseVisualStyleBackColor = true;
+            qChoice2.CheckedChanged += qChoice2_CheckedChanged;
+            // 
+            // qChoice4
+            // 
+            resources.ApplyResources(qChoice4, "qChoice4");
+            qChoice4.Name = "qChoice4";
+            qChoice4.UseVisualStyleBackColor = true;
+            qChoice4.CheckedChanged += qChoice4_CheckedChanged;
+            // 
+            // qChoice3
+            // 
+            resources.ApplyResources(qChoice3, "qChoice3");
+            qChoice3.Name = "qChoice3";
+            qChoice3.UseVisualStyleBackColor = true;
+            qChoice3.CheckedChanged += qChoice3_CheckedChanged;
             // 
             // btnNext
             // 
@@ -76,38 +104,6 @@
             btnPrev.Name = "btnPrev";
             btnPrev.UseVisualStyleBackColor = false;
             btnPrev.Click += btnPrev_Click;
-            // 
-            // qChoice1
-            // 
-            resources.ApplyResources(qChoice1, "qChoice1");
-            qChoice1.Name = "qChoice1";
-            qChoice1.TabStop = true;
-            qChoice1.UseVisualStyleBackColor = true;
-            qChoice1.CheckedChanged += qChoice1_CheckedChanged;
-            // 
-            // qChoice2
-            // 
-            resources.ApplyResources(qChoice2, "qChoice2");
-            qChoice2.Name = "qChoice2";
-            qChoice2.TabStop = true;
-            qChoice2.UseVisualStyleBackColor = true;
-            qChoice2.CheckedChanged += qChoice2_CheckedChanged;
-            // 
-            // qChoice4
-            // 
-            resources.ApplyResources(qChoice4, "qChoice4");
-            qChoice4.Name = "qChoice4";
-            qChoice4.TabStop = true;
-            qChoice4.UseVisualStyleBackColor = true;
-            qChoice4.CheckedChanged += qChoice4_CheckedChanged;
-            // 
-            // qChoice3
-            // 
-            resources.ApplyResources(qChoice3, "qChoice3");
-            qChoice3.Name = "qChoice3";
-            qChoice3.TabStop = true;
-            qChoice3.UseVisualStyleBackColor = true;
-            qChoice3.CheckedChanged += qChoice3_CheckedChanged;
             // 
             // qTitle
             // 
@@ -163,14 +159,14 @@
         private Panel panelShowReports;
         private Label qTitle;
         private Panel panel5;
-        private RadioButton qChoice1;
-        private RadioButton qChoice2;
         private RadioButton qChoice4;
-        private RadioButton qChoice3;
         private Button button5;
         private TextBox txtTimer;
         private Button btnPrev;
         private Button btnNext;
         private Button btnSubmit;
+        private RadioButton qChoice3;
+        private RadioButton qChoice1;
+        private RadioButton qChoice2;
     }
 }

@@ -2,7 +2,7 @@ use iti_exam
 ---------------------------------------------------------------------------
 ------------------------- GET INSTRUCTOR COURSES --------------------------
 ---------------------------------------------------------------------------
-CREATE PROCEDURE GetCourseList @InsId INT
+create or alter PROCEDURE GetCourseList @InsId INT
 AS
 BEGIN
     SELECT c.CourseName, c.CourseID
@@ -18,7 +18,7 @@ exec GetCourseList 1
 ---------------------------------------------------------------------------
 ----------------------GET COURSE TOPIC-------------------------------------
 ---------------------------------------------------------------------------
-CREATE PROCEDURE GetCourseTopics @CourseID INT
+create or alter PROCEDURE GetCourseTopics @CourseID INT
 AS
 BEGIN
     SELECT
@@ -34,7 +34,7 @@ exec GetCourseTopics 1
 ---------------------------------------------------------------------------
 ------------------------DETAILED EXAM--------------------------------------
 ---------------------------------------------------------------------------
-Create PROCEDURE GetExamForStdReport
+create or alter PROCEDURE GetExamForStdReport
     @ExamID INT,
     @StudentID INT
 AS
@@ -71,7 +71,7 @@ EXEC GetExamForStdReport  1, 2;
 -------------------------------GET EXAM INFO ------------------------------
 ---------------------------------------------------------------------------
 
-CREATE PROCEDURE GetExamInfo
+create or alter PROCEDURE GetExamInfo
     @ExamId INT,
     @StdId INT
 AS

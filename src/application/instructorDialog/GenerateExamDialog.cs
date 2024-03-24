@@ -49,8 +49,9 @@ namespace application.instructorDialog
                 string dateTimeString = dateTimePicker1.Value.ToString();
                 string[] parts = dateTimeString.Split(' ');
                 string result = string.Join(" ", parts.Take(parts.Length - 1));
+                MessageBox.Show($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
 
-                ctx.Database.ExecuteSql($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
+                ctx.Database.ExecuteSql($"EXEC GenerateExam {_crsid},{_deptid},{result},{mcqNo},{tfno},{duration}");
                 this.Close();
                 MessageBox.Show("Exam Generated Successfully Please Reselect the course from the course list to refersh the page ");
                 
