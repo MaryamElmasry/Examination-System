@@ -26,6 +26,4 @@ public partial class QuestionPool
     public virtual ICollection<QuestionChoice> QuestionChoices { get; set; } = new List<QuestionChoice>();
 
     public virtual ICollection<StudentExamQuestion> StudentExamQuestions { get; set; } = new List<StudentExamQuestion>();
-
-    public virtual ICollection<Exam> Exams { get; set; } = new List<Exam>();
 }

@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace application.Models
 {
-    public partial class GetDepartmentByNameAndBranchIdResult
+    public partial class GetDepartmentByNameAndBranchIDResult
     {
         public int DeptID { get; set; }
         public string DeptName { get; set; }
-        public int? BranchId { get; set; }
+        public int? BranchID { get; set; }
     }
 }

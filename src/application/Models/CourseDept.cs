@@ -7,7 +7,7 @@ public partial class CourseDept
 {
     public int CourseId { get; set; }
 
-    public int DeptID { get; set; }
+    public int DeptId { get; set; }
 
     public int InsId { get; set; }
 

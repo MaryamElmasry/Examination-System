@@ -8,6 +8,6 @@ namespace application.Models
     public partial class getCourseDepartmentsResult
     {
         public int CourseID { get; set; }
-        public int DeptID { get; set; }
+        public int DeptId { get; set; }
     }
 }
