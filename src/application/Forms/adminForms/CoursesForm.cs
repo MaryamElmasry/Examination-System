@@ -299,12 +299,12 @@ namespace application.Forms.adminForms
 
         private void clCourseDepts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateCourseInstructors((int)lstCourses.SelectedValue);
+            populateCourseInstructors(getSelectedCourseID());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int selectedCrsID = (int)lstCourses.SelectedValue;
+            int selectedCrsID = getSelectedCourseID();
             //get the courseInstructors from the database
             List<Instructor_Course> instructor_Courses = db.Instructor_Courses.FromSql($"exec getCourseInstructorsByCourseID {selectedCrsID}").ToList();
             //get all the checked instructors
