@@ -20,6 +20,10 @@
          "ObjectType": 0
       },
       {
+         "Name": "[dbo].[Course_Dept]",
+         "ObjectType": 0
+      },
+      {
          "Name": "[dbo].[Courses]",
          "ObjectType": 0
       },
@@ -37,6 +41,10 @@
       },
       {
          "Name": "[dbo].[Exams]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Instructor_Courses]",
          "ObjectType": 0
       },
       {
@@ -66,9 +74,17 @@
       {
          "Name": "[dbo].[Users]",
          "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[GetCourseExams]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[GetExamGradesByStudentID]",
+         "ObjectType": 1
       }
    ],
-   "UiHint": "nv-pc.iti_Exam.dbo",
+   "UiHint": "maryam.ITI_Exam.dbo",
    "UncountableWords": null,
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
@@ -80,10 +96,10 @@
    "UseHierarchyId": false,
    "UseInflector": true,
    "UseLegacyPluralizer": false,
-   "UseManyToManyEntity": false,
+   "UseManyToManyEntity": true,
    "UseNoDefaultConstructor": false,
    "UseNoNavigations": false,
-   "UseNoObjectFilter": false,
+   "UseNoObjectFilter": true,
    "UseNodaTime": false,
    "UseNullableReferences": false,
    "UsePrefixNavigationNaming": false,

@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CrystalReportGenerator\CrystalReportGenerator.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="iti_examDataSet.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

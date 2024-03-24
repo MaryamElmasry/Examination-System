@@ -47,7 +47,7 @@
             panel6 = new Panel();
             label25 = new Label();
             panel2 = new Panel();
-            btnAddUser = new Button();
+            btnAccounts = new Button();
             btnDisplayExams = new Button();
             btnDisplayCourses = new Button();
             btnDisplayDepartments = new Button();
@@ -222,7 +222,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(0, 7, 95);
-            panel2.Controls.Add(btnAddUser);
+            panel2.Controls.Add(btnAccounts);
             panel2.Controls.Add(btnDisplayExams);
             panel2.Controls.Add(btnDisplayCourses);
             panel2.Controls.Add(btnDisplayDepartments);
@@ -232,13 +232,14 @@
             resources.ApplyResources(panel2, "panel2");
             panel2.Name = "panel2";
             // 
-            // btnAddUser
+            // btnAccounts
             // 
-            resources.ApplyResources(btnAddUser, "btnAddUser");
-            btnAddUser.FlatAppearance.BorderSize = 0;
-            btnAddUser.ForeColor = Color.DarkGray;
-            btnAddUser.Name = "btnAddUser";
-            btnAddUser.UseVisualStyleBackColor = true;
+            resources.ApplyResources(btnAccounts, "btnAccounts");
+            btnAccounts.FlatAppearance.BorderSize = 0;
+            btnAccounts.ForeColor = Color.DarkGray;
+            btnAccounts.Name = "btnAccounts";
+            btnAccounts.UseVisualStyleBackColor = true;
+            btnAccounts.Click += button1_Click;
             // 
             // btnDisplayExams
             // 
@@ -247,6 +248,7 @@
             btnDisplayExams.ForeColor = Color.DarkGray;
             btnDisplayExams.Name = "btnDisplayExams";
             btnDisplayExams.UseVisualStyleBackColor = true;
+            btnDisplayExams.Click += btnDisplayExams_Click;
             // 
             // btnDisplayCourses
             // 
@@ -255,6 +257,7 @@
             btnDisplayCourses.ForeColor = Color.DarkGray;
             btnDisplayCourses.Name = "btnDisplayCourses";
             btnDisplayCourses.UseVisualStyleBackColor = true;
+            btnDisplayCourses.Click += btnDisplayCourses_Click;
             // 
             // btnDisplayDepartments
             // 
@@ -523,7 +526,6 @@
         private Panel panel6;
         private Label label25;
         private Panel panel2;
-        private Button btnAddUser;
         private Button btnDisplayExams;
         private Button btnDisplayCourses;
         private Button btnDisplayDepartments;
@@ -554,5 +556,6 @@
         private DataGridView gvBranches;
         private Panel panel4;
         private Label label9;
+        private Button btnAccounts;
     }
 }

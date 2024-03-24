@@ -33,7 +33,7 @@ namespace application.TeacherUserControls
             var SelectedQuestion = qs.FirstOrDefault(a => a.isSelected);
             using (var ctx = new iti_ExamContext())
             {
-                qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionId}").Include(c => c.QuestionChoices).FirstOrDefault();
+                qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionID}").Include(c => c.QuestionChoices).FirstOrDefault();
             }
             if (SelectedQuestion == null)
             {
@@ -63,7 +63,7 @@ namespace application.TeacherUserControls
             {
                 using (var ctx = new iti_ExamContext())
                 {
-                    //ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionId).ToList();
+                    //ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionID).ToList();
                     //QuestionsGV.Refresh();
 
                 }
@@ -73,26 +73,26 @@ namespace application.TeacherUserControls
         }
         private void populateCourseList(iti_ExamContext ctx)
         {
-            //var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorId).ToList();
-            //var combo = this.Controls["courselst"] as ComboBox;
-            //combo.DataSource = courses;
-            //combo.DisplayMember = "CourseName";
-            //combo.ValueMember = "CourseID";
+            var courses = ctx.Courses.FromSqlRaw("EXEC GetCoursesIns {0}", ins.InstructorID).ToList();
+            var combo = this.Controls["courselst"] as ComboBox;
+            combo.DataSource = courses;
+            combo.DisplayMember = "CourseName";
+            combo.ValueMember = "CourseID";
         }
         private void populateQuestionGV(int crsid,iti_ExamContext ctx)
         {
             var questions = ctx.Database.SqlQueryRaw<PCourse>("EXEC GetAllQuestions {0}", crsid).ToList();
 
             var questionsGV = this.Controls["QuestionsGV"] as DataGridView;
-            questionsGV.DataSource = questions;
+           // questionsGV.DataSource = questions;
         }
         private void QuestionsControl_Load(object sender, EventArgs e)
         {
-            //using (var ctx = new iti_ExamContext())
-            //{
-            //    populateCourseList(ctx);
-            //    populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
-            //}
+            using (var ctx = new iti_ExamContext())
+            {
+                populateCourseList(ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
+            }
         }
 
         private void CourseListUpdate(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 if((courselst.SelectedItem as Course) != null)
-                populateQuestionGV((courselst.SelectedItem as Course).CourseId, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
     }

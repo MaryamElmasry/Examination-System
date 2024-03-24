@@ -30,11 +30,11 @@ namespace application.TeacherUserControls
         {
             using (var ctx = new iti_ExamContext())
             {
-                DeptList.DataSource = ctx.Departments.FromSqlRaw($"EXEC GetDeptsforIns {ins.InstructorId}").ToList();
+                DeptList.DataSource = ctx.Departments.FromSqlRaw($"EXEC GetDeptsforIns {ins.InstructorID}").ToList();
                 DeptList.SelectedItem = 0;
-                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptId}").ToList();
+                crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
                 DeptList.DisplayMember = "DeptName";
-                DeptList.ValueMember = "DeptId";
+                DeptList.ValueMember = "DeptID";
                 crsList.ValueMember = "CourseID";
                 crsList.DisplayMember = "CourseName";
             }
@@ -47,7 +47,7 @@ namespace application.TeacherUserControls
             {
                 if (crsList.SelectedItem != null && DeptList.SelectedItem != null)
                 {
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseId} , {((Department)DeptList.SelectedItem).DeptId} ").ToList().Select(e => new { e.ExamId, e.ExamDate, e.Duration }).ToList();
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseID} , {((Department)DeptList.SelectedItem).DeptID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
 
                     ExamsGV.DataSource = exams;
                     ExamsGV.Refresh();
@@ -64,7 +64,7 @@ namespace application.TeacherUserControls
 
                 if (selectedDept != null)
                 {
-                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptId}").ToList();
+                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptID}").ToList();
 
                     if (courses.Any())
                     {
@@ -101,7 +101,7 @@ namespace application.TeacherUserControls
             if (Crow == 1)
             {
                 dynamic row = ((DataGridView)sender).SelectedRows[0].DataBoundItem;
-                selectedRow = row.ExamId;
+                selectedRow = row.ExamID;
 
             }
             else
@@ -132,7 +132,7 @@ namespace application.TeacherUserControls
                 if (confirmResult == DialogResult.Yes)
                 {
                     ctx.Database.ExecuteSql($"EXEC DeleteExam {selectedRow}");
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseId} , {((Department)DeptList.SelectedItem).DeptId} ").ToList().Select(e => new { e.ExamId, e.ExamDate, e.Duration }).ToList();
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseID} , {((Department)DeptList.SelectedItem).DeptID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
                     ExamsGV.DataSource = exams;
                 }
             }

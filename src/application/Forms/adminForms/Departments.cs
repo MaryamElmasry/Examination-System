@@ -27,7 +27,7 @@ namespace application.Forms.adminForms
             var branches = db.Branches.FromSql($"exec GetAllBranches").ToList();
             cbBranch.DataSource = branches;
             cbBranch.DisplayMember = "BranchName";
-            cbBranch.ValueMember = "BranchID";
+            cbBranch.ValueMember = "BranchId";
         }
 
         public Departments(int selectedListIndex)
@@ -40,7 +40,7 @@ namespace application.Forms.adminForms
             var branches = db.Branches.FromSql($"exec GetAllBranches").ToList();
             cbBranch.DataSource = branches;
             cbBranch.DisplayMember = "BranchName";
-            cbBranch.ValueMember = "BranchID";
+            cbBranch.ValueMember = "BranchId";
         }
 
         public void fillTheDepartmentsList()
@@ -61,14 +61,14 @@ namespace application.Forms.adminForms
             int selectedID;
             if ((lstDepts.SelectedValue as Department) != null)
             {
-                selectedID = int.Parse((lstDepts.SelectedValue as Department).DeptId.ToString());
+                selectedID = int.Parse((lstDepts.SelectedValue as Department).DeptID.ToString());
             }
             else
             {
                 selectedID = int.Parse(lstDepts.SelectedValue.ToString());
             }
             var dept = db.Departments
-                        .SingleOrDefault(d => d.DeptId == selectedID);
+                        .SingleOrDefault(d => d.DeptID == selectedID);
             txtDeptName.Text = dept.DeptName.ToString();
         }
 
@@ -112,7 +112,7 @@ namespace application.Forms.adminForms
             try
             {
                 //check the uniqness of the department
-                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchID {txtDeptName.Text}, {cbBranch.SelectedValue}").ToList();
+                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchId {txtDeptName.Text}, {cbBranch.SelectedValue}").ToList();
 
                 if (duplicatedDepts.Count > 0)
                 {
@@ -130,6 +130,11 @@ namespace application.Forms.adminForms
             {
                 MessageBox.Show(ex.Message, "Update failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtDeptName_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
