@@ -1,4 +1,7 @@
 use iti_exam
+---------------------------------------------------------------------------
+------------------------- GET INSTRUCTOR COURSES --------------------------
+---------------------------------------------------------------------------
 CREATE PROCEDURE GetCourseList @InsId INT
 AS
 BEGIN
@@ -12,9 +15,9 @@ BEGIN
 END
 
 exec GetCourseList 1
-//-------------------------------------------------------
-
-
+---------------------------------------------------------------------------
+----------------------GET COURSE TOPIC-------------------------------------
+---------------------------------------------------------------------------
 CREATE PROCEDURE GetCourseTopics @CourseID INT
 AS
 BEGIN
@@ -28,7 +31,9 @@ END
 
 exec GetCourseTopics 1
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------
+------------------------DETAILED EXAM--------------------------------------
+---------------------------------------------------------------------------
 Create PROCEDURE GetExamForStdReport
     @ExamID INT,
     @StudentID INT
@@ -38,11 +43,11 @@ BEGIN
     SELECT 
         qp.Title AS Question,
         qc.Choice AS [Correct Answer],
+        qc_student.Choice AS StudentAnswer,
         CASE 
             WHEN seq.SelectedAnswerIndex = qp.CorrectAnswerIndex THEN 'Correct'
             ELSE 'Incorrect'
-        END AS AnswerStatus,
-        qc_student.Choice AS StudentAnswer
+        END AS AnswerStatus
     FROM
 		QuestionPools qp
     INNER JOIN 
@@ -60,9 +65,34 @@ BEGIN
     WHERE 
         eq.ExamID = @ExamID;
 END;
-
-
+go
 EXEC GetExamForStdReport  1, 2;
+---------------------------------------------------------------------------
+-------------------------------GET EXAM INFO ------------------------------
+---------------------------------------------------------------------------
 
+CREATE PROCEDURE GetExamInfo
+    @ExamId INT,
+    @StdId INT
+AS
+BEGIN
+    DECLARE @CourseName NVARCHAR(100)
+    DECLARE @Grade FLOAT
 
+    -- Retrieve Course Name
+    SELECT @CourseName = c.CourseName
+    FROM Exams ex
+    INNER JOIN Courses c ON ex.CourseID = c.CourseID
+    WHERE ExamID = @ExamId
 
+    -- Retrieve Grade
+    SELECT @Grade = sg.Grade
+    FROM StudentGrades sg
+    WHERE sg.CourseID = (SELECT CourseID FROM Exams WHERE ExamID = @ExamId)
+    AND sg.StudentID = @StdId
+
+    -- Return Course Name and Grade
+    SELECT @CourseName AS CourseName, @Grade AS Grade
+END
+
+exec GetExamInfo 1,2
