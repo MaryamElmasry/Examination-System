@@ -59,6 +59,7 @@
             label5 = new Label();
             label4 = new Label();
             txtCourseName = new TextBox();
+            txtCrs = new TextBox();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).BeginInit();
             panelShowReports.SuspendLayout();
@@ -79,6 +80,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Gold;
+            panel3.Controls.Add(txtCrs);
             panel3.Controls.Add(btnAddCourse);
             panel3.Controls.Add(label1);
             panel3.Controls.Add(lblRoleName);
@@ -106,6 +108,7 @@
             btnAddCourse.TabIndex = 7;
             btnAddCourse.Text = "Add Course";
             btnAddCourse.UseVisualStyleBackColor = false;
+            btnAddCourse.Click += btnAddCourse_Click;
             // 
             // label1
             // 
@@ -433,6 +436,13 @@
             txtCourseName.Size = new Size(185, 23);
             txtCourseName.TabIndex = 1;
             // 
+            // txtCrs
+            // 
+            txtCrs.Location = new Point(430, 27);
+            txtCrs.Name = "txtCrs";
+            txtCrs.Size = new Size(185, 23);
+            txtCrs.TabIndex = 20;
+            // 
             // CoursesForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -486,5 +496,6 @@
         private Button btnDeleteTopic;
         private Button button2;
         private Button button1;
+        private TextBox txtCrs;
     }
 }

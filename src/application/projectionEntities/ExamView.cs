@@ -8,7 +8,7 @@ namespace application.projectionEntities
 {
     public class ExamView
     {
-        public int ExamId { get; set; }
+        public int ExamID { get; set; }
         public int Duration { get; set; }
         public DateTime ExamDate { get; set; }
     }

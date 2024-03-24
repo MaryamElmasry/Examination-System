@@ -27,7 +27,7 @@ namespace application.Forms.adminForms
             var branches = db.Branches.FromSql($"exec GetAllBranches").ToList();
             cbBranch.DataSource = branches;
             cbBranch.DisplayMember = "BranchName";
-            cbBranch.ValueMember = "BranchID";
+            cbBranch.ValueMember = "BranchId";
         }
 
         public Departments(int selectedListIndex)
@@ -40,7 +40,7 @@ namespace application.Forms.adminForms
             var branches = db.Branches.FromSql($"exec GetAllBranches").ToList();
             cbBranch.DataSource = branches;
             cbBranch.DisplayMember = "BranchName";
-            cbBranch.ValueMember = "BranchID";
+            cbBranch.ValueMember = "BranchId";
         }
 
         public void fillTheDepartmentsList()
@@ -112,7 +112,7 @@ namespace application.Forms.adminForms
             try
             {
                 //check the uniqness of the department
-                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchID {txtDeptName.Text}, {cbBranch.SelectedValue}").ToList();
+                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchId {txtDeptName.Text}, {cbBranch.SelectedValue}").ToList();
 
                 if (duplicatedDepts.Count > 0)
                 {

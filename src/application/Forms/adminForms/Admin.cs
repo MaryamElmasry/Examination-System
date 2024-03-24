@@ -187,5 +187,18 @@ namespace application.Forms
             CoursesForm coursesForm = new CoursesForm();
             coursesForm.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            InstructorsControlForm instructorsControlForm = new InstructorsControlForm();
+            instructorsControlForm.ShowDialog();
+
+        }
+
+        private void btnDisplayExams_Click(object sender, EventArgs e)
+        {
+            ReportsForm reportsForm = new ReportsForm();
+            reportsForm.ShowDialog();
+        }
     }
 }

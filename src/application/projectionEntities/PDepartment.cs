@@ -9,7 +9,7 @@ namespace application.projectionEntities
     internal class PDepartment
     {
         public string DeptName { get; set; }
-        public int DeptId { get; set; }
+        public int DeptID { get; set; }
 
     }
 }

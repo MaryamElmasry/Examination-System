@@ -24,7 +24,7 @@ namespace application.Forms.adminForms
             var branches = db.Branches.FromSql($"exec GetAllBranches").ToList();
             cbBranches.DataSource = branches;
             cbBranches.DisplayMember = "BranchName";
-            cbBranches.ValueMember = "BranchID";
+            cbBranches.ValueMember = "BranchId";
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace application.Forms.adminForms
             try
             {
                 //check the uniqness of the department
-                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchID {txtDeptName.Text}, {cbBranches.SelectedValue}").ToList();
+                var duplicatedDepts = db.Departments.FromSql($"exec GetDepartmentByNameAndBranchId {txtDeptName.Text}, {cbBranches.SelectedValue}").ToList();
 
                 if (duplicatedDepts.Count > 0)
                 {

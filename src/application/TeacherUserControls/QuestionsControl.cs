@@ -33,7 +33,7 @@ namespace application.TeacherUserControls
             var SelectedQuestion = qs.FirstOrDefault(a => a.isSelected);
             using (var ctx = new iti_ExamContext())
             {
-                qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionId}").Include(c => c.QuestionChoices).FirstOrDefault();
+                qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionID}").Include(c => c.QuestionChoices).FirstOrDefault();
             }
             if (SelectedQuestion == null)
             {
@@ -63,7 +63,7 @@ namespace application.TeacherUserControls
             {
                 using (var ctx = new iti_ExamContext())
                 {
-                    //ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionId).ToList();
+                    //ctx.PCourses.FromSqlRaw("EXEC deleteQuestion {0}", SelectedQuestion.QuestionID).ToList();
                     //QuestionsGV.Refresh();
 
                 }
