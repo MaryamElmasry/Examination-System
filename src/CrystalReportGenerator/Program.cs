@@ -23,7 +23,7 @@ namespace CrystalReportGenerator
             {
                 CrystalReportsEngine engine = new CrystalReportsEngine();
 
-                var report = new Report("CrystalReport.rpt", "Students/Departemnt Report");
+                var report = new Report("Students.rpt", "Students/Departemnt Report");
 
                 report.Parameters.Add("@DeptID", DeptID);
 

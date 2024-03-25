@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="CrystalReport.rpt">
+    <None Update="Students.rpt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="StudentGrades.rpt">
