@@ -17,21 +17,20 @@ namespace application.TeacherUserControls
     public partial class TopicsControl : UserControl
     {
         int courseId;
+        public Instructor ins;
         public TopicsControl()
         {
             InitializeComponent();
-            LoadCourseNames();
         }
 
         private void LoadCourseNames()
         {
             try
             {
-                int InsId = 1;
                 using (var ctx = new iti_ExamContext())
                 {
 
-                    var coursesList = ctx.Courses.FromSqlRaw($"EXEC GetCourseList {InsId} ").ToList();
+                    var coursesList = ctx.Courses.FromSqlRaw($"EXEC GetCourseList {ins.InstructorID} ").ToList();
                     comboBoxClass.DataSource = coursesList;
                     comboBoxClass.ValueMember = "CourseID";
                     comboBoxClass.DisplayMember = "CourseName";
@@ -49,7 +48,7 @@ namespace application.TeacherUserControls
             if (comboBoxClass.SelectedValue != null)
             {
                 string x = comboBoxClass.SelectedValue.ToString();
-                
+
                 if (int.TryParse(x, out courseId))
                 {
                     using (var ctx = new iti_ExamContext())
@@ -73,8 +72,14 @@ namespace application.TeacherUserControls
 
         private void PrintBtn_Click(object sender, EventArgs e)
         {
-            
+
             new PrintForm(courseId, "LoadTopics", 1).Show();
+        }
+
+        private void TopicsControl_Load(object sender, EventArgs e)
+        {
+            LoadCourseNames();
+
         }
     }
 }

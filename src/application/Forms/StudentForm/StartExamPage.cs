@@ -154,7 +154,7 @@ namespace application.Forms
                 //Msgbox to show student id,coursid,exam id
                 //StudentIDMessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
                 db.Database.ExecuteSqlRaw($"Delete from [StudentGrades] Where [CourseID]={CourseID} And [studentID]={StudentID};");
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[GetStudentGrades] @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
+                db.Database.ExecuteSqlRaw($"EXEC GetStudentGrades @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
                this.Close();
          /*       //Close the apllication
                 System.Diagnostics.Process.GetCurrentProcess().Kill();

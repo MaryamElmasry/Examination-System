@@ -20,6 +20,7 @@ namespace application.Forms
 {
     public partial class Admin : Form
     {
+
         iti_ExamContext db = new iti_ExamContext();
         public XmlSerializer serializer;
         // Import the necessary Windows API methods

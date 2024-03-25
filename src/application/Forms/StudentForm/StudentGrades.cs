@@ -1,5 +1,7 @@
 ﻿using application.Forms.adminForms;
+using application.instructorDialog;
 using application.Models;
+using application.projectionEntities;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,10 +24,10 @@ namespace application.Forms
     {
         iti_ExamContext db = new iti_ExamContext();
         int StudentID;
-        public  StudentGrades(int StudentID)
+        public StudentGrades(int StudentID)
         {
             this.StudentID = StudentID;
-            InitializeComponent();   
+            InitializeComponent();
 
         }
 
@@ -38,19 +40,34 @@ namespace application.Forms
 
         private async void StudentGrades_Load(object sender, EventArgs e)
         {
-          var GradeTable = await db.GetProcedures().GetExamGradesByStudentIDAsync(StudentID);
-          foreach (var item in GradeTable)
-          {
-          dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Grade);
-          }
+            var GradeTable = await db.GetProcedures().GetExamGradesByStudentIDAsync(StudentID);
+            foreach (var item in GradeTable)
+            {
+                dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Grade);
+            }
 
-          string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {StudentID}").AsEnumerable().FirstOrDefault();
-          lblUserName.Text = StudentName;
+            string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {StudentID}").AsEnumerable().FirstOrDefault();
+            lblUserName.Text = StudentName;
 
         }
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void getDetailedExam(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+               if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+            e.RowIndex >= 0)
+            {
+
+                int rowStudentID = Convert.ToInt32(senderGrid[0, e.RowIndex].Value); 
+                string reportType = "detailedExam"; 
+
+                PrintForm printForm = new PrintForm(rowStudentID, StudentID, reportType);
+                printForm.Show();
+            }
         }
     }
 }

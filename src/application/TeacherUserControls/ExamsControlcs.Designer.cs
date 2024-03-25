@@ -37,6 +37,7 @@
             DeleteExam = new Button();
             GenerateExam = new Button();
             PrintBtn = new Button();
+            Refresh = new Button();
             ((System.ComponentModel.ISupportInitialize)ExamsGV).BeginInit();
             SuspendLayout();
             // 
@@ -135,10 +136,23 @@
             PrintBtn.UseVisualStyleBackColor = false;
             PrintBtn.Click += PrintBtn_Click;
             // 
+            // Refresh
+            // 
+            Refresh.BackColor = Color.CornflowerBlue;
+            Refresh.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            Refresh.Location = new Point(117, 428);
+            Refresh.Name = "Refresh";
+            Refresh.Size = new Size(94, 33);
+            Refresh.TabIndex = 9;
+            Refresh.Text = "Refresh";
+            Refresh.UseVisualStyleBackColor = false;
+            Refresh.Click += Refresh_Click;
+            // 
             // ExamsControlcs
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(Refresh);
             Controls.Add(PrintBtn);
             Controls.Add(GenerateExam);
             Controls.Add(DeleteExam);
@@ -165,5 +179,6 @@
         private Button DeleteExam;
         private Button GenerateExam;
         private Button PrintBtn;
+        private Button Refresh;
     }
 }

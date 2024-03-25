@@ -367,6 +367,7 @@
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Exams, Date, Grade, Report });
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.CellClick += getDetailedExam;
             // 
             // ID
             // 
