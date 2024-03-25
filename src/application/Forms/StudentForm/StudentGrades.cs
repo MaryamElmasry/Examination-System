@@ -58,16 +58,22 @@ namespace application.Forms
         private void getDetailedExam(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
-               if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
-            e.RowIndex >= 0)
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn &&
+         e.RowIndex >= 0)
             {
 
-                int rowStudentID = Convert.ToInt32(senderGrid[0, e.RowIndex].Value); 
-                string reportType = "detailedExam"; 
+                int rowStudentID = Convert.ToInt32(senderGrid[0, e.RowIndex].Value);
+                string reportType = "detailedExam";
 
                 PrintForm printForm = new PrintForm(rowStudentID, StudentID, reportType);
                 printForm.Show();
             }
+        }
+
+        private void linkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            new Login().Show();
         }
     }
 }

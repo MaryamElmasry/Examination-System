@@ -35,7 +35,6 @@
             label17 = new Label();
             lblRole = new Label();
             linkLogout = new LinkLabel();
-            pictureBox6 = new PictureBox();
             panel1 = new Panel();
             panel3 = new Panel();
             label1 = new Label();
@@ -74,7 +73,6 @@
             panel2 = new Panel();
             button4 = new Button();
             btnDisplayExams = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picStudent).BeginInit();
@@ -131,17 +129,11 @@
             linkLogout.LinkColor = Color.IndianRed;
             linkLogout.Name = "linkLogout";
             linkLogout.TabStop = true;
-            // 
-            // pictureBox6
-            // 
-            resources.ApplyResources(pictureBox6, "pictureBox6");
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.TabStop = false;
+            linkLogout.LinkClicked += linkLogout_LinkClicked;
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 7, 95);
-            panel1.Controls.Add(pictureBox6);
             panel1.Controls.Add(linkLogout);
             panel1.Controls.Add(lblRole);
             panel1.Controls.Add(label17);
@@ -217,10 +209,17 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Exams, Date, Duration, Action });
             resources.ApplyResources(dataGridView1, "dataGridView1");
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ShowCellToolTips = false;
+            dataGridView1.ShowEditingIcon = false;
+            dataGridView1.ShowRowErrors = false;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ID
@@ -422,7 +421,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "StudentExamForm";
             Load += StudentExamForm_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel3.ResumeLayout(false);
@@ -454,7 +452,6 @@
         private Label label17;
         private Label lblRole;
         private LinkLabel linkLogout;
-        private PictureBox pictureBox6;
         private Panel panel1;
         private Panel panel3;
         private Label label1;

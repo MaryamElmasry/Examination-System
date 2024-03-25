@@ -5765,7 +5765,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;btnClose.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5798,7 +5798,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="label17.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5831,7 +5831,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="lblRole.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5864,7 +5864,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;lblRole.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="linkLogout.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -5897,53 +5897,6 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;linkLogout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAqJJREFUaEPt
-        Wu1RwzAMzQiMwAhsACN0AxiBDWqnx/Gz3YBuABvQDcoGdAPYACTZSdNadi1HbUjpu3sHB4o+bEmWm1YX
-        /AsYuwD+8KwfvdQIYOxnGEDLlZcaAfgAthwFzOyOdX6HTzdeegCY5+vK2mll5lf+LzxM/cA73+Vs4qV5
-        oA2yBTZVgSto7Jd3BH7CqsdgrPFyKRovHcLtaMeW1u7tBtFhPfcSW+BKGrsOZfdZv7M7izpDeYVgokG0
-        BKdRBlexfmX+f4D1C6WPs5NagB7BkIFkEJrMsQMyJTWDBxevcEBCIxHD5fsmVDYYPw52zChc7nJKB2Bp
-        jTTIa6fHZrxdi0Dbyho4BRVnM9fBOCPH5dR+657uWfPTsagaiH0LDSRIK4m11SlQ1ziM/x//HM+l19AT
-        rg1zBmJcJtuk0wcy7LMcv/yTBajrW5g+790EmjM7tcxfPVkwa/IFfULfknADW+pmlyaljODAQll5mnWJ
-        vjJtmReWUN7rqY5YXfkMwAmJWHDyakwOATghCUvB6ZIwACckYSk4XRIG4IREPJfU+jvFThepPsMh3OCE
-        7bffDXRFPidBWz6bgDCumCA4uIPnQnbHB6fRF/SpIIUJbuU45RHiBwqJnSF9giDw0FSDdGjElKHxprN6
-        +LsbeaTppDQ0Is5njFdok2Us/AgoBtkErM2196Inki9tTsaF96YQg9bGPsGXIvQ/sLQpO3BbaIwP+iz4
-        fAu7Rb8bXD5z7JBMaQfDtps2AqMDKHe1JD00kXBvx+eRiVGIfCgdTRrEgwm32dVVzmwGMky+c+msEkSD
-        3WA2ScV57Tqe66i7eQugGkQD2n4c9Q90jqz3KhkvQ0lPaU1oIOvs0V7lY8DVCeN8h6MB3xwajuorHGfy
-        pZoLSlFVv6S1hKp9KK+6AAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="pictureBox6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="pictureBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>931, 3</value>
-  </data>
-  <data name="pictureBox6.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
-  </data>
-  <data name="pictureBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 43</value>
-  </data>
-  <data name="pictureBox6.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="pictureBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;pictureBox6.Name" xml:space="preserve">
-    <value>pictureBox6</value>
-  </data>
-  <data name="&gt;&gt;pictureBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;pictureBox6.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;pictureBox6.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
@@ -6337,7 +6290,7 @@
     <value>150</value>
   </data>
   <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 228</value>
+    <value>63, 228</value>
   </data>
   <data name="dataGridView1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 4, 3, 4</value>
@@ -6346,7 +6299,7 @@
     <value>51</value>
   </data>
   <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>733, 92</value>
+    <value>653, 294</value>
   </data>
   <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
     <value>50</value>

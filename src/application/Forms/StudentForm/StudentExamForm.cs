@@ -51,7 +51,7 @@ namespace application.Forms
             var ExamTable = await db.GetProcedures().GetCourseExamsAsync(1);
             foreach (var item in ExamTable)
             {
-               dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
+                dataGridView1.Rows.Add(item.ExamID, item.CourseName, item.ExamDate, item.Duration);
             }
 
             string StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {studentID}").AsEnumerable().FirstOrDefault();
@@ -77,6 +77,20 @@ namespace application.Forms
                 DateTime ExamDate = DateTime.Parse(Date);
 
 
+                // If ExamDate > Current Time then show message box "Exam is not available yet"
+                if (DateTime.Now < ExamDate)
+                {
+              
+                    MessageBox.Show("Exam is not available yet", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // If ExamDate + Duration(is in minute) < Current Time then show message box "Exam is Over"
+                if (DateTime.Now > ExamDate.AddMinutes(Duration))
+                {
+                    MessageBox.Show("Exam is Over", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 StartExamPage startExamPage = new StartExamPage(ExamId, studentID, CourseID, ExamDate, Duration);
                 startExamPage.ShowDialog();
 
@@ -84,14 +98,20 @@ namespace application.Forms
             }
             return;
 
-            
+
         }
 
         private void lblUserName_Click(object sender, EventArgs e)
         {
-           /* string UserName;
+            /* string UserName;
 
-            int StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {UserName}").FirstOrDefault();*/
+             int StudentName = db.Database.SqlQuery<string>($"exec GetStudentName {UserName}").FirstOrDefault();*/
+        }
+
+        private void linkLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+            new Login().Show();
         }
     }
 }

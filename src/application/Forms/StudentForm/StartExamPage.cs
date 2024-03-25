@@ -40,10 +40,10 @@ namespace application.Forms
             this.StudentID = studentID;
             this.ExamID = examID;
             this.CourseID = courseID;
-            this.Duration = Duration*60;
+            this.Duration = Duration*60-(int)(DateTime.Now - ExamDate).TotalSeconds;
             this.ExamDate = ExamDate;
             InitializeComponent();
-            MessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
+            //MessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
             #region Get Questions and Initialize Selected Answers
             questions = db.Database.SqlQuery<ExamQuestion>($"EXEC [dbo].[GetQuestionChoices] @ExamID = {ExamID};").ToList();
             selectedAnswers = new int[questions.Count];
@@ -63,6 +63,10 @@ namespace application.Forms
                 {
                     timer.Stop();
                     MessageBox.Show("Time is up");
+                    //submit
+                    db.Database.ExecuteSqlRaw($"Delete from [StudentGrades] Where [CourseID]={CourseID} And [studentID]={StudentID};");
+                    db.Database.ExecuteSqlRaw($"EXEC GetStudentGrades @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
+                    this.Close();
                     return;
                 }
                 //Show it as time Format hh:mm:ss from $
