@@ -171,7 +171,7 @@ namespace application.instructorDialog
                 {
                     return 3;
                 }
-                else if ((mcqAddEdit1.Controls["Qr3"] as RadioButton).Checked)
+                else if ((mcqAddEdit1.Controls["Qr4"] as RadioButton).Checked)
                 {
                     return 4;
                 }
