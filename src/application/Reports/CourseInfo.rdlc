@@ -21,14 +21,14 @@
           <DataField>CourseName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NofStuds">
-          <DataField>NofStuds</DataField>
+        <Field Name="NumberOfStudents">
+          <DataField>NumberOfStudents</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>CoursesInfo</rd:DataSetName>
-        <rd:SchemaPath>D:\Exam V\Examination-System\src\application\Reports\CoursesInfo.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Exam v2\Examination-System\src\application\Reports\CoursesInfo.xsd</rd:SchemaPath>
         <rd:TableName>MyCoursesInfoP</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
@@ -44,10 +44,10 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.065in</Width>
+                  <Width>2.59167in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.82333in</Width>
+                  <Width>3.63333in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -56,7 +56,7 @@
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox1">
+                        <Textbox Name="Textbox11">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -72,7 +72,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox1</rd:DefaultName>
+                          <rd:DefaultName>Textbox11</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -89,14 +89,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox3">
+                        <Textbox Name="Textbox13">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Number of Students</Value>
+                                  <Value>Number Of Students</Value>
                                   <Style>
                                     <FontSize>13pt</FontSize>
                                   </Style>
@@ -105,7 +105,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <rd:DefaultName>Textbox13</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -159,14 +159,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="NofStuds">
+                        <Textbox Name="NumberOfStudents">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!NofStuds.Value</Value>
+                                  <Value>=Fields!NumberOfStudents.Value</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                   </Style>
@@ -175,7 +175,7 @@
                               <Style />
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>NofStuds</rd:DefaultName>
+                          <rd:DefaultName>NumberOfStudents</rd:DefaultName>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -212,7 +212,7 @@
             <DataSetName>CoursesInfo</DataSetName>
             <Top>0.71333in</Top>
             <Height>0.5in</Height>
-            <Width>5.88833in</Width>
+            <Width>6.225in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -303,7 +303,7 @@
         <Height>2in</Height>
         <Style />
       </Body>
-      <Width>6.53in</Width>
+      <Width>6.88833in</Width>
       <Page>
         <LeftMargin>1in</LeftMargin>
         <RightMargin>1in</RightMargin>
