@@ -6618,13 +6618,13 @@
   <data name="Edit.MinimumWidth" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
-  <metadata name="ManageCourses.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Courses.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="ManageCourses.HeaderText" xml:space="preserve">
-    <value>ManageCourses</value>
+  <data name="Courses.HeaderText" xml:space="preserve">
+    <value>Courses</value>
   </data>
-  <data name="ManageCourses.MinimumWidth" type="System.Int32, mscorlib">
+  <data name="Courses.MinimumWidth" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <metadata name="Delete.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -6636,8 +6636,11 @@
   <data name="Delete.MinimumWidth" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
+  <data name="Delete.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="gvInstructors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>33, 288</value>
+    <value>6, 288</value>
   </data>
   <data name="gvInstructors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>3, 2, 3, 2</value>
@@ -6646,7 +6649,7 @@
     <value>51</value>
   </data>
   <data name="gvInstructors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>720, 314</value>
+    <value>762, 314</value>
   </data>
   <data name="gvInstructors.TabIndex" type="System.Int32, mscorlib">
     <value>32</value>
@@ -6771,10 +6774,10 @@
   <data name="&gt;&gt;Edit.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ManageCourses.Name" xml:space="preserve">
-    <value>ManageCourses</value>
+  <data name="&gt;&gt;Courses.Name" xml:space="preserve">
+    <value>Courses</value>
   </data>
-  <data name="&gt;&gt;ManageCourses.Type" xml:space="preserve">
+  <data name="&gt;&gt;Courses.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridViewButtonColumn, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;Delete.Name" xml:space="preserve">

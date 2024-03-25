@@ -62,6 +62,16 @@ namespace application.Forms
 
         private void gvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //message box col index
+            MessageBox.Show(e.ColumnIndex.ToString());
+            if (e.ColumnIndex == 7)
+            {
+                int studentID = int.Parse(gvStudents.Rows[e.RowIndex].Cells[0].Value.ToString());
+                var student = db.Students.Find(studentID);
+                AddStudent addStudent = new AddStudent(student);
+                addStudent.ShowDialog();
+            }
+
 
         }
 

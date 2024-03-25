@@ -471,6 +471,7 @@
             // 
             // ID
             // 
+            ID.FillWeight = 40F;
             resources.ApplyResources(ID, "ID");
             ID.Name = "ID";
             ID.ReadOnly = true;
@@ -495,6 +496,7 @@
             // 
             // PhoneNumber
             // 
+            PhoneNumber.FillWeight = 120F;
             resources.ApplyResources(PhoneNumber, "PhoneNumber");
             PhoneNumber.Name = "PhoneNumber";
             PhoneNumber.ReadOnly = true;
@@ -616,6 +618,8 @@
         private Label label9;
         private ComboBox cbDeptsStudent;
         private Label label2;
+        private Button button1;
+        private Button btnAccounts;
         private DataGridViewTextBoxColumn ID;
         private DataGridViewTextBoxColumn stdName;
         private DataGridViewTextBoxColumn Email;
@@ -625,7 +629,5 @@
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewButtonColumn Edit;
         private DataGridViewButtonColumn Delete;
-        private Button button1;
-        private Button btnAccounts;
     }
 }

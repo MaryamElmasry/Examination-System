@@ -86,7 +86,7 @@
             Address = new DataGridViewTextBoxColumn();
             Gender = new DataGridViewTextBoxColumn();
             Edit = new DataGridViewButtonColumn();
-            ManageCourses = new DataGridViewButtonColumn();
+            Courses = new DataGridViewButtonColumn();
             Delete = new DataGridViewButtonColumn();
             tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnEditClass).BeginInit();
@@ -460,17 +460,22 @@
             // 
             gvInstructors.AllowUserToAddRows = false;
             gvInstructors.AllowUserToDeleteRows = false;
+            gvInstructors.AllowUserToResizeColumns = false;
+            gvInstructors.AllowUserToResizeRows = false;
             gvInstructors.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gvInstructors.BackgroundColor = SystemColors.Control;
             gvInstructors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            gvInstructors.Columns.AddRange(new DataGridViewColumn[] { ID, InsName, Email, Password, PhoneNumber, Address, Gender, Edit, ManageCourses, Delete });
+            gvInstructors.Columns.AddRange(new DataGridViewColumn[] { ID, InsName, Email, Password, PhoneNumber, Address, Gender, Edit, Courses, Delete });
             resources.ApplyResources(gvInstructors, "gvInstructors");
             gvInstructors.Name = "gvInstructors";
             gvInstructors.ReadOnly = true;
+            gvInstructors.ShowCellToolTips = false;
+            gvInstructors.ShowEditingIcon = false;
             gvInstructors.CellContentClick += gvInstructors_CellContentClick_1;
             // 
             // ID
             // 
+            ID.FillWeight = 50F;
             resources.ApplyResources(ID, "ID");
             ID.Name = "ID";
             ID.ReadOnly = true;
@@ -495,6 +500,7 @@
             // 
             // PhoneNumber
             // 
+            PhoneNumber.FillWeight = 150F;
             resources.ApplyResources(PhoneNumber, "PhoneNumber");
             PhoneNumber.Name = "PhoneNumber";
             PhoneNumber.ReadOnly = true;
@@ -513,21 +519,23 @@
             // 
             // Edit
             // 
+            Edit.FillWeight = 80F;
             resources.ApplyResources(Edit, "Edit");
             Edit.Name = "Edit";
             Edit.ReadOnly = true;
             Edit.Text = "Edit";
             Edit.UseColumnTextForButtonValue = true;
             // 
-            // ManageCourses
+            // Courses
             // 
-            resources.ApplyResources(ManageCourses, "ManageCourses");
-            ManageCourses.Name = "ManageCourses";
-            ManageCourses.ReadOnly = true;
-            ManageCourses.Resizable = DataGridViewTriState.True;
-            ManageCourses.SortMode = DataGridViewColumnSortMode.Automatic;
-            ManageCourses.Text = "Manage Courses";
-            ManageCourses.UseColumnTextForButtonValue = true;
+            Courses.FillWeight = 150F;
+            resources.ApplyResources(Courses, "Courses");
+            Courses.Name = "Courses";
+            Courses.ReadOnly = true;
+            Courses.Resizable = DataGridViewTriState.True;
+            Courses.SortMode = DataGridViewColumnSortMode.Automatic;
+            Courses.Text = "Manage Courses";
+            Courses.UseColumnTextForButtonValue = true;
             // 
             // Delete
             // 
@@ -635,7 +643,7 @@
         private DataGridViewTextBoxColumn Address;
         private DataGridViewTextBoxColumn Gender;
         private DataGridViewButtonColumn Edit;
-        private DataGridViewButtonColumn ManageCourses;
+        private DataGridViewButtonColumn Courses;
         private DataGridViewButtonColumn Delete;
     }
 }

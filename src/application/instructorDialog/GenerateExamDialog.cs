@@ -46,9 +46,9 @@ namespace application.instructorDialog
             }
             using(var ctx = new iti_ExamContext())
             {
-                string dateTimeString = dateTimePicker1.Value.ToString();
-                string[] parts = dateTimeString.Split(' ');
-                string result = string.Join(" ", parts.Take(parts.Length - 1));
+                DateTime selectedDateTime = dateTimePicker1.Value;
+                string result = selectedDateTime.ToString("HH:mm:ss");
+
                 MessageBox.Show($"EXEC GenerateExam {_deptid},{_crsid},{result},{mcqNo} , {tfno},{duration}");
 
                 ctx.Database.ExecuteSql($"EXEC GenerateExam {_crsid},{_deptid},{result},{mcqNo},{tfno},{duration}");

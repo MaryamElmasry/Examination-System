@@ -16,6 +16,8 @@ namespace application.Forms.adminForms
     public partial class AddStudent : Form
     {
         iti_ExamContext db;
+        bool edit = false;
+        Student student = null;
         public AddStudent()
         {
             InitializeComponent();
@@ -52,24 +54,70 @@ namespace application.Forms.adminForms
             else
                 F.Checked = true;
             cbDept.SelectedValue = student.DeptID;
+            edit = true;
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
         {
-            if (txtName.Text == null || txtName.Text.Length < 2)
+            //UserName Validation only alpha alllowed
+            if (txtName.Text == null || txtName.Text.Length < 2 || !txtName.Text.All(char.IsLetter))
             {
-                MessageBox.Show("Student name must be at least 2 characters", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Name must be at least 2 characters and only alphabets", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            //Email Validation to be yahoo or gmail only
+            if (txtEmail.Text == null || !txtEmail.Text.Contains
+                ("@gmail.com") && !txtEmail.Text.Contains("@yahoo.com"))
+            {
+                MessageBox.Show("Email must be gmail or yahoo", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Password Validation
+            if (txtPassword.Text == null || txtPassword.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Address Validation
+            if (txtAddress.Text == null || txtAddress.Text.Length < 5)
+            {
+                MessageBox.Show("Address must be at least 5 characters", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Gender Validation
+            if (!M.Checked && !F.Checked)
+            {
+                MessageBox.Show("Please select the gender", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
 
             if (cbDept.SelectedItem == null)
             {
                 MessageBox.Show("You must select a Deparment for the Student", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (edit)
+            {
+                int StudentID = student.StudentID;
+                //check the uniqness of the Email
+                var duplicatedEmails = db.Users.FromSql($"exec GetUserByEmail_edit @UserId={StudentID}, @Email ='{txtEmail.Text}'").ToList();
+                if (duplicatedEmails.Count > 0)
+                {
+                    MessageBox.Show("A Student with the same email already exists", "Adding failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                db.Database.ExecuteSqlRaw($"exec UpdateStudent {StudentID}, '{txtName.Text}', '{txtEmail.Text}', '{txtAddress.Text}', '{txtPassword.Text}', '{txtNumber.Text}', '{(M.Checked ? 'M' : 'F')}', {cbDept.SelectedValue}");
+                MessageBox.Show("Student updated successfully", "Updating Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
 
             try
             {
+              
                 //check the uniqness of the Email
                 var duplicatedEmails = db.Users.FromSql($"exec GetUserByEmail {txtEmail.Text}").ToList();
                 if (duplicatedEmails.Count > 0)
