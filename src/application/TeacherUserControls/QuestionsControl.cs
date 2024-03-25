@@ -13,15 +13,15 @@ namespace application.TeacherUserControls
         public QuestionsControl()
         {
             InitializeComponent();
-            
+
 
         }
 
         private void AddQuestbtn_Click(object sender, EventArgs e)
         {
-           
 
-            var addDialog = new AddQuetion("Add" , (int)courselst.SelectedValue);
+
+            var addDialog = new AddQuetion("Add", (int)courselst.SelectedValue);
             addDialog.Show();
 
         }
@@ -31,10 +31,7 @@ namespace application.TeacherUserControls
             QuestionPool qestion;
             var qs = QuestionsGV.DataSource as List<PCourse>;
             var SelectedQuestion = qs.FirstOrDefault(a => a.isSelected);
-            using (var ctx = new iti_ExamContext())
-            {
-                qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionID}").Include(c => c.QuestionChoices).FirstOrDefault();
-            }
+
             if (SelectedQuestion == null)
             {
                 MessageBox.Show("please Select At least one Question");
@@ -42,6 +39,10 @@ namespace application.TeacherUserControls
             }
             else
             {
+                using (var ctx = new iti_ExamContext())
+                {
+                    qestion = ctx.QuestionPools.FromSqlRaw($"select * from questionpools where QuestionID={SelectedQuestion.QuestionID}").Include(c => c.QuestionChoices).FirstOrDefault();
+                }
                 var addDialog = new AddQuetion("Edit", qestion); ;
                 addDialog.Show();
 
@@ -79,7 +80,7 @@ namespace application.TeacherUserControls
             combo.DisplayMember = "CourseName";
             combo.ValueMember = "CourseID";
         }
-        private void populateQuestionGV(int crsid,iti_ExamContext ctx)
+        private void populateQuestionGV(int crsid, iti_ExamContext ctx)
         {
             var questions = ctx.Database.SqlQueryRaw<PCourse>("EXEC GetAllQuestions {0}", crsid).ToList();
 
@@ -91,7 +92,7 @@ namespace application.TeacherUserControls
             using (var ctx = new iti_ExamContext())
             {
                 populateCourseList(ctx);
-                //populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
         }
 
@@ -100,9 +101,19 @@ namespace application.TeacherUserControls
             QuestionsGV.Controls.Clear();
             using (var ctx = new iti_ExamContext())
             {
-                if((courselst.SelectedItem as Course) != null)
-                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
+                if ((courselst.SelectedItem as Course) != null)
+                    populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
             }
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            using(var ctx = new iti_ExamContext())
+            {
+                populateQuestionGV((courselst.SelectedItem as Course).CourseID, ctx);
+
+            }
+
         }
     }
 }

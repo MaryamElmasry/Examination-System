@@ -33,6 +33,7 @@
             label1 = new Label();
             AddQuestbtn = new Button();
             EditQuestbtn = new Button();
+            Refresh = new Button();
             ((System.ComponentModel.ISupportInitialize)QuestionsGV).BeginInit();
             SuspendLayout();
             // 
@@ -88,10 +89,23 @@
             EditQuestbtn.UseVisualStyleBackColor = false;
             EditQuestbtn.Click += EditQuestbtn_Click;
             // 
+            // Refresh
+            // 
+            Refresh.BackColor = Color.CornflowerBlue;
+            Refresh.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold);
+            Refresh.Location = new Point(343, 429);
+            Refresh.Name = "Refresh";
+            Refresh.Size = new Size(94, 33);
+            Refresh.TabIndex = 6;
+            Refresh.Text = "Refresh";
+            Refresh.UseVisualStyleBackColor = false;
+            Refresh.Click += Refresh_Click;
+            // 
             // QuestionsControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(Refresh);
             Controls.Add(EditQuestbtn);
             Controls.Add(AddQuestbtn);
             Controls.Add(label1);
@@ -112,5 +126,6 @@
         private Label label1;
         private Button AddQuestbtn;
         private Button EditQuestbtn;
+        private Button Refresh;
     }
 }

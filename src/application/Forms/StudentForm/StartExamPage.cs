@@ -79,10 +79,23 @@ namespace application.Forms
                 #region Display The Question and Choices 
                 qTitle.Text = question.Title;
                 string[] choices = question.Choices.Split(',');
+            if(choices.Length == 4)
+            {
                 qChoice1.Text = choices[0];
                 qChoice2.Text = choices[1];
                 qChoice3.Text = choices[2];
                 qChoice4.Text = choices[3];
+                qChoice3.Visible = true;
+                qChoice4.Visible = true;
+            }
+            else
+            {
+                qChoice1.Text = choices[0];
+                qChoice2.Text = choices[1];
+                qChoice3.Visible = false;
+                qChoice4.Visible = false;   
+            }
+                
             #endregion
 
             #region Check The Radio Button of the Selected Answer for current Question
@@ -154,7 +167,7 @@ namespace application.Forms
                 //Msgbox to show student id,coursid,exam id
                 //StudentIDMessageBox.Show($"StudentID: {StudentID} , CourseID: {CourseID} , ExamID: {ExamID}");
                 db.Database.ExecuteSqlRaw($"Delete from [StudentGrades] Where [CourseID]={CourseID} And [studentID]={StudentID};");
-                db.Database.ExecuteSqlRaw($"EXEC [dbo].[GetStudentGrades] @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
+                db.Database.ExecuteSqlRaw($"EXEC GetStudentGrades @StudentID ={StudentID}, @ExamID ={ExamID} , @CourseID={CourseID};");
                this.Close();
          /*       //Close the apllication
                 System.Diagnostics.Process.GetCurrentProcess().Kill();

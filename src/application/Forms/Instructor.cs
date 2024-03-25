@@ -42,6 +42,7 @@ namespace application.Forms
             examsControlcs1.ins = this.instructor;
             questionsControl1.ins = this.instructor;
             myCoursesControl1.ins = this.instructor;
+            topicsControl1.ins = this.instructor;
 
         }
 

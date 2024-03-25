@@ -12,7 +12,7 @@ namespace application.projectionEntities
         
         public string CourseName {  get; set; }
         [Column("Number of Students")]
-        public int NofStuds { get; set; }
+        public int NumberOfStudents { get; set; }
     
     }
 }

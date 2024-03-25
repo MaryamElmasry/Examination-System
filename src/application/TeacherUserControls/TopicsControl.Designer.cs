@@ -38,10 +38,9 @@
             // 
             // PrintBtn
             // 
-            PrintBtn.Location = new Point(576, 319);
-            PrintBtn.Margin = new Padding(3, 2, 3, 2);
+            PrintBtn.Location = new Point(658, 425);
             PrintBtn.Name = "PrintBtn";
-            PrintBtn.Size = new Size(82, 22);
+            PrintBtn.Size = new Size(94, 29);
             PrintBtn.TabIndex = 13;
             PrintBtn.Text = "Print";
             PrintBtn.UseVisualStyleBackColor = true;
@@ -50,19 +49,18 @@
             // Courses
             // 
             Courses.AutoSize = true;
-            Courses.Location = new Point(467, 24);
+            Courses.Location = new Point(534, 32);
             Courses.Name = "Courses";
-            Courses.Size = new Size(49, 15);
+            Courses.Size = new Size(60, 20);
             Courses.TabIndex = 12;
             Courses.Text = "Courses";
             // 
             // comboBoxClass
             // 
             comboBoxClass.FormattingEnabled = true;
-            comboBoxClass.Location = new Point(525, 22);
-            comboBoxClass.Margin = new Padding(3, 2, 3, 2);
+            comboBoxClass.Location = new Point(600, 29);
             comboBoxClass.Name = "comboBoxClass";
-            comboBoxClass.Size = new Size(133, 23);
+            comboBoxClass.Size = new Size(151, 28);
             comboBoxClass.TabIndex = 11;
             comboBoxClass.SelectedIndexChanged += comboBoxClass_SelectedIndexChanged_1;
             // 
@@ -73,12 +71,11 @@
             dataGridView.AllowUserToOrderColumns = true;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { Topics });
-            dataGridView.Location = new Point(3, 53);
-            dataGridView.Margin = new Padding(3, 2, 3, 2);
+            dataGridView.Location = new Point(3, 71);
             dataGridView.Name = "dataGridView";
             dataGridView.ReadOnly = true;
             dataGridView.RowHeadersWidth = 51;
-            dataGridView.Size = new Size(665, 248);
+            dataGridView.Size = new Size(760, 331);
             dataGridView.TabIndex = 10;
             // 
             // Topics
@@ -92,15 +89,15 @@
             // 
             // TopicsControl
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(PrintBtn);
             Controls.Add(Courses);
             Controls.Add(comboBoxClass);
             Controls.Add(dataGridView);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "TopicsControl";
-            Size = new Size(670, 362);
+            Size = new Size(766, 483);
+            Load += TopicsControl_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();

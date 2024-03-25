@@ -34,7 +34,7 @@ namespace application.TeacherUserControls
                 DeptList.SelectedItem = 0;
                 try
                 {
-                    crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {(DeptList.SelectedItem as Department).DeptID}").ToList();
+                    crsList.DataSource = ctx.Courses.FromSqlRaw($"EXEC [GetAllDeptCoursesforIns] {(DeptList.SelectedItem as Department).DeptID} , {ins.InstructorID}").ToList();
                     DeptList.DisplayMember = "DeptName";
                     DeptList.ValueMember = "DeptID";
                     crsList.ValueMember = "CourseID";
@@ -44,7 +44,7 @@ namespace application.TeacherUserControls
                 {
                     MessageBox.Show("No Courses Found");
                 }
-                
+
             }
 
 
@@ -55,7 +55,7 @@ namespace application.TeacherUserControls
             {
                 if (crsList.SelectedItem != null && DeptList.SelectedItem != null)
                 {
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseID} , {((Department)DeptList.SelectedItem).DeptID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
+                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam    {((Department)DeptList.SelectedItem).DeptID} , {((Course)crsList.SelectedItem).CourseID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
 
                     ExamsGV.DataSource = exams;
                     ExamsGV.Refresh();
@@ -72,7 +72,7 @@ namespace application.TeacherUserControls
 
                 if (selectedDept != null)
                 {
-                    var courses = ctx.Courses.FromSqlRaw($"EXEC GetAllDeptCourses {selectedDept.DeptID}").ToList();
+                    var courses = ctx.Courses.FromSqlRaw($"EXEC [GetAllDeptCoursesforIns] {(DeptList.SelectedItem as Department).DeptID} , {ins.InstructorID}").ToList();
 
                     if (courses.Any())
                     {
@@ -132,18 +132,31 @@ namespace application.TeacherUserControls
 
         private void DeleteExam_Click(object sender, EventArgs e)
         {
-            using(var ctx = new iti_ExamContext())
+            if(selectedRow != -1)
             {
-                var confirmResult = MessageBox.Show("Are you sure to delete this Exma ??",
-                                     "Confirm Delete!!",
-                                     MessageBoxButtons.YesNo);
-                if (confirmResult == DialogResult.Yes)
+                using (var ctx = new iti_ExamContext())
                 {
-                    ctx.Database.ExecuteSql($"EXEC DeleteExam {selectedRow}");
-                    var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseID} , {((Department)DeptList.SelectedItem).DeptID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
-                    ExamsGV.DataSource = exams;
+                    var confirmResult = MessageBox.Show("Are you sure to delete this Exma ??",
+                                         "Confirm Delete!!",
+                                         MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        ctx.Database.ExecuteSql($"EXEC DeleteExam {selectedRow}");
+                        var exams = ctx.Exams.FromSqlRaw($"EXEC getExam  {((Course)crsList.SelectedItem).CourseID} , {((Department)DeptList.SelectedItem).DeptID} ").ToList().Select(e => new { e.ExamID, e.ExamDate, e.Duration }).ToList();
+                        ExamsGV.DataSource = exams;
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Please select one and only one exam");
+            }
+
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            populateExamGv();
         }
     }
 }

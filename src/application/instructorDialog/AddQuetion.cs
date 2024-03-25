@@ -64,7 +64,10 @@ namespace application.instructorDialog
             var ch4 = quest.QuestionChoices.ElementAt(3).Choice;
             if (string.IsNullOrEmpty(quest.Title)|| string.IsNullOrEmpty(ch1) || string.IsNullOrEmpty(ch2) || string.IsNullOrEmpty(ch3) || string.IsNullOrEmpty(ch4))
             {
-             throw new Exception("One or more text fields are empty or null.");
+                if(quest.QuestionType == 1)
+                {
+                    throw new Exception("One or more text fields are empty or null.");
+                }
             }
             var qType = TFRadio.Checked ? 0: 1;
             using (var ctx = new iti_ExamContext())
@@ -168,7 +171,7 @@ namespace application.instructorDialog
                 {
                     return 3;
                 }
-                else if ((mcqAddEdit1.Controls["Qr3"] as RadioButton).Checked)
+                else if ((mcqAddEdit1.Controls["Qr4"] as RadioButton).Checked)
                 {
                     return 4;
                 }
